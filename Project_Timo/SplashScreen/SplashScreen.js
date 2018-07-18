@@ -1,7 +1,5 @@
-window.onload = Function() {
-   var x = document.getElementById('Schot')
+window.onload = function() {
+    document.getElementById('Schot').play();
 }
 
-function audioTimer() {
-    setTimeout(Function, 9500) {}
-}
+
