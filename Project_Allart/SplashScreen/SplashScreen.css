@@ -1,6 +1,10 @@
 /* All main css (used in more then 1 component) */
 
-.Achtergrond {
+* {
+    user-select: none;
+}
+
+.Background {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -11,15 +15,94 @@
 }
 
 .duckTitle {
-    position: absolute;
-    font-size: 60px;
+    position: relative;
+    font-family: 'Kumar One', cursive;
+    font-size: 70px;
     text-align: center;
+    cursor: default;
+    animation: mainMenuText 15s;
+}
+
+.settingsButton {
+    position: absolute;
+    top: 5%;
+    left: 95%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    animation: mainMenuText 17s;
+}
+
+.settingsButton:hover {
+    top: 4.5%;
+    left: 94.75%;
+    width: 50px;
+    height: 50px;
+    filter: drop-shadow(0px 0px 2px grey);
+}
+
+.settingsMenu {
+    position: absolute;
+    top: 18%;
+    left: 82%;
+    width: 300px;
+    height: 350px;
+    display: none;
+    color: rgb(0, 0, 0);
+    border-radius: 10%;
+    text-shadow: 0px 0px 2px  white;
+    border: solid 1px rgba(255, 255, 255, 0.822);
+    background-color: rgba(128, 128, 128, 0.349);
+}
+
+.settingsText {
+   text-align: center;
+}
+
+.settingsText2 {
+    width: max-content;
+}
+
+.settingsText2:hover {
+    font-size: 25px;
 }
 
 
+
+/* All css about the main menu */
+
+.mmMenu {
+    position: relative;
+    left: 36%;
+    line-height: 120px;
+    width: max-content;
+    height: max-content;
+}
+
+.mmTitle {
+    position: relative;
+    width: max-content;
+    font-family: 'Kumar One', cursive;
+    font-size: 60px;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+    animation: mainMenuText 17s;
+}
+
+
+/*
+@keyframes mainMenuText {
+    0% {opacity: 0; cursor: default;}
+    70% {opacity: 0; cursor: default}
+    99% {opacity: 1; cursor: pointer;}
+    100% {opacity: 1; cursor: pointer;}
+}
+*/
+
 /* All css about splash screen*/
 
-.splashVogel {
+.ssSplashBird {
     position: absolute;
     top: 500px;
     left: 60px;
@@ -29,7 +112,7 @@
     opacity: 0;
     animation: splashVogel 10s linear;
 }
-
+/*
 @keyframes Knal {
     0% {opacity: 1;}
     94% {opacity: 1;}
@@ -62,4 +145,4 @@
     100% {top: 920px; left: 880px; transform: scale(1); opacity: 1;}
 }
 
-
+*/
