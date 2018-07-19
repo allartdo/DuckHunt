@@ -9,6 +9,12 @@
     animation: Knal 10s linear;
 }
 
+.Knal {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    z-index: 4;
+}
 
 /* All css about splash screen*/
 
