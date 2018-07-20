@@ -47,7 +47,6 @@
     left: 82%;
     width: 300px;
     height: 350px;
-    display: none;
     color: rgb(0, 0, 0);
     border-radius: 10%;
     text-shadow: 0px 0px 2px  white;
@@ -61,12 +60,22 @@
 
 .settingsText2 {
     width: max-content;
+    cursor: pointer;
 }
 
-.settingsText2:hover {
-    font-size: 25px;
+.settingsTextON:hover {
+    font-size: 27px;
+    top: -69px;
+    left: -62
 }
 
+.settingsTextON {
+    position: relative;
+    top: -64px;
+    left: -60px;
+    width: 0px;
+    float: right;
+}
 
 
 /* All css about the main menu */
@@ -85,7 +94,6 @@
     width: max-content;
     font-family: 'Kumar One', cursive;
     font-size: 60px;
-    text-align: center;
     margin: auto;
     cursor: pointer;
     animation: mainMenuText 17s;

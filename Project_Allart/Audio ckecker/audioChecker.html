@@ -1,17 +1,11 @@
 
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="./SplashScreen.css">
+        <link rel="stylesheet" type="text/css" href="./audioChecker.css">
         <link href="https://fonts.googleapis.com/css?family=Kumar+One" rel="stylesheet">
         <title>Duck Hunter</title>
     </head>
     <body>
-        <img class="Background" draggable="false" src="./achtergrondSplash.jpg">
-        <img class="ssSplashBird" draggable="false" src="./SplashVogel.gif">
-        
-        <h1 class="duckTitle">Duck Hunter</h1>
-
-        <img class="settingsButton" draggable="false" onclick="settingsButton()" src="./settings.png">
         <div class="settingsMenu" id="settingsMenu">
             <h1 class="settingsText">Settings</h5>
             <h2 class="settingsText2">Main menu music: </h2> <h2 onclick="switchMusic()" id="settingsTextSwitch" class="settingsText2 settingsTextON">ON</h2> 
@@ -20,18 +14,13 @@
             <h2 class="settingsText2">Fullscreen:      </h2> <h2 class="settingsText2 settingsTextON">ON</h2> 
         </div>
 
+
+        <!--<iframe id="Schot" src="./rust.mp3"></iframe>-->
+
         <audio id="Rust" autoplay name="media">
             <source src="./rust.mp3" type="audio/mp3">
         </audio>
-        
 
-        <div class="mmMenu">
-            <h1 class="mmTitle">Play</h1>
-            <h1 class="mmTitle">Levels</h1>
-            <h1 class="mmTitle">Shop</h1>
-            <h1 class="mmTitle">Credits</h1>
-        </div>
-
-        <script type="text/javascript" src="./SplashScreen.js"> </script>
+        <script type="text/javascript" src="./audioChecker.js"> </script>
     </body>
 </html>
