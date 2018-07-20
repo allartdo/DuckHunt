@@ -3,6 +3,8 @@ var musicClick = 0;
 var audio = document.getElementById('Rust');
 var onOff = document.getElementById('settingsTextSwitch');
 
+document.getElementById('backGroundSound').innerHTML = '<iframe class="testFrame" id="Schot" src="./silent.mp3"></iframe>';
+audio.volume = '0.1';
 
 
 

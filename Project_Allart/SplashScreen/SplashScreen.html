@@ -9,9 +9,12 @@
         <img class="Background" draggable="false" src="./achtergrondSplash.jpg">
         <img class="ssSplashBird" draggable="false" src="./SplashVogel.gif">
         
+
         <h1 class="duckTitle">Duck Hunter</h1>
 
+
         <img class="settingsButton" draggable="false" onclick="settingsButton()" src="./settings.png">
+
         <div class="settingsMenu" id="settingsMenu">
             <h1 class="settingsText">Settings</h5>
             <h2 class="settingsText2">Main menu music: </h2> <h2 onclick="switchMusic()" id="settingsTextSwitch" class="settingsText2 settingsTextON">ON</h2> 
@@ -19,6 +22,8 @@
             <h2 class="settingsText2">In-game sound:   </h2> <h2 class="settingsText2 settingsTextON">ON</h2> 
             <h2 class="settingsText2">Fullscreen:      </h2> <h2 class="settingsText2 settingsTextON">ON</h2> 
         </div>
+
+        <div style="display: none;" id="backGroundSound"></div>
 
         <audio id="Rust" autoplay name="media">
             <source src="./rust.mp3" type="audio/mp3">
@@ -32,6 +37,7 @@
             <h1 class="mmTitle">Credits</h1>
         </div>
 
+        
         <script type="text/javascript" src="./SplashScreen.js"> </script>
     </body>
 </html>

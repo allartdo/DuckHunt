@@ -1,5 +1,4 @@
-document.getElementById('backGroundSound').innerHTML = '<iframe class="testFrame" id="Schot" src="./rust.mp3"></iframe>';
-document.getElementById('backGroundSound').innerHTML = false;
+document.getElementById('backGroundSound').innerHTML = '<iframe class="testFrame" id="Schot" src="./silent.mp3"></iframe>';
 
 
 var audio = document.getElementById('Rust');
@@ -19,3 +18,4 @@ function switchMusic () {
         musicClick = 0;
     }
 }
+
