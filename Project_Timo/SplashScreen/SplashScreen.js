@@ -1,5 +1,6 @@
 var settingsClick = 0;
 var musicClick = 0;
+var shopClick = 0;
 var audio = document.getElementById('Rust');
 var onOff = document.getElementById('settingsTextSwitch');
 
@@ -31,5 +32,15 @@ function switchMusic () {
         audio.play();
         onOff.innerHTML = 'ON';
         musicClick = 0;
+    }
+}
+function toShop() {
+    if (shopClick == 0) {
+        document.getElementById('mmMenu').style.display = 'none';
+        shopClick = 1;
+    }
+    else if(shopClick == 1) {
+        document.getElementById('mmMenu').style.display = 'none';
+        shopClick = 0;
     }
 }
