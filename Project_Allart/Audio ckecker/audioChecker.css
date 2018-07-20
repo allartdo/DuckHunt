@@ -33,3 +33,7 @@
     width: 0px;
     float: right;
 }
+
+.testFrame {
+    display: none;
+}
