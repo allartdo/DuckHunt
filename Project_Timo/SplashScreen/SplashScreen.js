@@ -1,16 +1,14 @@
 var settingsClick = 0;
 var musicClick = 0;
-var shopClick = 0;
-var shopBack = 0;
-var levelClick = 0;
-var levelsBack = 0;
-var creditsClick = 0;
-var creditsBack = 0;
 var audio = document.getElementById('Rust');
 var onOff = document.getElementById('settingsTextSwitch');
+var mmMenu = document.getElementById('mmMenu');
+var duckTitle = document.getElementById('duckTitle');
+var shopPage = document.getElementById('shopPage');
 
-document.getElementById('backGroundSound').innerHTML = '<iframe class="testFrame" id="Schot" src="./silent.mp3"></iframe>';
-audio.volume = '0.1';
+
+document.getElementById('backGroundSound').innerHTML = '<iframe class="testFrame" id="Schot" src="./silent.mp3"></iframe>';  //if you dont use an iframe then its impossible to get your music starting automaticly in chrome, here i start a silent sound for 1 second and so on the video in html will succees auto starting. 
+audio.volume = '0.9';
 
 
 
@@ -26,6 +24,9 @@ function settingsButton() {
     }
 }
 
+
+
+
 function switchMusic () {
     if (musicClick == 0) {
         audio.pause();
@@ -39,52 +40,50 @@ function switchMusic () {
         musicClick = 0;
     }
 }
+
+
 function toShop() {
-    if (shopClick == 0) {
-        document.getElementById('mmMenu').style.display = 'none';
-        document.getElementById('duckTitle').style.display = 'none';
-        document.getElementById('shopPage').style.display = 'block';
-        document.getElementById('shopTitle').style.display = 'block';
-        document.getElementById('shopBack').style.display = 'block';
-    } 
-    
+    mmMenu.style.display = 'none';
+    duckTitle.style.display = 'none';
+    shopPage.style.display = 'block';
 }
+
+
 function shopBackToMenu() {
-    if (shopBack == 0) {
-        document.getElementById('mmMenu').style.display = 'block';
-        document.getElementById('duckTitle').style.display = 'block';
-        document.getElementById('shopPage').style.display = 'none';
-    }
+    mmMenu.style.display = 'block';
+    duckTitle.style.display = 'block';
+    shopPage.style.display = 'none'; 
 }
+
+
 function toLevels() {
-    if(levelClick == 0) {
-        document.getElementById('mmMenu').style.display = 'none';
-        document.getElementById('duckTitle').style.display = 'none';
-        document.getElementById('levelsPage').style.display = 'block';
-        document.getElementById('levelsTitle').style.display = 'block';
-        document.getElementById('levelsBack').style.display = 'block';
-    }
+    mmMenu.style.display = 'none';
+    duckTitle.style.display = 'none';
+    shopPage.style.display = 'block';
 }
+
+
 function levelsBackToMenu() {
-    if(levelsBack == 0) {
-        document.getElementById('mmMenu').style.display = 'block';
-        document.getElementById('duckTitle').style.display = 'block';
-        document.getElementById('levelsPage').style.display = 'none';
-    }
+    mmMenu.style.display = 'block';
+    duckTitle.style.display = 'block';
+    shopPage.style.display = 'none';
 }
+
+
 function toCredits() {
-    if(creditsClick == 0) {
-        document.getElementById('mmMenu').style.display = 'none';
-        document.getElementById('duckTitle').style.display = 'none';
-        document.getElementById('creditsPage').style.display = 'block';
-        document.getElementById('creditsTitle').style.display = 'block';
-        document.getElementById('creditsBack').style.display = 'block';
-    }
+    mmMenu.style.display = 'none';
+    duckTitle.style.display = 'none';
+    shopPage.style.display = 'block';
 }
+
+
 function creditsBackToMenu() {
-    if(creditsBack == 0) {
-        document.getElementById('mmMenu').style.display = 'block';
-        document.getElementById('duckTitle').style.display = 'block';
-        document.getElementById('creditsPage').style.display = 'none';
-    }
+    mmMenu.style.display = 'block';
+    duckTitle.style.display = 'block';
+    shopPage.style.display = 'none';
 }
+
+
+
+
+

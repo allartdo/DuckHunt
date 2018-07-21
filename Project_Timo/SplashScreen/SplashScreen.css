@@ -10,7 +10,6 @@
     left: 0px;
     width: 100%;
     height: 100%;
-    animation: Knal 10s linear;
     z-index: 0;
 }
 
@@ -20,7 +19,7 @@
     font-size: 70px;
     text-align: center;
     cursor: default;
-    animation: mainMenuText 15s;
+    animation: mainMenuText2 4s;
 }
 
 .settingsButton {
@@ -30,7 +29,7 @@
     width: 40px;
     height: 40px;
     cursor: pointer;
-    animation: mainMenuText 17s;
+    animation: mainMenuText 4s;
 }
 
 .settingsButton:hover {
@@ -82,6 +81,34 @@
     display: none;
 }
 
+.basicShopLevelsCreditsTextDiv {
+    position: relative;
+    width: max-content;
+    height: max-content;
+    margin: auto;
+    display: none;
+}
+
+.basicTitles2 {
+    position: relative;
+    width: max-content;
+    font-family: 'Kumar One', cursive;
+    font-size: 80px;
+    margin: auto;
+}
+
+.basicBacks {
+    position: relative;
+    width: max-content;
+    font-family: 'Kumar One', cursive;
+    font-size: 60px;
+    margin: auto;
+    cursor: pointer;
+    top: 700px;
+}
+
+
+
 /* All css about the main menu */
 
 .mmMenu {
@@ -100,146 +127,34 @@
     font-size: 60px;
     margin: auto;
     cursor: pointer;
-    animation: mainMenuText 17s;
+    animation: mainMenuText 4s;
 }
+
+
 
 /* All css about the shop menu*/
-.shopPage {
-    position: relative;
-    width: max-content;
-    font-family: 'Kumar One', cursive;
-    font-size: 60px;
-    margin: auto;
-    cursor: pointer;
-    display: none;
-}
-.shopTitle {
-    position: relative;
-    width: max-content;
-    font-family: 'Kumar One', cursive;
-    font-size: 80px;
-    margin: auto;
-    cursor: pointer;
-}
-.shopBack {
-    position: relative;
-    width: max-content;
-    font-family: 'Kumar One', cursive;
-    font-size: 60px;
-    margin: auto;
-    cursor: pointer;
-    display: none;
-    top: 700px;
-}
+
+
+
+
+
+
 /* All css about the Levels menu*/
 
-.levelsPage{
-    position: relative;
-    width: max-content;
-    font-family: 'Kumar One', cursive;
-    font-size: 60px;
-    margin: auto;
-    cursor: pointer;
-    display: none;
-}
-.levelsTitle {
-    position: relative;
-    width: max-content;
-    font-family: 'Kumar One', cursive;
-    font-size: 80px;
-    margin: auto;
-    cursor: pointer;
-}
-.levelsBack {
-    position: relative;
-    width: max-content;
-    font-family: 'Kumar One', cursive;
-    font-size: 60px;
-    margin: auto;
-    cursor: pointer;
-    display: none;
-    top: 700px;
-}
+
+
 /* All css about the Credits menu*/
-.creditsPage{
-    position: relative;
-    width: max-content;
-    font-family: 'Kumar One', cursive;
-    font-size: 60px;
-    margin: auto;
-    cursor: pointer;
-    display: none;
-}
-.creditsTitle {
-    position: relative;
-    width: max-content;
-    font-family: 'Kumar One', cursive;
-    font-size: 80px;
-    margin: auto;
-    cursor: pointer;
-}
-.creditsBack {
-    position: relative;
-    width: max-content;
-    font-family: 'Kumar One', cursive;
-    font-size: 60px;
-    margin: auto;
-    cursor: pointer;
-    display: none;
-    top: 700px;
-}
-/*
+
+
+
 @keyframes mainMenuText {
-    0% {opacity: 0; cursor: default;}
-    70% {opacity: 0; cursor: default}
-    99% {opacity: 1; cursor: pointer;}
-    100% {opacity: 1; cursor: pointer;}
-}
-*/
-
-/* All css about splash screen*/
-
-.ssSplashBird {
-    position: absolute;
-    top: 500px;
-    left: 60px;
-    width: 50px;
-    height: 50px;
-    z-index: 2;
-    opacity: 0;
-    animation: splashVogel 10s linear;
-}
-/*
-@keyframes Knal {
-    0% {opacity: 1;}
-    94% {opacity: 1;}
-    95% {opacity: 0;}
-    96% {opacity: 1;}
+    0% {opacity: 0;}
+    30% {opacity: 0;}
+    99% {opacity: 1;}
     100% {opacity: 1;}
 }
 
-@keyframes splashVogel {
-    0% {top: 500px; left: 60px; transform: scale(1); opacity: 1;}
-    5% {top: 550px; left: 110px;}
-    10% {top: 600px; left: 160px;}
-    15% {top: 600px; left: 260px;}
-    20% {top: 650px; left: 360px;}
-    25% {top: 650px; left: 460px;}
-    30% {top: 650px; left: 560px;}
-    35% {top: 700px; left: 760px;}
-    40% {top: 800px; left: 860px;}
-    45% {top: 700px; left: 960px;}
-    50% {top: 600px; left: 1060px;} 
-    55% {top: 500px; left: 1160px;}
-    60% {top: 400px; left: 1160px; transform: scale(1);}
-    65% {top: 300px; left: 1260px; transform: scaleX(-1);}
-    70% {top: 200px; left: 1060px;}
-    75% {top: 300px; left: 860px;}
-    80% {top: 400px; left: 720px; transform: scaleX(-1);}
-    85% {top: 440px; left: 760px; transform: scaleX(1);}
-    90% {top: 440px; left: 800px;}
-    95% {top: 440px; left: 840px;}
-    100% {top: 920px; left: 880px; transform: scale(1); opacity: 1;}
+@keyframes mainMenuText2 {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
-
-*/
