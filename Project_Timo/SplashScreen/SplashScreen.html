@@ -10,7 +10,7 @@
         <img class="ssSplashBird" draggable="false" src="./SplashVogel.gif">
         
 
-        <h1 class="duckTitle">Duck Hunter</h1>
+        <h1 class="duckTitle" id="duckTitle">Duck Hunter</h1>
 
 
         <img class="settingsButton" draggable="false" onclick="settingsButton()" src="./settings.png">
@@ -30,13 +30,22 @@
         </audio>
         
 
-        <div class="mmMenu">
+        <div class="mmMenu" id="mmMenu">
             <h1 class="mmTitle">Play</h1>
-            <h1 class="mmTitle">Levels</h1>
+            <h1 class="mmTitle" id="levelsButton" onclick="toLevels()">Levels</h1>
             <h1 class="mmTitle" id="shopButton" onclick="toShop()">Shop</h1>
             <h1 class="mmTitle">Credits</h1>
         </div>
-
+        
+        <div class="shopPage" id="shopPage">
+            <h1 class="shopTitle" id="shopTitle">Shop</h1>
+            <h1 class="shopBack" id="shopBack" onclick="shopBackToMenu()">Back</h1>
+        </div>
+        
+        <div class="levelsPage" id="levelsPage">
+            <h1 class="levelsTitle" id="levelsTitle">Levels</h1>
+            <h1 class="levelsBack" id="levelsBack" onclick="levelsBackToMenu()">Back</h1>
+        </div>
         
         <script type="text/javascript" src="./SplashScreen.js"> </script>
     </body>

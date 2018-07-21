@@ -103,7 +103,63 @@
     animation: mainMenuText 17s;
 }
 
+/* All css about the shop menu*/
+.shopPage {
+    position: relative;
+    width: max-content;
+    font-family: 'Kumar One', cursive;
+    font-size: 60px;
+    margin: auto;
+    cursor: pointer;
+    display: none;
+}
+.shopTitle {
+    position: relative;
+    width: max-content;
+    font-family: 'Kumar One', cursive;
+    font-size: 80px;
+    margin: auto;
+    cursor: pointer;
+}
+.shopBack {
+    position: relative;
+    width: max-content;
+    font-family: 'Kumar One', cursive;
+    font-size: 60px;
+    margin: auto;
+    cursor: pointer;
+    display: none;
+    top: 700px;
+}
+/* All css about the Levels menu*/
 
+.levelsPage{
+    position: relative;
+    width: max-content;
+    font-family: 'Kumar One', cursive;
+    font-size: 60px;
+    margin: auto;
+    cursor: pointer;
+    display: none;
+}
+.levelsTitle {
+    position: relative;
+    width: max-content;
+    font-family: 'Kumar One', cursive;
+    font-size: 80px;
+    margin: auto;
+    cursor: pointer;
+}
+.levelsBack {
+    position: relative;
+    width: max-content;
+    font-family: 'Kumar One', cursive;
+    font-size: 60px;
+    margin: auto;
+    cursor: pointer;
+    display: none;
+    top: 700px;
+}
 /*
 @keyframes mainMenuText {
     0% {opacity: 0; cursor: default;}
