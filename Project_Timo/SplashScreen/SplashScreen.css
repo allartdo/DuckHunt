@@ -160,6 +160,34 @@
     display: none;
     top: 700px;
 }
+/* All css about the Credits menu*/
+.creditsPage{
+    position: relative;
+    width: max-content;
+    font-family: 'Kumar One', cursive;
+    font-size: 60px;
+    margin: auto;
+    cursor: pointer;
+    display: none;
+}
+.creditsTitle {
+    position: relative;
+    width: max-content;
+    font-family: 'Kumar One', cursive;
+    font-size: 80px;
+    margin: auto;
+    cursor: pointer;
+}
+.creditsBack {
+    position: relative;
+    width: max-content;
+    font-family: 'Kumar One', cursive;
+    font-size: 60px;
+    margin: auto;
+    cursor: pointer;
+    display: none;
+    top: 700px;
+}
 /*
 @keyframes mainMenuText {
     0% {opacity: 0; cursor: default;}

@@ -4,6 +4,8 @@ var shopClick = 0;
 var shopBack = 0;
 var levelClick = 0;
 var levelsBack = 0;
+var creditsClick = 0;
+var creditsBack = 0;
 var audio = document.getElementById('Rust');
 var onOff = document.getElementById('settingsTextSwitch');
 
@@ -68,5 +70,21 @@ function levelsBackToMenu() {
         document.getElementById('mmMenu').style.display = 'block';
         document.getElementById('duckTitle').style.display = 'block';
         document.getElementById('levelsPage').style.display = 'none';
+    }
+}
+function toCredits() {
+    if(creditsClick == 0) {
+        document.getElementById('mmMenu').style.display = 'none';
+        document.getElementById('duckTitle').style.display = 'none';
+        document.getElementById('creditsPage').style.display = 'block';
+        document.getElementById('creditsTitle').style.display = 'block';
+        document.getElementById('creditsBack').style.display = 'block';
+    }
+}
+function creditsBackToMenu() {
+    if(creditsBack == 0) {
+        document.getElementById('mmMenu').style.display = 'block';
+        document.getElementById('duckTitle').style.display = 'block';
+        document.getElementById('creditsPage').style.display = 'none';
     }
 }
