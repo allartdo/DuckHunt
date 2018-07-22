@@ -1,23 +1,39 @@
+//Seting Clicks
 var settingsVariables = [settingsClick = 0, musicClick = 0, fullscreenClick = 0];
+
+//Audio
 var audio = document.getElementById('Rust');
-var settingsMenu = document.getElementById('settingsMenu');
+
+//onOff setting
 var onOff = document.getElementById('settingsTextSwitch');
 var onOff2 = document.getElementById('settingsFullscreenSwitch');
+var settingsMenu = document.getElementById('settingsMenu');
+
 var elem = document.documentElement;
+
+//Main Menu
 var mmMenu = document.getElementById('mmMenu');
+
+//Duck Title
 var duckTitle = document.getElementById('duckTitle');
+
+//shop
 var shopPage = document.getElementById('shopPage');
+var sGunMenu = document.getElementById('sGunMenu');
+var sSkillMenu = document.getElementById('sSkillMenu');
+
+//levels
 var levelsPage = document.getElementById('levelsPage');
+
+//credits
 var creditsPage = document.getElementById('creditsPage');
 
 
+document.getElementById('backGroundSound').innerHTML = '<iframe class="testFrame" id="Schot" src="./Sounds/silent.mp3"></iframe>';  //if you dont use an iframe then its impossible to get your music starting automaticly in chrome, here i start a silent sound for 1 second and so on the video in html will succees auto starting. 
+audio.volume = '0.9';
 
 
-document.getElementById('backGroundSound').innerHTML = '<iframe class="testFrame" id="Schot" src="./Sounds/silent.mp3"></iframe>';  //if you dont use an iframe then its impossible to get your music starting automaticly in chrome, here i start a silent sound for 1 second and so the video in html will succeed auto starting. 
-audio.volume = '0.7';
-
-
-
+// All Settings
 function settingsButton() {
     if (settingsClick == 0) {
         settingsMenu.style.display = 'block';
@@ -78,12 +94,14 @@ function switchFullscreen() {               //Fullscreen ON
 
 
 
+//shop 
 
 function toShop() {
     mmMenu.style.display = 'none';
     duckTitle.style.display = 'none';
     settingsMenu.style.display = 'none';
     shopPage.style.display = 'block';
+    sGunButton.style.display = 'block';
     settingsClick = 0;
 }
 
@@ -92,10 +110,40 @@ function shopBackToMenu() {
     mmMenu.style.display = 'block';
     duckTitle.style.display = 'block';
     shopPage.style.display = 'none'; 
+    sGunButton.style.display = 'none';
     settingsMenu.style.display = 'none';
     settingsClick = 0;
 }
 
+//Shop Gun Menu
+function toGunMenu() {
+    mmMenu.style.display = 'none';
+    duckTitle.style.display = 'none';
+    shopPage.style.display = 'none';
+    settingsMenu.style.display = 'none';
+    sGunMenu.style.display = 'block';
+    settingsClick = 0;
+}
+
+//Shop Skill Menu
+function toSkillMenu() {
+    mmMenu.style.display = 'none';
+    duckTitle.style.display = 'none';
+    shopPage.style.display = 'none';
+    settingsMenu.style.display = 'none';
+    sSkillMenu.style.display = 'block';
+    settingsClick = 0;
+}
+
+function backToShopMenu() {
+    sGunMenu.style.display = 'none';
+    sSkillMenu.style.display = 'none';
+    settingsMenu.style.display = 'none';
+    shopPage.style.display = 'block'
+    settingsClick = 0;
+}
+
+//levels
 
 function toLevels() {
     mmMenu.style.display = 'none';
@@ -114,6 +162,7 @@ function levelsBackToMenu() {
     settingsClick = 0;
 }
 
+//Credits
 
 function toCredits() {
     mmMenu.style.display = 'none';
@@ -131,5 +180,8 @@ function creditsBackToMenu() {
     settingsMenu.style.display = 'none';
     settingsClick = 0;
 }
+
+
+
 
 

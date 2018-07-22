@@ -4,6 +4,7 @@
     user-select: none;
 }
 
+/* Background */
 .Background {
     position: absolute;
     top: 0px;
@@ -12,7 +13,7 @@
     height: 100%;
     z-index: 0;
 }
-
+/* Duck Title */
 .duckTitle {
     position: relative;
     font-family: 'Kumar One', cursive;
@@ -22,6 +23,7 @@
     animation: mainMenuText2 4s;
 }
 
+/* All settings button */
 .settingsButton {
     position: absolute;
     top: 5%;
@@ -83,6 +85,7 @@
     display: none;
 }
 
+/* */
 .basicShopLevelsCreditsTextDiv {
     position: relative;
     top: 0px;
@@ -94,6 +97,7 @@
     z-index: 0;
 }
 
+/* All the Titles of the pages */
 .basicTitles2 {
     position: relative;
     width: max-content;
@@ -102,6 +106,7 @@
     margin: auto;
 }
 
+/* All the backs of the pages */
 .basicBacks {
     position: relative;
     width: max-content;
@@ -110,7 +115,8 @@
     font-size: 60px;
     margin: auto;
     cursor: pointer;
-    top: 70%;
+    top: 680px;
+    z-index: 1;
 }
 
 
@@ -138,9 +144,33 @@
 
 
 
-/* All css about the shop menu*/
+/* All css about the shop menu */
 
+.sGunButton {
+    position: absolute;
+    cursor: pointer;
+    width: 450px;
+    height: 450px;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    background-color: transparent;
+    left: 17.5%;
+}
 
+.sSkillButton {
+    left: 60%;
+}
+
+.sGunButtonTitle {
+    position: absolute;
+    width: max-content;
+    font-family: 'Kumar One', cursive;
+    font-size: 40px;
+    margin-left: -66px;
+    left: 50%;
+}
 
 
 /* All css about the Levels menu*/
@@ -159,6 +189,12 @@
     width: 200px;
 }
 
+.cCreatorsNames {
+    top: 230px;
+    left: 20%;
+    font-size: 20px;
+}
+
 .cSound {
     left: 20%;
 }
@@ -175,23 +211,6 @@
     left: 65%;
 }
 
-.cCreatorsNames {
-    top: 230px;
-    left: 19%;
-    font-size: 20px;
-}
-
-.cSoundNames {
-    left: 35%;
-}
-
-.cDesignNames {
-    left: 50%;
-}
-
-.cIdeasNames {
-    left: 65%;
-}
 
 
 

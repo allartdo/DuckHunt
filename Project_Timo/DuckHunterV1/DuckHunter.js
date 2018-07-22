@@ -7,6 +7,7 @@ var audio = document.getElementById('Rust');
 //onOff setting
 var onOff = document.getElementById('settingsTextSwitch');
 var onOff2 = document.getElementById('settingsFullscreenSwitch');
+var settingsMenu = document.getElementById('settingsMenu');
 
 var elem = document.documentElement;
 
@@ -35,12 +36,12 @@ audio.volume = '0.9';
 // All Settings
 function settingsButton() {
     if (settingsClick == 0) {
-        document.getElementById('settingsMenu').style.display = 'block';
+        settingsMenu.style.display = 'block';
         settingsClick = 1;
     }
 
    else if (settingsClick == 1) {
-        document.getElementById('settingsMenu').style.display = 'none';
+        settingsMenu.style.display = 'none';
         settingsClick = 0;
     }
 }
@@ -98,8 +99,10 @@ function switchFullscreen() {               //Fullscreen ON
 function toShop() {
     mmMenu.style.display = 'none';
     duckTitle.style.display = 'none';
+    settingsMenu.style.display = 'none';
     shopPage.style.display = 'block';
     sGunButton.style.display = 'block';
+    settingsClick = 0;
 }
 
 
@@ -108,6 +111,8 @@ function shopBackToMenu() {
     duckTitle.style.display = 'block';
     shopPage.style.display = 'none'; 
     sGunButton.style.display = 'none';
+    settingsMenu.style.display = 'none';
+    settingsClick = 0;
 }
 
 //Shop Gun Menu
@@ -115,7 +120,9 @@ function toGunMenu() {
     mmMenu.style.display = 'none';
     duckTitle.style.display = 'none';
     shopPage.style.display = 'none';
+    settingsMenu.style.display = 'none';
     sGunMenu.style.display = 'block';
+    settingsClick = 0;
 }
 
 //Shop Skill Menu
@@ -123,13 +130,17 @@ function toSkillMenu() {
     mmMenu.style.display = 'none';
     duckTitle.style.display = 'none';
     shopPage.style.display = 'none';
+    settingsMenu.style.display = 'none';
     sSkillMenu.style.display = 'block';
+    settingsClick = 0;
 }
 
 function backToShopMenu() {
     sGunMenu.style.display = 'none';
     sSkillMenu.style.display = 'none';
+    settingsMenu.style.display = 'none';
     shopPage.style.display = 'block'
+    settingsClick = 0;
 }
 
 //levels
@@ -137,7 +148,9 @@ function backToShopMenu() {
 function toLevels() {
     mmMenu.style.display = 'none';
     duckTitle.style.display = 'none';
+    settingsMenu.style.display = 'none';
     levelsPage.style.display = 'block';
+    settingsClick = 0;
 }
 
 
@@ -145,6 +158,8 @@ function levelsBackToMenu() {
     mmMenu.style.display = 'block';
     duckTitle.style.display = 'block';
     levelsPage.style.display = 'none';
+    settingsMenu.style.display = 'none';
+    settingsClick = 0;
 }
 
 //Credits
@@ -152,7 +167,9 @@ function levelsBackToMenu() {
 function toCredits() {
     mmMenu.style.display = 'none';
     duckTitle.style.display = 'none';
+    settingsMenu.style.display = 'none';
     creditsPage.style.display = 'block';
+    settingsClick = 0;
 }
 
 
@@ -160,6 +177,8 @@ function creditsBackToMenu() {
     mmMenu.style.display = 'block';
     duckTitle.style.display = 'block';
     creditsPage.style.display = 'none';
+    settingsMenu.style.display = 'none';
+    settingsClick = 0;
 }
 
 
