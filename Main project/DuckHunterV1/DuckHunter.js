@@ -1,7 +1,8 @@
-var settingsClick = 0;
-var musicClick = 0;
+var settingsVariables = [settingsClick = 0, musicClick = 0, fullscreenClick = 0];
 var audio = document.getElementById('Rust');
 var onOff = document.getElementById('settingsTextSwitch');
+var onOff2 = document.getElementById('settingsFullscreenSwitch');
+var elem = document.documentElement;
 var mmMenu = document.getElementById('mmMenu');
 var duckTitle = document.getElementById('duckTitle');
 var shopPage = document.getElementById('shopPage');
@@ -27,8 +28,6 @@ function settingsButton() {
 }
 
 
-
-
 function switchMusic () {
     if (musicClick == 0) {
         audio.pause();
@@ -42,6 +41,39 @@ function switchMusic () {
         musicClick = 0;
     }
 }
+
+
+function switchFullscreen() {               //Fullscreen ON
+    if (fullscreenClick == 0) {                 //when fullscreenClick is equal to 0 then activate everything under this.
+        if (elem.requestFullscreen) {           //When elem (document).requestFullscreen is active then 
+            elem.requestFullscreen();
+          } else if (elem.mozRequestFullScreen) { /* Firefox */
+            elem.mozRequestFullScreen();
+          } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+            elem.webkitRequestFullscreen();
+          } else if (elem.msRequestFullscreen) { /* IE/Edge */
+            elem.msRequestFullscreen();
+          }
+        onOff2.innerHTML = 'ON';
+        fullscreenClick = 1;
+    }
+
+    else if (fullscreenClick == 1) {                 //Fullscreen OFF
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+          } else if (document.mozCancelFullScreen) { /* Firefox */
+            document.mozCancelFullScreen();
+          } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+            document.webkitExitFullscreen();
+          } else if (document.msExitFullscreen) { /* IE/Edge */
+            document.msExitFullscreen();
+          }
+        onOff2.innerHTML = 'OFF';
+        fullscreenClick = 0;
+    }
+}
+
+
 
 
 function toShop() {
