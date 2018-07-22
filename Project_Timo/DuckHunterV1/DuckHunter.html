@@ -8,10 +8,10 @@
     <body>
         <img class="Background" draggable="false" src="./Images/achtergrondSplash.jpg">
         
-
+        <!--Duck Title-->
         <h1 class="duckTitle" id="duckTitle">Duck Hunter</h1>
 
-
+        <!--Settings-->
         <img class="settingsButton" draggable="false" onclick="settingsButton()" src="./Images/settings.png">
 
         <div class="settingsMenu" id="settingsMenu">
@@ -22,13 +22,14 @@
             <h2 class="settingsText2">Fullscreen:      </h2> <h2 onclick="switchFullscreen()" id="settingsFullscreenSwitch" class="settingsText2 settingsTextON">OFF</h2> 
         </div>
 
+        <!--Sounds-->
         <div style="display: none;" id="backGroundSound"></div>
 
         <audio id="Rust" autoplay name="media">
             <source src="./Sounds/rust.mp3" type="audio/mp3">
         </audio>
         
-
+        <!--Main Menu-->
         <div class="mmMenu" id="mmMenu">
             <h1 class="mmTitle">Play</h1>
             <h1 class="mmTitle" onclick="toLevels()">Levels</h1>
@@ -36,21 +37,37 @@
             <h1 class="mmTitle" onclick="toCredits()">Credits</h1>
         </div>
         
-
+        <!--Shop || Everything in this is the first shop Page-->
         <div class="basicShopLevelsCreditsTextDiv" id="shopPage">
             <h1 class="basicTitles2">Shop</h1>
             <h1 class="basicBacks" onclick="shopBackToMenu()">Back</h1>
-            <div class="sGunButton" id="sGunButton"></div>
+            <div class="sGunButton" id="sGunButton" onclick="toGunMenu()">          <!--Shop Gun Menu Button-->
+                <h1 class="sGunButtonTitle">Guns</h1>
+            </div> 
+            <div class="sGunButton sSkillButton" id="sSkillButton" onclick="toSkillMenu()">         <!--Shop Skill Menu Button-->
+                <h1 class="sGunButtonTitle sSkillButtonTitle">Skills</h1>
+            </div>
+        </div>
 
-            <div class="sGunButton sSkillButton" id="sSkillButton"></div>
+        <!--Shop Gun Menu || Everything in this div is afther you click the Gun Button-->
+        <div class="basicShopLevelsCreditsTextDiv" id="sGunMenu">
+            <h1 class="basicTitles2">Gun Menu</h1>
+            <h1 class="basicBacks" onclick="backToShopMenu()">Back</h1>
+        </div>
+
+        <!--Shop Skill Menu || Everything in this div is afther you click the Skill Button-->
+        <div class="basicShopLevelsCreditsTextDiv" id="sSkillMenu">
+            <h1 class="basicTitles2">Skill Menu</h1>
+            <h1 class="basicBacks" onclick="backToShopMenu()">Back</h1>
         </div>
         
-
+        <!--Levels-->
         <div class="basicShopLevelsCreditsTextDiv" id="levelsPage">
             <h1 class="basicTitles2">Levels</h1>
             <h1 class="basicBacks" onclick="levelsBackToMenu()">Back</h1>
         </div>
         
+        <!--Credits-->
         <div class="basicShopLevelsCreditsTextDiv" id="creditsPage">
             <h1 class="basicTitles2">Credits</h1>
             <h1 class="basicBacks" onclick="creditsBackToMenu()">Back</h1>
