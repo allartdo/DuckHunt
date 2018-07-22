@@ -10,7 +10,7 @@
     left: 0px;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: -2;
 }
 
 .duckTitle {
@@ -83,10 +83,13 @@
 
 .basicShopLevelsCreditsTextDiv {
     position: relative;
-    width: max-content;
-    height: max-content;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
     margin: auto;
     display: none;
+    z-index: -1;
 }
 
 .basicTitles2 {
@@ -100,11 +103,12 @@
 .basicBacks {
     position: relative;
     width: max-content;
+    height: max-content;
     font-family: 'Kumar One', cursive;
     font-size: 60px;
     margin: auto;
     cursor: pointer;
-    top: 700px;
+    top: 680px;
 }
 
 
@@ -134,8 +138,21 @@
 
 /* All css about the shop menu*/
 
+.sGunButton {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    background-color: transparent;
+    left: 17.5%;
+}
 
-
+.sSkillButton {
+    left: 60%;
+}
 
 
 

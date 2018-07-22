@@ -5,8 +5,15 @@ var onOff2 = document.getElementById('settingsFullscreenSwitch');
 var elem = document.documentElement;
 var mmMenu = document.getElementById('mmMenu');
 var duckTitle = document.getElementById('duckTitle');
+
+//shop
 var shopPage = document.getElementById('shopPage');
+var sGunButton = document.getElementById('sGunButton');
+
+//levels
 var levelsPage = document.getElementById('levelsPage');
+
+//credits
 var creditsPage = document.getElementById('creditsPage');
 
 
@@ -75,11 +82,13 @@ function switchFullscreen() {               //Fullscreen ON
 
 
 
+//shop 
 
 function toShop() {
     mmMenu.style.display = 'none';
     duckTitle.style.display = 'none';
     shopPage.style.display = 'block';
+    sGunButton.style.display = 'block';
 }
 
 
@@ -87,8 +96,10 @@ function shopBackToMenu() {
     mmMenu.style.display = 'block';
     duckTitle.style.display = 'block';
     shopPage.style.display = 'none'; 
+    sGunButton.style.display = 'none';
 }
 
+//levels
 
 function toLevels() {
     mmMenu.style.display = 'none';
@@ -103,6 +114,7 @@ function levelsBackToMenu() {
     levelsPage.style.display = 'none';
 }
 
+//Credits
 
 function toCredits() {
     mmMenu.style.display = 'none';
