@@ -1,0 +1,58 @@
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./DuckHunter.css">
+        <link href="https://fonts.googleapis.com/css?family=Kumar+One" rel="stylesheet">
+        <title>Duck Hunter</title>
+    </head>
+    <body>
+        <img class="Background" draggable="false" src="./Images/achtergrondSplash.jpg">
+        
+
+        <h1 class="duckTitle" id="duckTitle">Duck Hunter</h1>
+
+
+        <img class="settingsButton" draggable="false" onclick="settingsButton()" src="./Images/settings.png">
+
+        <div class="settingsMenu" id="settingsMenu">
+            <h1 class="settingsText">Settings</h5>
+            <h2 class="settingsText2">Main menu music: </h2> <h2 onclick="switchMusic()" id="settingsTextSwitch" class="settingsText2 settingsTextON">ON</h2> 
+            <h2 class="settingsText2">In-game music:   </h2> <h2 class="settingsText2 settingsTextON">ON</h2> 
+            <h2 class="settingsText2">In-game sound:   </h2> <h2 class="settingsText2 settingsTextON">ON</h2> 
+            <h2 class="settingsText2">Fullscreen:      </h2> <h2 class="settingsText2 settingsTextON">ON</h2> 
+        </div>
+
+        <div style="display: none;" id="backGroundSound"></div>
+
+        <audio id="Rust" autoplay name="media">
+            <source src="./Sounds/rust.mp3" type="audio/mp3">
+        </audio>
+        
+
+        <div class="mmMenu" id="mmMenu">
+            <h1 class="mmTitle">Play</h1>
+            <h1 class="mmTitle" onclick="toLevels()">Levels</h1>
+            <h1 class="mmTitle" onclick="toShop()">Shop</h1>
+            <h1 class="mmTitle" onclick="toCredits()">Credits</h1>
+        </div>
+        
+
+        <div class="basicShopLevelsCreditsTextDiv" id="shopPage">
+            <h1 class="basicTitles2">Shop</h1>
+            <h1 class="basicBacks" onclick="shopBackToMenu()">Back</h1>
+        </div>
+        
+        <div class="basicShopLevelsCreditsTextDiv" id="levelsPage">
+            <h1 class="basicTitles2">Levels</h1>
+            <h1 class="basicBacks" onclick="levelsBackToMenu()">Back</h1>
+        </div>
+        
+        <div class="basicShopLevelsCreditsTextDiv" id="creditsPage">
+            <h1 class="basicTitles2">Credits</h1>
+            <h1 class="basicBacks" onclick="creditsBackToMenu()">Back</h1>
+        </div>
+
+
+        <script type="text/javascript" src="./DuckHunter.js"> </script>
+    </body>
+</html>
