@@ -1,14 +1,25 @@
+//Seting Clicks
 var settingsVariables = [settingsClick = 0, musicClick = 0, fullscreenClick = 0];
+
+//Audio
 var audio = document.getElementById('Rust');
+
+//onOff setting
 var onOff = document.getElementById('settingsTextSwitch');
 var onOff2 = document.getElementById('settingsFullscreenSwitch');
+
 var elem = document.documentElement;
+
+//Main Menu
 var mmMenu = document.getElementById('mmMenu');
+
+//Duck Title
 var duckTitle = document.getElementById('duckTitle');
 
 //shop
 var shopPage = document.getElementById('shopPage');
-var sGunButton = document.getElementById('sGunButton');
+var sGunMenu = document.getElementById('sGunMenu');
+var sSkillMenu = document.getElementById('sSkillMenu');
 
 //levels
 var levelsPage = document.getElementById('levelsPage');
@@ -21,7 +32,7 @@ document.getElementById('backGroundSound').innerHTML = '<iframe class="testFrame
 audio.volume = '0.9';
 
 
-
+// All Settings
 function settingsButton() {
     if (settingsClick == 0) {
         document.getElementById('settingsMenu').style.display = 'block';
@@ -97,6 +108,28 @@ function shopBackToMenu() {
     duckTitle.style.display = 'block';
     shopPage.style.display = 'none'; 
     sGunButton.style.display = 'none';
+}
+
+//Shop Gun Menu
+function toGunMenu() {
+    mmMenu.style.display = 'none';
+    duckTitle.style.display = 'none';
+    shopPage.style.display = 'none';
+    sGunMenu.style.display = 'block';
+}
+
+//Shop Skill Menu
+function toSkillMenu() {
+    mmMenu.style.display = 'none';
+    duckTitle.style.display = 'none';
+    shopPage.style.display = 'none';
+    sSkillMenu.style.display = 'block';
+}
+
+function backToShopMenu() {
+    sGunMenu.style.display = 'none';
+    sSkillMenu.style.display = 'none';
+    shopPage.style.display = 'block'
 }
 
 //levels
