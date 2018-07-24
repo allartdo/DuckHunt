@@ -119,6 +119,10 @@
     z-index: 1;
 }
 
+.basicBacks:hover {
+    font-size: 65px;
+}
+
 
 
 /* All css about the main menu */
@@ -141,6 +145,9 @@
     cursor: pointer;
     animation: mainMenuText 4s;
 }
+.mmTitle:hover {
+    font-size: 65px;
+}
 
 
 
@@ -157,6 +164,11 @@
     border-width: 5px;
     background-color: transparent;
     left: 17.5%;
+}
+
+.sGunButton:hover {
+    width: 460px;
+    height: 460px;
 }
 
 .sSkillButton {
