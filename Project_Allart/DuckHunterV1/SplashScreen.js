@@ -7,7 +7,7 @@ window.setTimeout(function(){
     // Move to new location
     window.location.href = "./DuckHunter.html";
 
-}, 10100);
+}, 14100);
 
 window.setTimeout(function(){
 

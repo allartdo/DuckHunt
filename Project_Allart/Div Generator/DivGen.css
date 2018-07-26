@@ -1,0 +1,13 @@
+.Container {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    border: solid 3px;
+}
+
+.box {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
