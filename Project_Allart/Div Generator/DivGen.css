@@ -6,8 +6,9 @@
 }
 
 .box {
-    position: absolute;
+    position: flex;
     width: 100px;
     height: 100px;
+    margin: 10px;
     background-color: red;
 }
