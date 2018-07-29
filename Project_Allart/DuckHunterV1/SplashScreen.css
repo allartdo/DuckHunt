@@ -14,44 +14,6 @@
     z-index: 0;
 }
 
-/* All css about the main menu */
-
-.duckTitle {
-    position: relative;
-    font-family: 'Kumar One', cursive;
-    font-size: 70px;
-    text-align: center;
-    animation: mainMenuText2 15s;
-}
-
-.mmMenu {
-    position: absolute;
-    left: 50%;
-    margin-left: -128.315px;
-    line-height: 120px;
-    width: max-content;
-    height: max-content;
-}
-
-.mmTitle {
-    position: relative;
-    width: max-content;
-    font-family: 'Kumar One', cursive;
-    font-size: 60px;
-    margin: auto;
-    animation: mainMenuText 15s;
-}
-
-.settingsButton {
-    position: absolute;
-    top: 5%;
-    left: 95%;
-    width: 40px;
-    height: 40px;
-    animation: mainMenuText 15s;
-}
-
-
 
 /* All css about splash screen*/
 
@@ -61,28 +23,11 @@
     left: 60px;
     width: 50px;
     height: 50px;
+    z-index: 2;
     opacity: 0;
     animation: splashVogel 10s linear;
 }
 
-
-
-
-/* Animations */
-
-@keyframes mainMenuText {
-    0% {opacity: 0;}
-    80% {opacity: 0;}
-    99% {opacity: 1;}
-    100% {opacity: 1;}
-}
-
-@keyframes mainMenuText2 {
-    0% {opacity: 0;}
-    70% {opacity: 0;}
-    99% {opacity: 1;}
-    100% {opacity: 1;}
-}
 
 @keyframes flitsKnal {
     0% {opacity: 1;}
