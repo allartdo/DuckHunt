@@ -167,16 +167,18 @@
     left: 17.5%;
 }
 
-.sSkillButton {
-    left: 60%;
-}
-
 .sGunButton:hover {
     top: 14.2%;
     left: 17.3%;
     width: 460px;
     height: 460px;
 }
+
+.sSkillButton {
+    left: 60%;
+}
+
+
 
 .sSkillButton:hover {
     left: 59.7%;
@@ -233,28 +235,59 @@
 
 .borderOfWorldButton {
     position: absolute;
+    cursor: pointer;
     left: 11%;
     width: 300px;
-    height: 600px;
+    height: 550px;
     border-radius: 25px;
     border-style: solid;
     border-color: black;
     border-width: 8px;
-    background-color: transparent;
+    background-image: url("./Images/GroenBos.jpg");
 }
 
 .borderOfWorldButton2 {
     left: 31%;
-    
+    background-image: url("./Images/Woestijn.jpg");
 }
 
 .borderOfWorldButton3 {
     left: 51.2%;
-    
+    background-image: url("./Images/WinterPlaats.jpg");
 }
 
 .borderOfWorldButton4 {
     left: 71.6%;
+    background-image: url("./Images/WaterFall.jpg");
+}
+
+.WorldsTitle {
+    position: absolute;
+    font-size: 30px;
+    font-family: 'Kumar One', cursive;
+    color: rgb(0, 0, 0);
+    left: 77px;
+    text-shadow: 0px 0px 2px  white;
+}
+
+.LevelNumbers {
+    position: absolute;
+    font-size: 30px;
+    font-family: 'Kumar One', cursive;
+    color: rgb(0, 0, 0);
+    left: 110px;
+    top: 475px;
+    text-shadow: 0px 0px 2px  white;
+}
+
+.LevelNumbers2 {
+    left: 100px;
+}
+.LevelNumbers3 {
+    left: 100px;
+}
+.LevelNumbers4 {
+    left: 97px;
 }
 /* All css about the Credits menu*/
 
