@@ -6,9 +6,56 @@
 }
 
 .box {
-    position: flex;
+    position: relative;
     width: 100px;
     height: 100px;
     margin: 10px;
+    margin-left: 25px;
     background-color: red;
+    border-radius: 20px;
+}
+
+.box2 {
+    top: -770px;
+    left: 10%;
+}
+
+.box3 {
+    top: -1540px;
+    left: 20%;
+}
+
+.box4 {
+    top: -2310px;
+    left: 30%;
+}
+
+.box5 {
+    top: -3080px;
+    left: 40%;
+}
+
+.box6 {
+    top: -3850px;
+    left: 50%;
+}
+
+.box7 {
+    top: -4620px;
+    left: 60%;
+}
+
+.box8 {
+    top: -5390px;
+    left: 70%;
+}
+
+.box9 {
+    top: -6160px;
+    left: 80%;
+}
+
+.box10 {
+    top: -6930px;
+    left: 90%;
 }
