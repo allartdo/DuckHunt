@@ -152,7 +152,6 @@ function toLevels() {
     duckTitle.style.display = 'none';
     settingsMenu.style.display = 'none';
     levelsPage.style.display = 'block';
-
     settingsClick = 0;
 }
 
@@ -166,15 +165,68 @@ function levelsBackToMenu() {
 
 //Levels || World Selector
 
-//World 1
-function ToWorld1() {
+//World 1 -- Level/World selector!!
+function toWorld1() {
     levelsPage.style.display = 'none';
-    World1Menu.style.display = 'blok';
-    
+    world1Menu.style.display = 'block';
+    settingsMenu.style.display = 'none';
+    settingsClick = 0;
 }
-//World 2
-//World 3
-//World 4
+
+function backToLevelsMenu1() {
+    levelsPage.style.display = 'block';
+    world1Menu.style.display = 'none';
+    settingsMenu.style.display = 'none';
+    settingsClick = 0;
+}
+
+//World 2 -- Level/World selector!!
+function toWorld2() {
+    levelsPage.style.display = 'none';
+    world2Menu.style.display = 'block';
+    settingsMenu.style.display = 'none';
+    settingsClick = 0;
+}
+
+function backToLevelsMenu2() {
+    levelsPage.style.display = 'block';
+    world2Menu.style.display = 'none';
+    settingsMenu.style.display = 'none';
+    settingsClick = 0;
+}
+
+
+//World 3 -- Level/World selector!!
+function toWorld3() {
+    levelsPage.style.display = 'none';
+    world3Menu.style.display = 'block';
+    settingsMenu.style.display = 'none';
+    settingsClick = 0;
+}
+
+function backToLevelsMenu3() {
+    levelsPage.style.display = 'block';
+    world3Menu.style.display = 'none';
+    settingsMenu.style.display = 'none';
+    settingsClick = 0;
+}
+
+
+//World 4 -- Level/World selector!!
+function toWorld4() {
+    levelsPage.style.display = 'none';
+    world4Menu.style.display = 'block';
+    settingsMenu.style.display = 'none';
+    settingsClick = 0;
+}
+
+function backToLevelsMenu4() {
+    levelsPage.style.display = 'block';
+    world4Menu.style.display = 'none';
+    settingsMenu.style.display = 'none';
+    settingsClick = 0;
+}
+
 
 
 
