@@ -110,17 +110,18 @@
     position: absolute;
     font-family: 'Kumar One', cursive;
     font-size: 60px;
-    margin-left: -60;
+    margin: 0px;
     cursor: pointer;
-    top: 760px;
-    left: 50%;
+    top: 825px;
+    left: 45.6%;
     z-index: 1;
+
 }
 
 .basicBacks:hover {
     font-size: 66px;
-    top: 752px;
-    left: 49.7%;
+    top: 820px;
+    left: 45.2%;
 }
 
 
@@ -225,15 +226,36 @@
     height: 256px;
     margin-left: -130px;
     margin-top: -100px;
-
-
 }
 
 
 /* All css about the Levels menu*/
 
+.borderOfWorldButton {
+    position: absolute;
+    left: 11%;
+    width: 300px;
+    height: 600px;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: black;
+    border-width: 8px;
+    background-color: transparent;
+}
 
+.borderOfWorldButton2 {
+    left: 31%;
+    
+}
 
+.borderOfWorldButton3 {
+    left: 51.2%;
+    
+}
+
+.borderOfWorldButton4 {
+    left: 71.6%;
+}
 /* All css about the Credits menu*/
 
 
@@ -273,15 +295,3 @@
 
 
 
-
-@keyframes mainMenuText {
-    0% {opacity: 0;}
-    30% {opacity: 0;}
-    99% {opacity: 1;}
-    100% {opacity: 1;}
-}
-
-@keyframes mainMenuText2 {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
-}

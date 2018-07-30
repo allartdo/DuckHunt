@@ -24,6 +24,7 @@ var sSkillMenu = document.getElementById('sSkillMenu');
 
 //levels
 var levelsPage = document.getElementById('levelsPage');
+var borderWorldButton = document.getElementsByClassName('borderOfWorldButtton');
 
 //credits
 var creditsPage = document.getElementById('creditsPage');
@@ -150,9 +151,9 @@ function toLevels() {
     duckTitle.style.display = 'none';
     settingsMenu.style.display = 'none';
     levelsPage.style.display = 'block';
+
     settingsClick = 0;
 }
-
 
 function levelsBackToMenu() {
     mmMenu.style.display = 'block';
@@ -161,6 +162,10 @@ function levelsBackToMenu() {
     settingsMenu.style.display = 'none';
     settingsClick = 0;
 }
+
+//Levels || World Selector
+
+
 
 //Credits
 
