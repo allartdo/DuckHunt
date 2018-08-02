@@ -24,6 +24,13 @@
     height: 55px;
 }
 
+.Money {
+    position: absolute;
+    left: 35%;
+    top: -25px;
+    font-size: 40px;
+    font-family: 'Kumar One', cursive;
+}
 
 /* Background */
 .Background {
@@ -179,18 +186,19 @@
 .sGunButton {
     position: absolute;
     cursor: pointer;
+    top: 220px;
     width: 450px;
     height: 450px;
     border-radius: 25px;
     border-style: solid;
     border-color: black;
-    border-width: 5px;
+    border-width: 8px;
     background-color: transparent;
     left: 17.5%;
 }
 
 .sGunButton:hover {
-    top: 14.2%;
+    top: 225px;
     left: 17.3%;
     width: 460px;
     height: 460px;
