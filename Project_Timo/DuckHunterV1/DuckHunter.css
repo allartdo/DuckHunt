@@ -8,14 +8,15 @@
     position: absolute;
     top: 25px;
     left: 20px;
-    width: 200px;
+    width: 250px;
     height: 60px;
     border-radius: 25px;
     border-style: solid;
     border-color: black;
     border-width: 5px;
     background-color: rgba(255, 255, 255, 0.33);
-;}
+    z-index: 1;
+}
 .DuckCoin {
     position: absolute;
     top: 3px;
@@ -26,7 +27,7 @@
 
 .Money {
     position: absolute;
-    left: 35%;
+    left: 25%;
     top: -25px;
     font-size: 40px;
     font-family: 'Kumar One', cursive;
@@ -40,6 +41,16 @@
     width: 100%;
     height: 100%;
     z-index: 0;
+}
+
+.World1Background {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    display: none;
 }
 
 /* Duck Title */
@@ -179,6 +190,7 @@
     font-size: 65px;
 }
 
+/* Play Level 1*/
 
 
 /* All css about the shop menu */

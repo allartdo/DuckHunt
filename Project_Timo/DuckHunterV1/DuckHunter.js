@@ -1,3 +1,6 @@
+//Backgrounds
+var Background = document.getElementById('Background2');
+var World1Background = document.getElementById('World1Background2');
 //Seting Clicks
 var settingsVariables = [settingsClick = 0, musicClick = 0, fullscreenClick = 0];
 
@@ -16,6 +19,9 @@ var mmMenu = document.getElementById('mmMenu');
 
 //Duck Title
 var duckTitle = document.getElementById('duckTitle');
+//Play
+var level1Div = document.getElementById('level1Div');
+
 
 //shop
 var shopPage = document.getElementById('shopPage');
@@ -94,7 +100,17 @@ function switchFullscreen() {               //Fullscreen ON
     }
 }
 
+//Play
 
+function toFirstLevel() {
+    mmMenu.style.display = 'none';
+    duckTitle.style.display = 'none';
+    settingsMenu.style.display = 'none';
+    Background.style.display = 'none';
+    World1Background.style.display = 'block';
+    level1Div.style.display = 'block';
+    
+}
 
 //shop 
 
