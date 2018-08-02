@@ -1,11 +1,35 @@
 .Container {
-    position: absolute;
+    position: relative;
     width: 80%;
-    height: 80%;
+    height: 81.5%;
     border: solid 3px;
 }
 
-.sniper1 {
-    top: -770px;
-    left: 150px;
+.Pistols {
+    position: relative;
+    font-size: 20px;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(184, 184, 184);
+    margin: 10px;
+    cursor: pointer;
 }
+
+.Pistols2 {top: -770px; left: 10%;}
+
+.Snipers {top: -1540px; left: 20%;}
+
+.Snipers2 {top: -2310px; left: 30%;}
+
+.Shotguns {top: -3080px; left: 40%;}
+
+.Shotguns2 {top: -3850px; left: 50%;}
+
+.dubbleBarrels {font-size: 19px; top: -4620px; left: 60.5%;}
+
+.dubbleBarrels2 {font-size: 19px; top: -5390px; left: 71%;}
+
+.automaticRifles {top: -6160px; left: 81.5%;}
+
+.automaticRifles2 {top: -6930px; left: 92%;}
