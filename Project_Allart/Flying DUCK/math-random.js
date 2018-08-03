@@ -31,7 +31,7 @@ var bird1 = document.getElementById("bird");
         if (bird1.offsetTop < 0) {
             bird1.style.top = bird1.offsetTop + +3;
         }
-        if (bird1.offsetTop > 3870) {
+        if (bird1.offsetTop > document.body.clientHeight) {
             bird1.style.top = bird1.offsetTop + -3;
         }
     }, 1);

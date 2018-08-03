@@ -1,6 +1,7 @@
 var left = -300;
 var randomTop = 0;
 var enable = 0;
+var fouten = 0;
 var bird1 = document.getElementById("bird");
 //var x = getRandomTop();
 
@@ -21,13 +22,10 @@ var bird1 = document.getElementById("bird");
 //}
 
 
-function StartGame() {
-    PlayGame();
-}
 
 function hit() {
     bird1.style.visibility = "hidden";
-
+    fouten -=1;
 }
 
 
@@ -47,9 +45,12 @@ function PlayGame(){
     setInterval(function(){
         if (randomTop > bird1.offsetTop) {
             bird1.style.top = bird1.offsetTop + +3;                 //3px if you want to zoom out and be able to use this (25% zoom)
-            console.log(bird1.style.top);
+            //console.log(bird1.style.top);
         } else {
             bird1.style.top = bird1.offsetTop + -3;                 //1 pixel with 100% zoom
+        }
+        if (bird1.offsetTop > document.body.clientHeight - 70) {
+            bird1.style.top = bird1.offsetTop + -3;
         }
     }, 1);
 
@@ -62,6 +63,8 @@ function PlayGame(){
         bird1.style.transform = "scale(1)";
         bird1.style.left = left + "px";
         if (left > document.body.clientWidth + 100) {
+            fouten +=1;
+            console.log(fouten);
             bird1.style.visibility = "visible";
             clearInterval(reset);
             speed = setInterval(goLeft);
@@ -74,12 +77,16 @@ function PlayGame(){
         bird1.style.transform = "scaleX(-1)";
         bird1.style.left = left + "px";
         if (left < document.body.clientLeft - 200) {
+            fouten +=1;
+            console.log(fouten);
             bird1.style.visibility = "visible";
             clearInterval(speed);
             reset = setInterval(goRight);
         }
     }
 }
+
+
 
 /*var randomX = Math.floor(Math.random()*document.body.clientHeight);
 console.log(randomX)
