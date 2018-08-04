@@ -1,3 +1,6 @@
+document.getElementById('backGroundSound').innerHTML = '<iframe class="testFrame" id="Schot" src="./Sounds/silent.mp3"></iframe>';  //if you dont use an iframe then its impossible to get your music starting automaticly in chrome, here i start a silent sound for 1 second and so on the video in html will succees auto starting. 
+
+
 var shot = document.getElementById('Shot');
 shot.pause();
 
@@ -7,7 +10,7 @@ window.setTimeout(function(){
     // Move to new location
     window.location.href = "./DuckHunter.html";
 
-}, 14100);
+}, 10100);
 
 window.setTimeout(function(){
 
@@ -15,3 +18,4 @@ window.setTimeout(function(){
     shot.play();
 
 }, 9500);
+

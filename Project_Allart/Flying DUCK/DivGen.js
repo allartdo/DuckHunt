@@ -64,6 +64,7 @@ function PlayGame(){
         bird1.style.left = left + "px";
         if (left > document.body.clientWidth + 100) {
             fouten +=1;
+            alert("You lost half a heart!")
             console.log(fouten);
             bird1.style.visibility = "visible";
             clearInterval(reset);
@@ -78,6 +79,7 @@ function PlayGame(){
         bird1.style.left = left + "px";
         if (left < document.body.clientLeft - 200) {
             fouten +=1;
+            alert("You lost half a heart!")
             console.log(fouten);
             bird1.style.visibility = "visible";
             clearInterval(speed);

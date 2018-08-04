@@ -1,14 +1,17 @@
-//Seting Clicks
-var settingsVariables = [settingsClick = 0, musicClick = 0, fullscreenClick = 0];
+//Background images
+var Background = document.getElementById('Background');
+var World1Background = document.getElementById('World1Background');
+
+//Settings Clicks
+var settingsVariables = [settingsClick = 0, musicClick = 0, fullscreenClick = 0];           //for shorter code and keeping it clear code. Array for variables with numbers.
 
 //Audio
 var audio = document.getElementById('Rust');
 
 //onOff setting
-var onOff = document.getElementById('settingsTextSwitch');
-var onOff2 = document.getElementById('settingsFullscreenSwitch');
+var STonOff = document.getElementById('settingsMainMenuSoundSwitch');
+var FSonOff = document.getElementById('settingsFullscreenSwitch');
 var settingsMenu = document.getElementById('settingsMenu');
-
 var elem = document.documentElement;
 
 //Main Menu
@@ -17,13 +20,18 @@ var mmMenu = document.getElementById('mmMenu');
 //Duck Title
 var duckTitle = document.getElementById('duckTitle');
 
+//Play
+var level1Div = document.getElementById('level1Div');
+
+//levels
+var levelsPage = document.getElementById('levelsPage');
+var borderWorldButton = document.getElementsByClassName('borderOfWorldButtton');
+var World1Menu = document.getElementById('World1Menu');
+
 //shop
 var shopPage = document.getElementById('shopPage');
 var sGunMenu = document.getElementById('sGunMenu');
 var sSkillMenu = document.getElementById('sSkillMenu');
-
-//levels
-var levelsPage = document.getElementById('levelsPage');
 
 //credits
 var creditsPage = document.getElementById('creditsPage');
@@ -50,13 +58,13 @@ function settingsButton() {
 function switchMusic () {
     if (musicClick == 0) {
         audio.pause();
-        onOff.innerHTML = 'OFF';
+        STonOff.innerHTML = 'OFF';
         musicClick = 1;
     }
 
     else if (musicClick == 1) {
         audio.play();
-        onOff.innerHTML = 'ON';
+        STonOff.innerHTML = 'ON';
         musicClick = 0;
     }
 }
@@ -73,7 +81,7 @@ function switchFullscreen() {               //Fullscreen ON
           } else if (elem.msRequestFullscreen) { /* IE/Edge */
             elem.msRequestFullscreen();
           }
-        onOff2.innerHTML = 'ON';
+        FSonOff.innerHTML = 'ON';
         fullscreenClick = 1;
     }
 
@@ -87,12 +95,22 @@ function switchFullscreen() {               //Fullscreen ON
           } else if (document.msExitFullscreen) { /* IE/Edge */
             document.msExitFullscreen();
           }
-        onOff2.innerHTML = 'OFF';
+        FSonOff.innerHTML = 'OFF';
         fullscreenClick = 0;
     }
 }
 
+//Play
 
+function toFirstLevel() {
+    mmMenu.style.display = 'none';
+    duckTitle.style.display = 'none';
+    settingsMenu.style.display = 'none';
+    Background.style.display = 'none';
+    World1Background.style.display = 'block';
+    level1Div.style.display = 'block';
+    
+}
 
 //shop 
 
@@ -153,7 +171,6 @@ function toLevels() {
     settingsClick = 0;
 }
 
-
 function levelsBackToMenu() {
     mmMenu.style.display = 'block';
     duckTitle.style.display = 'block';
@@ -161,6 +178,73 @@ function levelsBackToMenu() {
     settingsMenu.style.display = 'none';
     settingsClick = 0;
 }
+
+//Levels || World Selector
+
+//World 1 -- Level/World selector!!
+function toWorld1() {
+    levelsPage.style.display = 'none';
+    world1Menu.style.display = 'block';
+    settingsMenu.style.display = 'none';
+    settingsClick = 0;
+}
+
+function backToLevelsMenu1() {
+    levelsPage.style.display = 'block';
+    world1Menu.style.display = 'none';
+    settingsMenu.style.display = 'none';
+    settingsClick = 0;
+}
+
+//World 2 -- Level/World selector!!
+function toWorld2() {
+    levelsPage.style.display = 'none';
+    world2Menu.style.display = 'block';
+    settingsMenu.style.display = 'none';
+    settingsClick = 0;
+}
+
+function backToLevelsMenu2() {
+    levelsPage.style.display = 'block';
+    world2Menu.style.display = 'none';
+    settingsMenu.style.display = 'none';
+    settingsClick = 0;
+}
+
+
+//World 3 -- Level/World selector!!
+function toWorld3() {
+    levelsPage.style.display = 'none';
+    world3Menu.style.display = 'block';
+    settingsMenu.style.display = 'none';
+    settingsClick = 0;
+}
+
+function backToLevelsMenu3() {
+    levelsPage.style.display = 'block';
+    world3Menu.style.display = 'none';
+    settingsMenu.style.display = 'none';
+    settingsClick = 0;
+}
+
+
+//World 4 -- Level/World selector!!
+function toWorld4() {
+    levelsPage.style.display = 'none';
+    world4Menu.style.display = 'block';
+    settingsMenu.style.display = 'none';
+    settingsClick = 0;
+}
+
+function backToLevelsMenu4() {
+    levelsPage.style.display = 'block';
+    world4Menu.style.display = 'none';
+    settingsMenu.style.display = 'none';
+    settingsClick = 0;
+}
+
+
+
 
 //Credits
 
