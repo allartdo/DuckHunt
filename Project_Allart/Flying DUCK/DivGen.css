@@ -1,7 +1,13 @@
+* {
+    user-select: none;
+}
+
 .dynMoveDiv {
+    visibility: hidden;
     position: absolute;
     top: 450px;
+    left: -190px;
     width: 100px;
     height: 100px;
-    background-color: red;
+    cursor: pointer;
 }
