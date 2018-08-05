@@ -20,7 +20,7 @@ var mmMenu = document.getElementById('mmMenu');
 //Money
 var MoneyDiv = document.getElementById('MoneyDiv');
 var Money = document.getElementById('Money');
-duckCoin = document.getElementById('duckCoin');
+var duckCoin = document.getElementById('duckCoin');
 //Duck Title
 var duckTitle = document.getElementById('duckTitle');
 
