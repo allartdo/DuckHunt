@@ -191,7 +191,12 @@
 }
 
 /* Play Level 1*/
-
+.Gun {
+    position: absolute;
+    width: 18%;
+    height: 18%;
+    top: 85%;
+}
 
 /* All css about the shop menu */
 

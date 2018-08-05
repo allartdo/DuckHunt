@@ -17,6 +17,10 @@ var elem = document.documentElement;
 //Main Menu
 var mmMenu = document.getElementById('mmMenu');
 
+//Money
+var MoneyDiv = document.getElementById('MoneyDiv');
+var Money = document.getElementById('Money');
+duckCoin = document.getElementById('duckCoin');
 //Duck Title
 var duckTitle = document.getElementById('duckTitle');
 //Play
@@ -109,7 +113,13 @@ function toFirstLevel() {
     Background.style.display = 'none';
     World1Background.style.display = 'block';
     level1Div.style.display = 'block';
-    
+    MoneyDiv.style.width = '125px';
+    MoneyDiv.style.height = '30px';
+    Money.style.fontSize = '20px';
+    Money.style.top = '-12px';
+    duckCoin.style.width = '27.5px';
+    duckCoin.style.height = '27.5px';
+    duckCoin.style.top = '1px';
 }
 
 //shop 
