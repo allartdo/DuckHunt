@@ -22,6 +22,9 @@ var duckTitle = document.getElementById('duckTitle');
 
 //Play
 var level1Div = document.getElementById('level1Div');
+var moneyDiv = document.getElementById('moneyDiv');
+var Money = document.getElementById('Money');
+var duckCoin = document.getElementById('duckCoin');
 
 //levels
 var levelsPage = document.getElementById('levelsPage');
@@ -109,6 +112,13 @@ function toFirstLevel() {
     backGround.style.display = 'none';
     world1BackGround.style.display = 'block';
     level1Div.style.display = 'block';
+    moneyDiv.style.width = '125px';
+    moneyDiv.style.height = '30px';
+    Money.style.fontSize = '20px';
+    Money.style.top = '-12px';
+    duckCoin.style.width = '27.5px';
+    duckCoin.style.height = '27.5px';
+    duckCoin.style.top = '1px';
     settingsClick = 0;
     
 }
