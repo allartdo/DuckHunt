@@ -17,13 +17,10 @@ var holeDoc = document.documentElement;
 //Main Menu
 var mmMenu = document.getElementById('mmMenu');
 
-<<<<<<< HEAD
 //Money
 var MoneyDiv = document.getElementById('MoneyDiv');
 var Money = document.getElementById('Money');
 var duckCoin = document.getElementById('duckCoin');
-=======
->>>>>>> e46dc3cf774024a66876f45fc0730a5e01e2684e
 //Duck Title
 var duckTitle = document.getElementById('duckTitle');
 
@@ -32,6 +29,8 @@ var level1Div = document.getElementById('level1Div');
 var moneyDiv = document.getElementById('moneyDiv');
 var Money = document.getElementById('Money');
 var duckCoin = document.getElementById('duckCoin');
+var ammoCount = document.getElementById('ammoCount');
+var Ammo = 10;
 
 //levels
 var levelsPage = document.getElementById('levelsPage');
@@ -127,9 +126,21 @@ function toFirstLevel() {
     duckCoin.style.height = '27.5px';
     duckCoin.style.top = '1px';
     settingsClick = 0;
-    
+    setInterval(Gun, 3500);  
 }
 
+function Gun() {
+    document.onclick = function() {
+    Ammo--;
+    ammoCount.innerHTML = Ammo;
+    if(Ammo == 0) {
+        Ammo++;
+        console.log(Ammo)
+    }
+    console.log(Ammo)
+    }
+
+}
 //shop 
 
 function toShop() {

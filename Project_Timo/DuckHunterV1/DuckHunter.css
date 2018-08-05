@@ -190,6 +190,29 @@
     top: 85%;
 }
 
+.Hearts {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    width: 210px;
+    height: 140px;
+}
+
+.ammoCircle {
+    position: absolute;
+    left: 150px;
+    top: 12px;
+    width: 50px;
+    height: 50px;
+}
+
+.ammoCount {
+    position: absolute;
+    font-family: 'Kumar One', cursive;
+    top: -5px;
+    left: 200px;
+    font-size: 30px
+}
 /* All css about the shop menu */
 
 .sGunButton {
