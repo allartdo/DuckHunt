@@ -2,13 +2,10 @@
     user-select: none;
 }
 
-.dynMoveDiv {
-    visibility: hidden;
+.dynMoveBird {
+    display: none;
     position: absolute;
-    top: 450px;
-    left: -190px;
     width: 100px;
     height: 100px;
     cursor: pointer;
-    border-radius: 50%;
 }

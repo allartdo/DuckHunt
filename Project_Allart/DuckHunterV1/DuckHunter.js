@@ -28,7 +28,6 @@ var duckCoin = document.getElementById('duckCoin');
 
 //levels
 var levelsPage = document.getElementById('levelsPage');
-var borderWorldButton = document.getElementsByClassName('borderOfWorldButtton');
 var World1Menu = document.getElementById('World1Menu');
 
 //shop
