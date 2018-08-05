@@ -1,6 +1,6 @@
 //Background images
-var Background = document.getElementById('Background');
-var World1Background = document.getElementById('World1Background');
+var backGround = document.getElementById('backGround');
+var world1BackGround = document.getElementById('world1BackGround');
 
 //Settings Clicks
 var settingsVariables = [settingsClick = 0, musicClick = 0, fullscreenClick = 0];           //for shorter code and keeping it clear code. Array for variables with numbers.
@@ -12,20 +12,26 @@ var audio = document.getElementById('Rust');
 var STonOff = document.getElementById('settingsMainMenuSoundSwitch');
 var FSonOff = document.getElementById('settingsFullscreenSwitch');
 var settingsMenu = document.getElementById('settingsMenu');
-var elem = document.documentElement;
+var holeDoc = document.documentElement;
 
 //Main Menu
 var mmMenu = document.getElementById('mmMenu');
 
+<<<<<<< HEAD
 //Money
 var MoneyDiv = document.getElementById('MoneyDiv');
 var Money = document.getElementById('Money');
 var duckCoin = document.getElementById('duckCoin');
+=======
+>>>>>>> e46dc3cf774024a66876f45fc0730a5e01e2684e
 //Duck Title
 var duckTitle = document.getElementById('duckTitle');
 
 //Play
 var level1Div = document.getElementById('level1Div');
+var moneyDiv = document.getElementById('moneyDiv');
+var Money = document.getElementById('Money');
+var duckCoin = document.getElementById('duckCoin');
 
 //levels
 var levelsPage = document.getElementById('levelsPage');
@@ -41,11 +47,11 @@ var sSkillMenu = document.getElementById('sSkillMenu');
 var creditsPage = document.getElementById('creditsPage');
 
 
-document.getElementById('backGroundSound').innerHTML = '<iframe class="testFrame" id="Schot" src="./Sounds/silent.mp3"></iframe>';  //if you dont use an iframe then its impossible to get your music starting automaticly in chrome, here i start a silent sound for 1 second and so on the video in html will succees auto starting. 
+document.getElementById('backGroundSound').innerHTML = '<iframe class="iFrameSound" src="./Sounds/silent.mp3"></iframe>';  //if you dont use an iframe then its impossible to get your music starting automaticly in chrome, here i start a silent sound for 1 second and so on the video in html will succees auto starting. 
 audio.volume = '0.9';
 
 
-// All Settings
+// Showing/hiding settings menu
 function settingsButton() {
     if (settingsClick == 0) {
         settingsMenu.style.display = 'block';
@@ -58,8 +64,8 @@ function settingsButton() {
     }
 }
 
-
-function switchMusic () {
+//Putting the main menu sound on/off
+function switchMainMenuMusic () {
     if (musicClick == 0) {
         audio.pause();
         STonOff.innerHTML = 'OFF';
@@ -76,14 +82,14 @@ function switchMusic () {
 
 function switchFullscreen() {               //Fullscreen ON
     if (fullscreenClick == 0) {                 //when fullscreenClick is equal to 0 then activate everything under this.
-        if (elem.requestFullscreen) {           //When elem (document).requestFullscreen is active then 
-            elem.requestFullscreen();
-          } else if (elem.mozRequestFullScreen) { /* Firefox */
-            elem.mozRequestFullScreen();
-          } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-            elem.webkitRequestFullscreen();
-          } else if (elem.msRequestFullscreen) { /* IE/Edge */
-            elem.msRequestFullscreen();
+        if (holeDoc.requestFullscreen) {           //When elem (document).requestFullscreen is active then 
+            holeDoc.requestFullscreen();
+          } else if (holeDoc.mozRequestFullScreen) { /* Firefox */
+            holeDoc.mozRequestFullScreen();
+          } else if (holeDoc.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+            holeDoc.webkitRequestFullscreen();
+          } else if (holeDoc.msRequestFullscreen) { /* IE/Edge */
+            holeDoc.msRequestFullscreen();
           }
         FSonOff.innerHTML = 'ON';
         fullscreenClick = 1;
@@ -110,16 +116,18 @@ function toFirstLevel() {
     mmMenu.style.display = 'none';
     duckTitle.style.display = 'none';
     settingsMenu.style.display = 'none';
-    Background.style.display = 'none';
-    World1Background.style.display = 'block';
+    backGround.style.display = 'none';
+    world1BackGround.style.display = 'block';
     level1Div.style.display = 'block';
-    MoneyDiv.style.width = '125px';
-    MoneyDiv.style.height = '30px';
+    moneyDiv.style.width = '125px';
+    moneyDiv.style.height = '30px';
     Money.style.fontSize = '20px';
     Money.style.top = '-12px';
     duckCoin.style.width = '27.5px';
     duckCoin.style.height = '27.5px';
     duckCoin.style.top = '1px';
+    settingsClick = 0;
+    
 }
 
 //shop 
@@ -254,8 +262,6 @@ function backToLevelsMenu4() {
 }
 
 
-
-
 //Credits
 
 function toCredits() {
@@ -265,7 +271,6 @@ function toCredits() {
     creditsPage.style.display = 'block';
     settingsClick = 0;
 }
-
 
 function creditsBackToMenu() {
     mmMenu.style.display = 'block';

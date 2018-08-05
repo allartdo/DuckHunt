@@ -3,8 +3,11 @@
 * {
     user-select: none;
 }
+
+.iFrameSound {display: none;}
+
 /* Duck Coin*/
-.BorderOfDuckCoin {
+.borderOfDuckCoin {
     position: absolute;
     top: 25px;
     left: 20px;
@@ -17,7 +20,7 @@
     background-color: rgba(255, 255, 255, 0.33);
     z-index: 1;
 }
-.DuckCoin {
+.duckCoin {
     position: absolute;
     top: 3px;
     left: 3px;
@@ -34,7 +37,7 @@
 }
 
 /* Background */
-.Background {
+.backGround {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -43,7 +46,7 @@
     z-index: 0;
 }
 
-.World1Background {
+.world1BackGround {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -53,7 +56,6 @@
     display: none;
 }
 
-/* Duck Title */
 .duckTitle {
     position: relative;
     font-family: 'Kumar One', cursive;
@@ -63,7 +65,7 @@
     animation: mainMenuText2 4s;
 }
 
-/* All settings button */
+/* All settings css*/
 .settingsButton {
     position: absolute;
     top: 5%;
@@ -98,14 +100,9 @@
     z-index: 1;
 }
 
-.settingsText {
-   text-align: center;
-}
+.settingsText {text-align: center;}
 
-.settingsText2 {
-    width: max-content;
-    cursor: pointer;
-}
+.settingsText2 {width: max-content; cursor: pointer;}
 
 .settingsTextON:hover {
     font-size: 27px;
@@ -121,9 +118,6 @@
     float: right;
 }
 
-.testFrame {
-    display: none;
-}
 
 .basicShopLevelsCreditsTextDiv {
     position: relative;
@@ -137,7 +131,7 @@
 }
 
 /* All the Titles of the pages */
-.basicTitles2 {
+.basicTitle {
     position: relative;
     width: max-content;
     font-family: 'Kumar One', cursive;
@@ -186,9 +180,7 @@
     cursor: pointer;
     animation: mainMenuText 4s;
 }
-.mmTitle:hover {
-    font-size: 65px;
-}
+.mmTitle:hover {font-size: 65px;}
 
 /* Play Level 1*/
 .Gun {
@@ -221,15 +213,9 @@
     height: 460px;
 }
 
-.sSkillButton {
-    left: 60%;
-}
+.sSkillButton {left: 60%;}
 
-
-
-.sSkillButton:hover {
-    left: 59.7%;
-}
+.sSkillButton:hover {left: 59.7%;}
 
 
 .sGunButtonTitle {
@@ -242,7 +228,7 @@
 }
 
 
-#FotoGunButton {
+.imageGunButton {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -254,7 +240,7 @@
 }
 
 /* In The Gun Menu Shop*/
-.BorderOfGunsAndSkills {
+.borderOfGunsAndSkills {
     position: absolute;
     left: 50%;
     margin-left: -750px;
@@ -267,7 +253,7 @@
     background-color: transparent;
 }
 
-#FotoSkillButton {
+.imageSkillButton {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -293,22 +279,13 @@
     background-image: url("./Images/GroenBos.jpg");
 }
 
-.borderOfWorldButton2 {
-    left: 31%;
-    background-image: url("./Images/Woestijn.jpg");
-}
+.borderOfWorldButton2 {left: 31%; background-image: url("./Images/Woestijn.jpg");}
 
-.borderOfWorldButton3 {
-    left: 51.2%;
-    background-image: url("./Images/WinterPlaats.jpg");
-}
+.borderOfWorldButton3 {left: 51.2%; background-image: url("./Images/WinterPlaats.jpg");}
 
-.borderOfWorldButton4 {
-    left: 71.6%;
-    background-image: url("./Images/WaterFall.jpg");
-}
+.borderOfWorldButton4 {left: 71.6%; background-image: url("./Images/WaterFall.jpg");}
 
-.WorldsTitle {
+.worldsTitle {
     position: absolute;
     font-size: 30px;
     font-family: 'Kumar One', cursive;
@@ -317,7 +294,7 @@
     text-shadow: 0px 0px 2px  white;
 }
 
-.LevelNumbers {
+.levelNumbers {
     position: absolute;
     font-size: 30px;
     font-family: 'Kumar One', cursive;
@@ -327,17 +304,13 @@
     text-shadow: 0px 0px 2px  white;
 }
 
-.LevelNumbers2 {
-    left: 100px;
-}
-.LevelNumbers3 {
-    left: 100px;
-}
-.LevelNumbers4 {
-    left: 97px;
-}
+.levelNumbers2 {left: 100px;}
 
-.BorderOfWorlds {
+.levelNumbers3 {left: 100px;}
+
+.levelNumbers4 {left: 97px;}
+
+.borderOfWorlds {
     position: absolute;
     left: 50%;
     margin-left: -750px;
@@ -352,19 +325,15 @@
     background-size: 100% 100%;
 }
 
-.BorderOfWorlds2 {
-    background-image: url("./Images/Woestijn.jpg");
-}
+.borderOfWorlds2 {background-image: url("./Images/Woestijn.jpg");}
 
-.BorderOfWorlds3 {
-    background-image: url("./Images/WinterPlaats.jpg");
-}
+.borderOfWorlds3 {background-image: url("./Images/WinterPlaats.jpg");}
 
-.BorderOfWorlds4 {
-    background-image: url("./Images/WaterFall.jpg");
-}
+.borderOfWorlds4 {background-image: url("./Images/WaterFall.jpg");}
+
+
+
 /* All css about the Credits menu*/
-
 
 .cBasicText {
     position: absolute;
@@ -381,24 +350,10 @@
     font-size: 20px;
 }
 
-.cSound {
-    left: 20%;
-}
+.cSound {left: 20%;}
 
-.cCreators {
-    left: 35%;
-}
+.cCreators {left: 35%;}
 
-.cDesign {
-    left: 50%;
-}
+.cDesign {left: 50%;}
 
-.cIdeas {
-    left: 65%;
-}
-
-
-
-
-
-
+.cIdeas {left: 65%;}

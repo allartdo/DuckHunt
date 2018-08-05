@@ -1,7 +1,8 @@
-var left = -300;
+var move = -300;
 var randomTop = 0;
 var enable = 0;
-var fouten = 0;
+var lostHalfAHearth = 0;
+var hitPoint = 0;
 var bird1 = document.getElementById("bird");
 //var x = getRandomTop();
 
@@ -25,7 +26,7 @@ var bird1 = document.getElementById("bird");
 
 function hit() {
     bird1.style.visibility = "hidden";
-    fouten -=1;
+    hitPoint = 1;
 }
 
 
@@ -44,29 +45,32 @@ function PlayGame(){
 
     setInterval(function(){
         if (randomTop > bird1.offsetTop) {
-            bird1.style.top = bird1.offsetTop + +3;                 //3px if you want to zoom out and be able to use this (25% zoom)
+            bird1.style.top = bird1.offsetTop + +2;                 //3px if you want to zoom out and be able to use this (25% zoom)
             //console.log(bird1.style.top);
         } else {
-            bird1.style.top = bird1.offsetTop + -3;                 //1 pixel with 100% zoom
+            bird1.style.top = bird1.offsetTop + -2;                 //1 pixel with 100% zoom
         }
         if (bird1.offsetTop > document.body.clientHeight - 70) {
-            bird1.style.top = bird1.offsetTop + -3;
+            bird1.style.top = bird1.offsetTop + -2;
         }
     }, 1);
 
 
 
     function goRight() {
-        left += 2;                                  //Speed of moving to Right. (every milli second he moves left +=... pixels)
+        move += 2;                                  //Speed of moving to Right. (every milli second he moves left +=... pixels)
         //console.log(x[0])
         //bird1.style.top = x[0] + 'px';
         bird1.style.transform = "scale(1)";
-        bird1.style.left = left + "px";
-        if (left > document.body.clientWidth + 100) {
-            fouten +=1;
-            alert("You lost half a heart!")
-            console.log(fouten);
+        bird1.style.left = move + "px";
+        if (move > document.body.clientWidth + 100) {
+            if (hitPoint == 0) {
+                lostHalfAHearth +=1;
+                //alert("You lost half a heart!")
+                console.log(lostHalfAHearth);
+            }
             bird1.style.visibility = "visible";
+            hitPoint = 0;
             clearInterval(reset);
             speed = setInterval(goLeft);
         }
@@ -74,14 +78,17 @@ function PlayGame(){
 
 
     function goLeft() {
-        left -= 2;
+        move -= 2;
         bird1.style.transform = "scaleX(-1)";
-        bird1.style.left = left + "px";
-        if (left < document.body.clientLeft - 200) {
-            fouten +=1;
-            alert("You lost half a heart!")
-            console.log(fouten);
+        bird1.style.left = move + "px";
+        if (move < document.body.clientLeft - 200) {
+            if (hitPoint == 0) {
+                lostHalfAHearth +=1;
+                //alert("You lost half a heart!")
+                console.log(lostHalfAHearth);
+            }
             bird1.style.visibility = "visible";
+            hitPoint = 0;
             clearInterval(speed);
             reset = setInterval(goRight);
         }
