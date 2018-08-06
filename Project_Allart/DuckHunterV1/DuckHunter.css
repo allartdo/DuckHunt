@@ -184,12 +184,21 @@
 
 
 
-/* Play Level 1*/
+/* Play Game*/
 .Gun {
     position: absolute;
     width: 18%;
     height: 18%;
     top: 85%;
+}
+
+.dynMoveBird1 {
+    display: none;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    z-index: 129738123;
 }
 
 

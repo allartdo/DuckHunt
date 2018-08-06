@@ -2,13 +2,13 @@
 var backGround = document.getElementById('backGround');
 var world1BackGround = document.getElementById('world1BackGround');
 
-//Settings Clicks
-var settingsVariables = [settingsClick = 0, musicClick = 0, fullscreenClick = 0];           //for shorter code and keeping it clear code. Array for variables with numbers.
-
 //Audio
 var audio = document.getElementById('Rust');
+document.getElementById('backGroundSound').innerHTML = '<iframe class="iFrameSound" src="./Sounds/silent.mp3"></iframe>';  //if you dont use an iframe then its impossible to get your music starting automaticly in chrome, here i start a silent sound for 1 second and so on the video in html will succees auto starting. 
+audio.volume = '0.9';
 
 //onOff setting
+var settingsVariables = [settingsClick = 0, musicClick = 0, fullscreenClick = 0];           //for shorter code and keeping it clear code. Array for variables with numbers.
 var STonOff = document.getElementById('settingsMainMenuSoundSwitch');
 var FSonOff = document.getElementById('settingsFullscreenSwitch');
 var settingsMenu = document.getElementById('settingsMenu');
@@ -21,10 +21,15 @@ var mmMenu = document.getElementById('mmMenu');
 var duckTitle = document.getElementById('duckTitle');
 
 //Play
+var firstBirdVariables = [move = -200, randomTop = 450, goingRight = 0, goingLeft = 0, enable = 0, lostHalfAHearth = 0, hitPoint = 0];
+var resetNumber, resetMoveTop, reset;
+var bird1 = document.getElementById("bird");
 var level1Div = document.getElementById('level1Div');
 var moneyDiv = document.getElementById('moneyDiv');
 var Money = document.getElementById('Money');
 var duckCoin = document.getElementById('duckCoin');
+bird1.style.top = randomTop;
+bird1.style.left = move;
 
 //levels
 var levelsPage = document.getElementById('levelsPage');
@@ -39,39 +44,37 @@ var sSkillMenu = document.getElementById('sSkillMenu');
 var creditsPage = document.getElementById('creditsPage');
 
 
-document.getElementById('backGroundSound').innerHTML = '<iframe class="iFrameSound" src="./Sounds/silent.mp3"></iframe>';  //if you dont use an iframe then its impossible to get your music starting automaticly in chrome, here i start a silent sound for 1 second and so on the video in html will succees auto starting. 
-audio.volume = '0.9';
 
 
-// Showing/hiding settings menu
-function settingsButton() {
+//Showing/hiding settings menu
+function settingsButton() {             //Showed
     if (settingsClick == 0) {
         settingsMenu.style.display = 'block';
         settingsClick = 1;
     }
 
-   else if (settingsClick == 1) {
+   else if (settingsClick == 1) {       //Hidden
         settingsMenu.style.display = 'none';
         settingsClick = 0;
     }
 }
 
 //Putting the main menu sound on/off
-function switchMainMenuMusic () {
+function switchMainMenuMusic () {       //Music OFF
     if (musicClick == 0) {
         audio.pause();
         STonOff.innerHTML = 'OFF';
         musicClick = 1;
     }
 
-    else if (musicClick == 1) {
+    else if (musicClick == 1) {         //Music ON
         audio.play();
         STonOff.innerHTML = 'ON';
         musicClick = 0;
     }
 }
 
-
+//Fullscreen On/Off
 function switchFullscreen() {               //Fullscreen ON
     if (fullscreenClick == 0) {                 //when fullscreenClick is equal to 0 then activate everything under this.
         if (holeDoc.requestFullscreen) {           //When elem (document).requestFullscreen is active then 
@@ -87,7 +90,7 @@ function switchFullscreen() {               //Fullscreen ON
         fullscreenClick = 1;
     }
 
-    else if (fullscreenClick == 1) {                 //Fullscreen OFF
+    else if (fullscreenClick == 1) {         //Fullscreen OFF
         if (document.exitFullscreen) {
             document.exitFullscreen();
           } else if (document.mozCancelFullScreen) { /* Firefox */
@@ -102,7 +105,103 @@ function switchFullscreen() {               //Fullscreen ON
     }
 }
 
+
 //Play
+
+/*function Pauze() {
+    if (goingLeft == 1) {
+        goLeft();
+        bird1.style.display = "block";
+        alert("contineu goLeft!")
+    }
+    if (goingRight == 1) {
+        goRight();
+        bird1.style.display = "block";
+        alert("contineu goRight!")
+    }
+}
+
+function startAgain() {
+    bird1.style.display = "block";
+    PlayGame();
+}
+
+
+function StopGame() {
+    bird1.style.display = "none";
+    document.getElementById("startAgainButton").style.display = "block";
+    window.clearInterval(resetMoveTop);
+    window.clearInterval(resetNumber);
+    window.clearInterval(resetRight);
+    window.clearInterval(resetLeft);
+}*/
+
+function Hit() {
+    bird1.style.display = "none"
+    hitPoint = 1;
+}
+
+function getRandomTopNumber() {
+    resetNumber = setInterval(function(){
+        randomTop = Math.round(Math.random()*document.body.clientHeight);
+    }, 2000);
+}
+
+function moveTillBorder() {
+    resetMoveTop = setInterval(function(){
+        if (randomTop > bird1.offsetTop) {
+            bird1.style.top = bird1.offsetTop + +2;                 //3px if you want to zoom out and be able to use this function (25% zoom = max zoom out in chrome)
+            //console.log(bird1.style.top);
+            //console.log(randomTop);
+        } else {
+            bird1.style.top = bird1.offsetTop + -2;                 //1 pixel with 100% zoom or higher
+        }
+        if (bird1.offsetTop > document.body.clientHeight - 70) {
+            bird1.style.top = bird1.offsetTop + -2;
+        }
+    }, 1);
+}
+
+function goRight() {
+    resetRight = setInterval(function(){
+        goingLeft = 0;
+        move += 2;
+        bird1.style.transform = "scale(1)";
+        bird1.style.left = move + "px";
+        if (move > document.body.clientWidth + 100) {
+            if (hitPoint == 0) {
+                lostHalfAHearth +=1;
+                console.log(lostHalfAHearth);
+            }
+            goingLeft = 1;
+            bird1.style.display = "block"
+            hitPoint = 0;
+            window.clearInterval(resetRight);
+            goLeft();
+        }
+    }, 1);
+}
+
+function goLeft() {
+    resetLeft = setInterval(function(){
+        goingRight = 0;
+        move -= 2;
+        bird1.style.transform = "scaleX(-1)";
+        bird1.style.left = move + "px";
+        if (move < document.body.clientLeft - 200) {
+            if (hitPoint == 0) {
+                lostHalfAHearth +=1;
+                //alert("You lost half a heart!")
+                console.log(lostHalfAHearth);
+            }
+            goingRight = 1;
+            bird1.style.display = "block"
+            hitPoint = 0;
+            window.clearInterval(resetLeft);
+            goRight();
+        }
+    }, 1);
+}
 
 function toFirstLevel() {
     mmMenu.style.display = 'none';
@@ -111,6 +210,7 @@ function toFirstLevel() {
     backGround.style.display = 'none';
     world1BackGround.style.display = 'block';
     level1Div.style.display = 'block';
+    bird1.style.display = "block";
     moneyDiv.style.width = '125px';
     moneyDiv.style.height = '30px';
     Money.style.fontSize = '20px';
@@ -119,11 +219,13 @@ function toFirstLevel() {
     duckCoin.style.height = '27.5px';
     duckCoin.style.top = '1px';
     settingsClick = 0;
-    
+    getRandomTopNumber();
+    moveTillBorder();
+    goRight();
 }
 
-//shop 
 
+//Shop 
 function toShop() {
     mmMenu.style.display = 'none';
     duckTitle.style.display = 'none';
@@ -132,7 +234,6 @@ function toShop() {
     sGunButton.style.display = 'block';
     settingsClick = 0;
 }
-
 
 function shopBackToMenu() {
     mmMenu.style.display = 'block';
@@ -171,8 +272,8 @@ function backToShopMenu() {
     settingsClick = 0;
 }
 
-//levels
 
+//levels
 function toLevels() {
     mmMenu.style.display = 'none';
     duckTitle.style.display = 'none';
@@ -255,7 +356,6 @@ function backToLevelsMenu4() {
 
 
 //Credits
-
 function toCredits() {
     mmMenu.style.display = 'none';
     duckTitle.style.display = 'none';

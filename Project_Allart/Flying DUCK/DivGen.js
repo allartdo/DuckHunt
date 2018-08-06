@@ -49,7 +49,6 @@ function Pauze() {
 }
 
 
-
 function startAgain() {
     bird1.style.display = "block";
     PlayGame();
