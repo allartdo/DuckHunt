@@ -1,3 +1,10 @@
+/*DuckHunter - js|| made by Allart de Jong and Timo Brandt.
+ⒸCopyRight A.deJong & T.Brand.
+There is showed wich css is used in wich page with the inline documentation.
+*/
+
+
+
 /* All main css (used in more then 1 component) */
 
 * {
@@ -20,6 +27,7 @@
     background-color: rgba(255, 255, 255, 0.33);
     z-index: 1;
 }
+
 .duckCoin {
     position: absolute;
     top: 3px;
@@ -182,12 +190,23 @@
 }
 .mmTitle:hover {font-size: 65px;}
 
-/* Play Level 1*/
+
+
+/* Play Game*/
 .Gun {
     position: absolute;
     width: 18%;
     height: 18%;
     top: 85%;
+}
+
+.dynMoveBird1 {
+    display: none;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    z-index: 129738123;
 }
 
 .Hearts {
@@ -213,7 +232,10 @@
     left: 200px;
     font-size: 30px
 }
-/* All css about the shop menu */
+
+
+
+/* All css about the shop menu || after you click the first time on shop (from main menu). */
 
 .sGunButton {
     position: absolute;
@@ -240,7 +262,6 @@
 
 .sSkillButton:hover {left: 59.7%;}
 
-
 .sGunButtonTitle {
     position: absolute;
     width: max-content;
@@ -249,7 +270,6 @@
     margin-left: -66px;
     left: 50%;
 }
-
 
 .imageGunButton {
     position: absolute;
@@ -262,8 +282,9 @@
     color: black;
 }
 
+
 /* In The Gun Menu Shop*/
-.borderOfGunsAndSkills {
+.sBorderOfGunsAndSkills {
     position: absolute;
     left: 50%;
     margin-left: -750px;
@@ -276,7 +297,7 @@
     background-color: transparent;
 }
 
-.imageSkillButton {
+.sImageSkillButton {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -285,6 +306,69 @@
     margin-left: -130px;
     margin-top: -100px;
 }
+
+.sBasicSkillButton {
+    position: absolute;
+    text-align: center;
+    font-size: 35px;
+    font-family: 'Kumar One', cursive;
+    text-shadow: 0px 0px 2px  white;
+    border-radius: 20px;
+    top: 200px;
+    left: 255px;
+    width: 400px;
+    height: 200px;
+    border: 3px black solid;
+    background-color: rgba(107, 107, 107, 0.37);
+}
+
+.sUpgradeSkill {
+    position: absolute;
+    top: 130px;
+    left: 325px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.sSKillImage {
+    position: absolute;
+    top: 130px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+.sBasicSkillCircleBox {
+    position: absolute;
+    width: 340px;
+    height: 60px;
+    top: 65px;
+    left: 30px;
+}
+
+.sBasicSkillCircle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.185);
+    border: 3px solid black;
+    border-radius: 50px;
+}
+
+.sSkillCircle2 {left: 70px;}
+
+.sSkillCircle3 {left: 140px;}
+
+.sSkillCircle4 {left: 210px;}
+
+.sSkillCircle5 {left: 280px;}
+
+.sExtraBulletsImage {width: 100px;}
+
+.sFasterReloadSkill {left: 1255px;}
+
+.sExtraBulletsSkill {left: 755px;}
 
 
 /* All css about the Levels menu*/

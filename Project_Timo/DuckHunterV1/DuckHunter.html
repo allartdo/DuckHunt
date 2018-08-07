@@ -1,5 +1,5 @@
-<!--DuckHunter || made by Allart de Jong and Timo Brandt -->
-<!--ⒸCopyRight-->
+<!--DuckHunter - HTML|| made by Allart de Jong and Timo Brandt -->
+<!--ⒸCopyRight A.deJong & T.Brand-->
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="./DuckHunter.css">
@@ -8,13 +8,13 @@
     </head>
     <body>
         <img class="backGround" id="backGround" draggable="false" src="./Images/achtergrondSplash.jpg">
+
         <!--Duck Coin -->
         <div class="borderOfDuckCoin" id="moneyDiv">
             <h1 class="Money" id="Money">000000</h1>
             <img class="duckCoin" id="duckCoin" src="./Images/BirdCoin.png">
         </div>
-        <!--Duck Title-->
-        <h1 class="duckTitle" id="duckTitle">Duck Hunter</h1>
+
 
         <!--Settings-->
         <img class="settingsButton" draggable="false" onclick="settingsButton()" src="./Images/settings.png">
@@ -27,6 +27,11 @@
             <h2 class="settingsText2">Fullscreen:      </h2> <h2 onclick="switchFullscreen()" id="settingsFullscreenSwitch" class="settingsText2 settingsTextON">OFF</h2> 
         </div>
 
+
+        <!--Duck Title-->
+        <h1 class="duckTitle" id="duckTitle">Duck Hunter</h1>
+
+
         <!--Sounds-->
         <div style="display: none;" id="backGroundSound"></div>
 
@@ -34,6 +39,8 @@
             <source src="./Sounds/rust.mp3" type="audio/mp3">
         </audio>
         
+
+
         <!--Main Menu-->
         <div class="mmMenu" id="mmMenu">
             <h1 class="mmTitle" onclick="toFirstLevel()">Play</h1>
@@ -42,15 +49,20 @@
             <h1 class="mmTitle" onclick="toCredits()">Credits</h1>
         </div>
         
+
+
         <!--Play || Level 1 -->
         <img class="world1BackGround" id="world1BackGround" draggable="false" src="./Images/Groenbos.jpg">
+        <img class="dynMoveBird1" id="bird" src="./Images/SplashVogel.gif" draggable="false"></img>
         <div class="basicShopLevelsCreditsTextDiv" id="level1Div">
             <h1 class="basicTitle">Level 1</h1>
             <img src="Images\Gun.png" class="Gun" id="Gun">
             <img src="./images/Full hearts 1.png" class="Hearts">
-            <img src="./Images/Ammo circle.png" class="ammoCircle">
+            <img src="./Images/inGameAmmo.png" class="ammoCircle">
             <h1 class="ammoCount" id="ammoCount">10</h1>
         </div>
+
+
 
         <!--Shop || Everything in this is the first shop Page-->
         <div class="basicShopLevelsCreditsTextDiv" id="shopPage">
@@ -63,9 +75,10 @@
 
             <div class="sGunButton sSkillButton" id="sSkillButton" onclick="toSkillMenu()">         <!--Shop Skill Menu Button-->
                 <h1 class="sGunButtonTitle sSkillButtonTitle">Skills</h1>
-                <img src="./Images/FotoSkillButton.png" class="imageSkillButton">
+                <img src="./Images/FotoSkillButton.png" class="sImageSkillButton">
             </div>
         </div>
+
 
         <!--Shop Gun Menu || Everything in this div is after you click the Gun Button-->
         <div class="basicShopLevelsCreditsTextDiv" id="sGunMenu">
@@ -74,13 +87,48 @@
             <h1 class="basicBacks" onclick="backToShopMenu()">Back</h1>
         </div>
 
+
         <!--Shop Skill Menu || Everything in this div is after you click the Skill Button-->
         <div class="basicShopLevelsCreditsTextDiv" id="sSkillMenu">
             <h1 class="basicTitle">Skill Shop</h1>
-            <div class="borderOfGunsAndSkills"></div>
+            <div class="sBorderOfGunsAndSkills"></div>
+            <div class="sBasicSkillButton">Precision
+                <img class="sUpgradeSkill" src="./Images/Plus.png"/>
+                <img class="sSkillImage" src="./Images/Precision.png"/>
+                <div class="sBasicSkillCircleBox">
+                    <div class="sBasicSkillCircle" id="skillCircle1"></div>
+                    <div class="sBasicSkillCircle sSkillCircle2" id="skillCircle2"></div>
+                    <div class="sBasicSkillCircle sSkillCircle3" id="skillCircle3"></div>
+                    <div class="sBasicSkillCircle sSkillCircle4" id="skillCircle4"></div>
+                    <div class="sBasicSkillCircle sSkillCircle5" id="skillCircle5"></div>
+                </div>
+            </div>
+            <div class="sBasicSkillButton sFasterReloadSkill">Faster reload
+                <img class="sUpgradeSkill" src="./Images/Plus.png"/>
+                <img class="sSkillImage" src="./Images/ReloadSpeed.png"/>
+                <div class="sBasicSkillCircleBox">
+                    <div class="sBasicSkillCircle" id="skillCircle1"></div>
+                    <div class="sBasicSkillCircle sSkillCircle2" id="skillCircle2"></div>
+                    <div class="sBasicSkillCircle sSkillCircle3" id="skillCircle3"></div>
+                    <div class="sBasicSkillCircle sSkillCircle4" id="skillCircle4"></div>
+                    <div class="sBasicSkillCircle sSkillCircle5" id="skillCircle5"></div>
+                </div>
+            </div>
+            <div class="sBasicSkillButton sExtraBulletsSkill">Extra bullets
+                <img class="sUpgradeSkill" src="./Images/Plus.png"/>
+                <img class="sSkillImage sExtraBulletsImage" src="./Images/ExtraBullets.png"/>
+                <div class="sBasicSkillCircleBox">
+                    <div class="sBasicSkillCircle" id="skillCircle1"></div>
+                    <div class="sBasicSkillCircle sSkillCircle2" id="skillCircle2"></div>
+                    <div class="sBasicSkillCircle sSkillCircle3" id="skillCircle3"></div>
+                    <div class="sBasicSkillCircle sSkillCircle4" id="skillCircle4"></div>
+                    <div class="sBasicSkillCircle sSkillCircle5" id="skillCircle5"></div>
+                </div>
+            </div>
             <h1 class="basicBacks" onclick="backToShopMenu()">Back</h1>
         </div>
         
+
 
         <!--Levels-->
         <div class="basicShopLevelsCreditsTextDiv" id="levelsPage">
@@ -103,6 +151,7 @@
                 </div>
             <h1 class="basicBacks" onclick="levelsBackToMenu()">Back</h1>
         </div>
+
 
         <!--Levels || Worlds clicks-->
 
@@ -136,9 +185,6 @@
 
 
 
-
-
-        
         <!--Credits-->
         <div class="basicShopLevelsCreditsTextDiv" id="creditsPage">
             <h1 class="basicTitle">Credits</h1>
