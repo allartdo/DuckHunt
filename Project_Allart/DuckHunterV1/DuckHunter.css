@@ -1,3 +1,10 @@
+/*DuckHunter - js|| made by Allart de Jong and Timo Brandt.
+ⒸCopyRight A.deJong & T.Brand.
+There is showed wich css is used in wich page with the inline documentation.
+*/
+
+
+
 /* All main css (used in more then 1 component) */
 
 * {
@@ -20,6 +27,7 @@
     background-color: rgba(255, 255, 255, 0.33);
     z-index: 1;
 }
+
 .duckCoin {
     position: absolute;
     top: 3px;
