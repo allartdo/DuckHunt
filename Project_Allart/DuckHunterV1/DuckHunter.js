@@ -1,5 +1,5 @@
 //DuckHunter - js|| made by Allart de Jong and Timo Brandt.
-//ⒸCopyRight A.deJong & T.Brand.
+//ⒸCopyRight A.deJong & T.Brandt.
 //Variable = doc.id is main for objects that we use more then twice!
 //There is showed wich variables are used for what with the inline documentation.
 //Every function has clear explanation of how it works.
@@ -37,6 +37,8 @@ var level1Div = document.getElementById('level1Div');
 var moneyDiv = document.getElementById('moneyDiv');
 var Money = document.getElementById('Money');
 var duckCoin = document.getElementById('duckCoin');
+var ammoCount = document.getElementById('ammoCount');
+var Ammo = 10;
 bird1.style.top = randomTop;
 bird1.style.left = move;
 
@@ -135,6 +137,16 @@ function startAgain() {
     PlayGame();
 }*/
 
+function Gun() {
+    document.onclick = function() {
+    Ammo--;
+    ammoCount.innerHTML = Ammo;
+    if(Ammo == 0) {
+        Ammo++;
+        console.log(Ammo)
+    }
+    }
+}
 
 bird1.onclick = function hitBird1() {
     bird1.style.display = "none"
@@ -239,6 +251,7 @@ function toFirstLevel() {
     duckCoin.style.top = '1px';
     settingsClick = 0;
     Bird1();
+    setInterval(Gun, 3500);
 }
 
 function gameOver() {
