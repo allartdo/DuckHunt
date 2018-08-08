@@ -28,22 +28,31 @@ var mmMenu = document.getElementById('mmMenu');
 var duckTitle = document.getElementById('duckTitle');
 
 //Play
-var firstBirdVariables = [move = -200, randomTop = 450, goingRight = 0, goingLeft = 0, enable = 0, lostHalfAHearth = 0, hitPoint = 0];
+var birdVariables = [move = -200, randomTop = 450, goingRight = 0, goingLeft = 0, enable = 0, lostHalfAHearth = 0, dontLoseLifeOnHit = 0];
 var resetNumber; 
 var resetMoveTop;
+var resetRight;
+var resetLeft;
 var reset;
+var hitPoints = 0;
+var hitsNeeded = 3;
+var gamesWon = 0;
 var bird1 = document.getElementById("bird");
+var youWinDiv = document.getElementById('youWinDiv');
 var Gun1 = document.getElementById('Gun1')
-var level1Div = document.getElementById('level1Div');
+var levelDiv = document.getElementById('levelDiv');
+var levelText = document.getElementById('levelText');
 var moneyDiv = document.getElementById('moneyDiv');
 var moneyCount = document.getElementById('Money');
-var Money = 0;
 var duckCoin = document.getElementById('duckCoin');
 var ammoCount = document.getElementById('ammoCount');
+var Money = 0;
 var Ammo = 10;
 bird1.style.top = randomTop;
 bird1.style.left = move;
-var level1Text = document.getElementById('level1Text');
+
+//Game over
+var gameOverDiv = document.getElementById('gameOverDiv');
 
 //levels
 var levelsPage = document.getElementById('levelsPage');
@@ -59,6 +68,11 @@ var creditsPage = document.getElementById('creditsPage');
 
 
 
+//settings
+function hideSettingsMenu() {
+    settingsMenu.style.display = 'none';      //then hide the settingsMenu (display none).
+    settingsClick = 0;                        //settingsClick to 0 to reset the loop. (now the menu can be opened again and so i created a loop on click).
+}
 
 //Showing/hiding settings menu || onClick
 function settingsButton() {             //Showed
@@ -68,8 +82,7 @@ function settingsButton() {             //Showed
     }
 
    else if (settingsClick == 1) {       //Hidden || when settingsClick is equal to 1 (what he is when you clicked it once)
-        settingsMenu.style.display = 'none';      //then hide the settingsMenu (display none).
-        settingsClick = 0;                        //settingsClick to 0 to reset the loop. (now the menu can be opened again and so i created a loop on click).
+    hideSettingsMenu();
     }
 }
 
@@ -141,37 +154,57 @@ function startAgain() {
 }*/
 
 
+
+function youWin() {
+    gamesWon ++;
+    bird1.style.visibility = "visible";
+    bird1.style.display = "none";
+    window.clearInterval(resetMoveTop);
+    window.clearInterval(resetNumber);
+    window.clearInterval(resetRight);
+    window.clearInterval(resetLeft);
+    levelDiv.style.display = "none";
+    youWinDiv.style.display = "block";
+    moneyDiv.style.width = '250px';
+    moneyDiv.style.height = '60px';
+    moneyCount.style.fontSize = '40px';
+    moneyCount.style.top = '-25px';
+    duckCoin.style.width = '55px';
+    duckCoin.style.height = '55px';
+    duckCoin.style.top = '3px';
+    hitPoints = 0;
+    hideSettingsMenu();
+}
+
 function gunShot() {
-    level1Div.onmousedown = function() {
+    levelDiv.onmousedown = function() {
         Ammo--;
         ammoCount.innerHTML = Ammo;
-        console.log(Ammo);
-        if(Ammo == 0) {
+        if(Ammo == 0 && hitPoints < hitsNeeded) {
             Ammo ++;
-            console.log(Ammo);
             gameOver();
         }
     }
 }
 
-
-
 bird1.onmousedown = function hitBird1() {       
     bird1.style.visibility = "hidden";
-    hitPoint = 1;
-    Ammo--;
-    ammoCount.innerHTML = Ammo;
+    dontLoseLifeOnHit = 1;
+    hitPoints ++;
     Money += 50;
     moneyCount.innerHTML = Money;
-    console.log(Ammo);
-    if(Ammo == 0) {
+    Ammo--;
+    ammoCount.innerHTML = Ammo;
+    if(Ammo == 0 && hitPoints < hitsNeeded) {
         Ammo ++;
-        console.log(Ammo);
         gameOver();
+    }
+    if (hitPoints == hitsNeeded) {
+        youWin();
     }
 }
 
-window.onmousemove = function(e) {
+window.onmousemove = function(e) {          //the gun now follows the mouse 
     var x = e.pageX;
     Gun1.style.left = x - 50 + 'px';
 }
@@ -209,7 +242,7 @@ goRight();
             bird1.style.transform = "scale(1)";
             bird1.style.left = move + "px";
             if (move > document.body.clientWidth + 100) {
-                if (hitPoint == 0) {
+                if (dontLoseLifeOnHit == 0) {
                     lostHalfAHearth +=1;
                     console.log(lostHalfAHearth);
                 }
@@ -218,7 +251,7 @@ goRight();
                 } else {
                 goingLeft = 1;
                 bird1.style.visibility = "visible";
-                hitPoint = 0;
+                dontLoseLifeOnHit = 0;
                 window.clearInterval(resetRight);
                 goLeft();
                 }
@@ -233,7 +266,7 @@ goRight();
             bird1.style.transform = "scaleX(-1)";
             bird1.style.left = move + "px";
             if (move < document.body.clientLeft - 200) {
-                if (hitPoint == 0) {
+                if (dontLoseLifeOnHit == 0) {
                     lostHalfAHearth +=1;
                     //alert("You lost half a heart!")
                     console.log(lostHalfAHearth);
@@ -243,7 +276,7 @@ goRight();
                 } else {
                 goingRight = 1;
                 bird1.style.visibility = "visible";
-                hitPoint = 0;
+                dontLoseLifeOnHit = 0;
                 window.clearInterval(resetLeft);
                 goRight();
                 }
@@ -252,13 +285,12 @@ goRight();
     }
 }
 
-function toFirstLevel() {
+function playGame() {
     mmMenu.style.display = 'none';
     duckTitle.style.display = 'none';
-    settingsMenu.style.display = 'none';
     backGround.style.display = 'none';
     world1BackGround.style.display = 'block';
-    level1Div.style.display = 'block';
+    levelDiv.style.display = 'block';
     bird1.style.display = "block";
     moneyDiv.style.width = '125px';
     moneyDiv.style.height = '30px';
@@ -267,99 +299,154 @@ function toFirstLevel() {
     duckCoin.style.width = '27.5px';
     duckCoin.style.height = '27.5px';
     duckCoin.style.top = '1px';
-    settingsClick = 0;
     Ammo = 10;
     ammoCount.innerHTML = Ammo;
-    move = -200, randomTop = 450, goingRight = 0, goingLeft = 0, enable = 0, lostHalfAHearth = 0, hitPoint = 0;    //settings of the first bird.
+    move = -200, randomTop = 450, goingRight = 0, goingLeft = 0, enable = 0, lostHalfAHearth = 0, dontLoseLifeOnHit = 0;    //settings of the first bird.
+    hideSettingsMenu();
     Bird1();
     setInterval(gunShot, 1000);
-    setInterval(function(){
-        level1Text.style.opacity = '0';
+    setInterval(function(){                            //TEMPORARRY !! ITS NOW ACTIVATING EVERY 5 SECONDS (MAKING THE GAME MORE LAGGY IF U HAVE SHAIT PC).
+        levelText.style.opacity = '0';                 //TYPE IN HERE WHAT U WANT TO SEE/REMOVE AFTER A SPECIAL AMOUT OF TIME.
     }, 5000);
-    document.body.style.cursor = 'crosshair';
 }
 
 function gameOver() {
+    bird1.style.visibility = "visible";
     bird1.style.display = "none";
     window.clearInterval(resetMoveTop);
     window.clearInterval(resetNumber);
     window.clearInterval(resetRight);
-    if (goingRight == 1) {
-        window.clearInterval(resetLeft);
-    }
-    world1BackGround.style.display = 'none';        //!! TEMPORARY !! || UNTILL WE HAVE A REAL GAMEOVER
-    level1Div.style.display = 'none';               //!! TEMPORARY !! || UNTILL WE HAVE A REAL GAMEOVER
-    settingsMenu.style.display = 'none';            //!! TEMPORARY !! || UNTILL WE HAVE A REAL GAMEOVER
-    mmMenu.style.display = 'block';                 //!! TEMPORARY !! || UNTILL WE HAVE A REAL GAMEOVER
-    duckTitle.style.display = 'block';              //!! TEMPORARY !! || UNTILL WE HAVE A REAL GAMEOVER
-    backGround.style.display = 'block';             //!! TEMPORARY !! || UNTILL WE HAVE A REAL GAMEOVER
-    settingsClick = 0;
+    window.clearInterval(resetLeft);
+    levelDiv.style.display = "none";
+    gameOverDiv.style.display = "block";
+    moneyDiv.style.width = '250px';
+    moneyDiv.style.height = '60px';
+    moneyCount.style.fontSize = '40px';
+    moneyCount.style.top = '-25px';
+    duckCoin.style.width = '55px';
+    duckCoin.style.height = '55px';
+    duckCoin.style.top = '3px';
+    hitPoints = 0;
+    hideSettingsMenu();
+}
+
+function retryLevel() {                             //GAME OVER
+    gameOverDiv.style.display = "none";
+    hideSettingsMenu();
+    playGame();
+}
+
+function gameOverToMainMenu() {                     //GAME OVER
+    gameOverDiv.style.display = "none";
+    backGround.style.display = 'block';
+    world1BackGround.style.display = 'none';
+    hideSettingsMenu();
+    toMainMenu();
+}
+
+function youWinToMainMenu() {                       //YOU WIN
+    youWinDiv.style.display = "none";
+    backGround.style.display = 'block';
+    world1BackGround.style.display = 'none';
+    hideSettingsMenu();
+    toMainMenu();
+}
+
+function gameOverToLevels() {                       //GAME OVER
+    gameOverDiv.style.display = "none";
+    backGround.style.display = 'block';
+    world1BackGround.style.display = 'none';
+    levelsPage.style.display = 'block';
+    hideSettingsMenu();
+}
+
+function youWinToLevels() {                         //YOU WIN
+    youWinDiv.style.display = "none";
+    backGround.style.display = 'block';
+    world1BackGround.style.display = 'none';
+    levelsPage.style.display = 'block';
+    hideSettingsMenu();
+}
+
+function gameOverToShop() {                         //GAME OVER
+    gameOverDiv.style.display = "none";
+    backGround.style.display = 'block';
+    world1BackGround.style.display = 'none';
+    hideSettingsMenu();
+    toShop();
+}
+
+function youWinToShop() {                           //YOU WIN
+    youWinDiv.style.display = "none";
+    backGround.style.display = 'block';
+    world1BackGround.style.display = 'none';
+    hideSettingsMenu();
+    toShop();
 }
 
 
-//Shop 
-function toShop() {
+//Main menu
+function toMainMenu() {                                 //PURE MADE FOR SHORTER CODE
+    mmMenu.style.display = 'block';
+    duckTitle.style.display = 'block';
+    hideSettingsMenu();
+}
+
+function outMainMenu() {                                //PURE MADE FOR SHORTER CODE
     mmMenu.style.display = 'none';
     duckTitle.style.display = 'none';
-    settingsMenu.style.display = 'none';
+    hideSettingsMenu();
+}
+
+
+//Shop
+function toShop() {                                     //PURE MADE FOR SHORTER CODE
     shopPage.style.display = 'block';
     sGunButton.style.display = 'block';
-    settingsClick = 0;
+    hideSettingsMenu();
+}
+
+function mainMenuToShop() {
+    outMainMenu()
+    toShop();
 }
 
 function shopBackToMenu() {
-    mmMenu.style.display = 'block';
-    duckTitle.style.display = 'block';
+    toMainMenu();
     shopPage.style.display = 'none'; 
     sGunButton.style.display = 'none';
-    settingsMenu.style.display = 'none';
-    settingsClick = 0;
 }
 
 //Shop Gun Menu
 function toGunMenu() {
-    mmMenu.style.display = 'none';
-    duckTitle.style.display = 'none';
     shopPage.style.display = 'none';
-    settingsMenu.style.display = 'none';
     sGunMenu.style.display = 'block';
-    settingsClick = 0;
+    hideSettingsMenu();
 }
 
 //Shop Skill Menu
 function toSkillMenu() {
-    mmMenu.style.display = 'none';
-    duckTitle.style.display = 'none';
     shopPage.style.display = 'none';
-    settingsMenu.style.display = 'none';
     sSkillMenu.style.display = 'block';
-    settingsClick = 0;
+    hideSettingsMenu();
 }
 
 function backToShopMenu() {
     sGunMenu.style.display = 'none';
     sSkillMenu.style.display = 'none';
-    settingsMenu.style.display = 'none';
-    shopPage.style.display = 'block'
-    settingsClick = 0;
+    toShop();
 }
 
 
 //levels
-function toLevels() {
-    mmMenu.style.display = 'none';
-    duckTitle.style.display = 'none';
-    settingsMenu.style.display = 'none';
+function mainMenuToLevels() {
+    outMainMenu();
     levelsPage.style.display = 'block';
-    settingsClick = 0;
 }
 
 function levelsBackToMenu() {
-    mmMenu.style.display = 'block';
-    duckTitle.style.display = 'block';
+    toMainMenu();
     levelsPage.style.display = 'none';
-    settingsMenu.style.display = 'none';
-    settingsClick = 0;
 }
 
 //Levels || World Selector
@@ -368,30 +455,26 @@ function levelsBackToMenu() {
 function toWorld1() {
     levelsPage.style.display = 'none';
     world1Menu.style.display = 'block';
-    settingsMenu.style.display = 'none';
-    settingsClick = 0;
+    hideSettingsMenu();
 }
 
 function backToLevelsMenu1() {
     levelsPage.style.display = 'block';
     world1Menu.style.display = 'none';
-    settingsMenu.style.display = 'none';
-    settingsClick = 0;
+    hideSettingsMenu();
 }
 
 //World 2 -- Level/World selector!!
 function toWorld2() {
     levelsPage.style.display = 'none';
     world2Menu.style.display = 'block';
-    settingsMenu.style.display = 'none';
-    settingsClick = 0;
+    hideSettingsMenu();
 }
 
 function backToLevelsMenu2() {
     levelsPage.style.display = 'block';
     world2Menu.style.display = 'none';
-    settingsMenu.style.display = 'none';
-    settingsClick = 0;
+    hideSettingsMenu();
 }
 
 
@@ -399,15 +482,13 @@ function backToLevelsMenu2() {
 function toWorld3() {
     levelsPage.style.display = 'none';
     world3Menu.style.display = 'block';
-    settingsMenu.style.display = 'none';
-    settingsClick = 0;
+    hideSettingsMenu();
 }
 
 function backToLevelsMenu3() {
     levelsPage.style.display = 'block';
     world3Menu.style.display = 'none';
-    settingsMenu.style.display = 'none';
-    settingsClick = 0;
+    hideSettingsMenu();
 }
 
 
@@ -415,33 +496,25 @@ function backToLevelsMenu3() {
 function toWorld4() {
     levelsPage.style.display = 'none';
     world4Menu.style.display = 'block';
-    settingsMenu.style.display = 'none';
-    settingsClick = 0;
+    hideSettingsMenu();
 }
 
 function backToLevelsMenu4() {
     levelsPage.style.display = 'block';
     world4Menu.style.display = 'none';
-    settingsMenu.style.display = 'none';
-    settingsClick = 0;
+    hideSettingsMenu();
 }
 
 
 //Credits
 function toCredits() {
-    mmMenu.style.display = 'none';
-    duckTitle.style.display = 'none';
-    settingsMenu.style.display = 'none';
+    outMainMenu();
     creditsPage.style.display = 'block';
-    settingsClick = 0;
 }
 
 function creditsBackToMenu() {
-    mmMenu.style.display = 'block';
-    duckTitle.style.display = 'block';
+    toMainMenu();
     creditsPage.style.display = 'none';
-    settingsMenu.style.display = 'none';
-    settingsClick = 0;
 }
 
 

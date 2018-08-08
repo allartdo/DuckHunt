@@ -209,6 +209,7 @@ body {
     position: absolute;
     width: 100px;
     height: 100px;
+    cursor: pointer;
     z-index: 129738123;
 }
 
@@ -236,6 +237,26 @@ body {
     font-size: 30px
 }
 
+
+/* all css about the Game over || after you lost the game */
+
+.gFailAndWinMenu {
+    position: absolute;
+    top: 230px;
+    left: 50%;
+    margin-left: -200px;
+    width: 400px;
+    height: 393px;
+    border: 3px black solid;
+}
+
+.gClickDivs {
+    font-size: 85px;
+    border: solid 2px;
+    margin: -3px;
+    text-align: center;
+    cursor: pointer;
+}
 
 
 /* All css about the shop menu || after you click the first time on shop (from main menu). */

@@ -43,9 +43,9 @@
 
         <!--Main Menu-->
         <div class="mmMenu" id="mmMenu">
-            <h1 class="mmTitle" onclick="toFirstLevel()">Play</h1>
-            <h1 class="mmTitle" onclick="toLevels()">Levels</h1>
-            <h1 class="mmTitle" onclick="toShop()">Shop</h1>
+            <h1 class="mmTitle" onclick="playGame()">Play</h1>
+            <h1 class="mmTitle" onclick="mainMenuToLevels()">Levels</h1>
+            <h1 class="mmTitle" onclick="mainMenuToShop()">Shop</h1>
             <h1 class="mmTitle" onclick="toCredits()">Credits</h1>
         </div>
         
@@ -54,14 +54,37 @@
         <!--Play || Level 1 -->
         <img class="world1BackGround" id="world1BackGround" draggable="false" src="./Images/world1Background.jpg">
         <img class="dynMoveBird1" id="bird" src="./Images/SplashVogel.gif" draggable="false"></img>
-        <div class="basicShopLevelsCreditsTextDiv" id="level1Div">
-            <h1 class="basicTitle" id="level1Text">Level 1</h1>
+        <div class="basicShopLevelsCreditsTextDiv" id="levelDiv">
+            <h1 class="basicTitle" id="levelText">Level 1</h1>
             <img src="Images\Gun.png" class="Gun" id="Gun1">
             <img src="./images/Full hearts 1.png" class="Hearts">
             <img src="./Images/inGameAmmo.png" class="ammoCircle">
             <h1 class="ammoCount" id="ammoCount">10</h1>
         </div>
 
+
+        <!--Game over || When ammo is empty or you lost all your hearts, you will come here-->
+        <div class="basicShopLevelsCreditsTextDiv" id="gameOverDiv">
+            <h1 class="basicTitle">Game over!</h1>
+            <div class="gFailAndWinMenu">
+                <div class="gClickDivs" onclick="retryLevel()">Retry</div>
+                <div class="gClickDivs" onclick="gameOverToMainMenu()">Main Menu</div>
+                <div class="gClickDivs" onclick="gameOverToLevels()">Levels</div>
+                <div class="gClickDivs" onclick="gameOverToShop()">Shop</div>
+            </div>
+        </div>
+
+
+        <!--You WIN! || When you win the game this will be shown-->
+        <div class="basicShopLevelsCreditsTextDiv" id="youWinDiv">
+            <h1 class="basicTitle">Good Hunting!</h1>
+            <div class="gFailAndWinMenu">
+                <!--<div class="gClickDivs" onclick="retryLevel()">Retry</div>                 REPLACE THIS LINE FOR A NEXT LEVEL DIV (ONCLICK + TEXT)-->
+                <div class="gClickDivs" onclick="youWinToMainMenu()">Main Menu</div>
+                <div class="gClickDivs" onclick="youWinToLevels()">Levels</div>
+                <div class="gClickDivs" onclick="youWinToShop()">Shop</div>
+            </div>
+        </div>
 
 
         <!--Shop || Everything in this is the first shop Page-->
