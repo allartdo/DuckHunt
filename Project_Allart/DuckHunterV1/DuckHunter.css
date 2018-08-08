@@ -11,6 +11,10 @@ There is showed wich css is used in wich page with the inline documentation.
     user-select: none;
 }
 
+body {
+    overflow: hidden;
+}
+
 .iFrameSound {display: none;}
 
 /* Duck Coin*/
@@ -197,7 +201,7 @@ There is showed wich css is used in wich page with the inline documentation.
     position: absolute;
     width: 18%;
     height: 18%;
-    top: 85%;
+    top: 80%;
 }
 
 .dynMoveBird1 {

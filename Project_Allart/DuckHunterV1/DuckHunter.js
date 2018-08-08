@@ -33,6 +33,7 @@ var resetNumber;
 var resetMoveTop;
 var reset;
 var bird1 = document.getElementById("bird");
+var Gun1 = document.getElementById('Gun1')
 var level1Div = document.getElementById('level1Div');
 var moneyDiv = document.getElementById('moneyDiv');
 var Money = document.getElementById('Money');
@@ -137,26 +138,39 @@ function startAgain() {
     PlayGame();
 }*/
 
-function Gun() {
-    document.onclick = function() {
+
+function gunShot() {
+    level1Div.onmousedown = function() {
+        Ammo--;
+        ammoCount.innerHTML = Ammo;
+        console.log(Ammo);
+        if(Ammo == 0) {
+            Ammo ++;
+            console.log(Ammo);
+            gameOver();
+        }
+    }
+}
+
+
+
+bird1.onmousedown = function hitBird1() {       
+    bird1.style.visibility = "hidden";
+    hitPoint = 1;
     Ammo--;
     ammoCount.innerHTML = Ammo;
+    console.log(Ammo);
     if(Ammo == 0) {
-        Ammo++;
-        console.log(Ammo)
-    }
+        Ammo ++;
+        console.log(Ammo);
+        gameOver();
     }
 }
 
-bird1.onclick = function hitBird1() {
-    bird1.style.display = "none"
-    hitPoint = 1;
+window.onmousemove = function(e) {
+    var x = e.pageX;
+    Gun1.style.left = x - 50 + 'px';
 }
-
-
-//function hitBird1() {
-    
-//}
 
 function Bird1() {                              //FIRST MADE BIRD...        Allart de Jong :)
 getRandomTopNumber();
@@ -199,7 +213,7 @@ goRight();
                     gameOver();
                 } else {
                 goingLeft = 1;
-                bird1.style.display = "block"
+                bird1.style.visibility = "visible";
                 hitPoint = 0;
                 window.clearInterval(resetRight);
                 goLeft();
@@ -224,7 +238,7 @@ goRight();
                     gameOver();
                 } else {
                 goingRight = 1;
-                bird1.style.display = "block"
+                bird1.style.visibility = "visible";
                 hitPoint = 0;
                 window.clearInterval(resetLeft);
                 goRight();
@@ -250,8 +264,11 @@ function toFirstLevel() {
     duckCoin.style.height = '27.5px';
     duckCoin.style.top = '1px';
     settingsClick = 0;
+    Ammo = 10;
+    ammoCount.innerHTML = Ammo;
+    move = -200, randomTop = 450, goingRight = 0, goingLeft = 0, enable = 0, lostHalfAHearth = 0, hitPoint = 0;    //settings of the first bird.
     Bird1();
-    setInterval(Gun, 3500);
+    setInterval(gunShot, 1000);
 }
 
 function gameOver() {
@@ -259,7 +276,9 @@ function gameOver() {
     window.clearInterval(resetMoveTop);
     window.clearInterval(resetNumber);
     window.clearInterval(resetRight);
-    window.clearInterval(resetLeft);
+    if (goingRight == 1) {
+        window.clearInterval(resetLeft);
+    }
     world1BackGround.style.display = 'none';        //!! TEMPORARY !! || UNTILL WE HAVE A REAL GAMEOVER
     level1Div.style.display = 'none';               //!! TEMPORARY !! || UNTILL WE HAVE A REAL GAMEOVER
     settingsMenu.style.display = 'none';            //!! TEMPORARY !! || UNTILL WE HAVE A REAL GAMEOVER
@@ -267,7 +286,6 @@ function gameOver() {
     duckTitle.style.display = 'block';              //!! TEMPORARY !! || UNTILL WE HAVE A REAL GAMEOVER
     backGround.style.display = 'block';             //!! TEMPORARY !! || UNTILL WE HAVE A REAL GAMEOVER
     settingsClick = 0;
-    move = -200, randomTop = 450, goingRight = 0, goingLeft = 0, enable = 0, lostHalfAHearth = 0, hitPoint = 0;    //settings of the first bird.
 }
 
 
