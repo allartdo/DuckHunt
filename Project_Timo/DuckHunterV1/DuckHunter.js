@@ -36,12 +36,14 @@ var bird1 = document.getElementById("bird");
 var Gun1 = document.getElementById('Gun1')
 var level1Div = document.getElementById('level1Div');
 var moneyDiv = document.getElementById('moneyDiv');
-var Money = document.getElementById('Money');
+var moneyCount = document.getElementById('Money');
+var Money = 0;
 var duckCoin = document.getElementById('duckCoin');
 var ammoCount = document.getElementById('ammoCount');
 var Ammo = 10;
 bird1.style.top = randomTop;
 bird1.style.left = move;
+var level1Text = document.getElementById('level1Text');
 
 //levels
 var levelsPage = document.getElementById('levelsPage');
@@ -159,6 +161,8 @@ bird1.onmousedown = function hitBird1() {
     hitPoint = 1;
     Ammo--;
     ammoCount.innerHTML = Ammo;
+    Money += 50;
+    moneyCount.innerHTML = Money;
     console.log(Ammo);
     if(Ammo == 0) {
         Ammo ++;
@@ -258,8 +262,8 @@ function toFirstLevel() {
     bird1.style.display = "block";
     moneyDiv.style.width = '125px';
     moneyDiv.style.height = '30px';
-    Money.style.fontSize = '20px';
-    Money.style.top = '-12px';
+    moneyCount.style.fontSize = '20px';
+    moneyCount.style.top = '-12px';
     duckCoin.style.width = '27.5px';
     duckCoin.style.height = '27.5px';
     duckCoin.style.top = '1px';
@@ -269,6 +273,10 @@ function toFirstLevel() {
     move = -200, randomTop = 450, goingRight = 0, goingLeft = 0, enable = 0, lostHalfAHearth = 0, hitPoint = 0;    //settings of the first bird.
     Bird1();
     setInterval(gunShot, 1000);
+    setInterval(function(){
+        level1Text.style.opacity = '0';
+    }, 5000);
+    document.body.style.cursor = 'crosshair';
 }
 
 function gameOver() {
