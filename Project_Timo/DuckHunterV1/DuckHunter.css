@@ -322,9 +322,138 @@ body {
     border-style: solid;
     border-color: black;
     border-width: 8px;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.34);
+}
+/*Every Gun Border*/
+.ssborderOfAllGuns1-10 {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 125px;
+    height: 125px;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: black;
+    border-width: 7.5px;
+    background-color: rgba(117, 117, 117, 0.50)
+}
+.ssBOAG2 {
+    left: 175px;
+}
+.ssBOAG3 {
+    left: 320px;
+}
+.ssBOAG4 {
+    left: 465px;  
+}
+.ssBOAG5 {
+    left: 610px;
+}
+.ssBOAG6 {
+    left: 755px;
+}
+.ssBOAG7 {
+    left: 900px;
+}
+.ssBOAG8 {
+    left: 1045px;
+}
+.ssBOAG9 {
+    left: 1190px;
+}
+.ssBOAG10 {
+    left: 1335px;
+}
+.ssborderOfAllGuns11-20{
+    position: absolute;
+    top: 243px;
+    left: 30px;
+    width: 125px;
+    height: 125px;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: black;
+    border-width: 7.5px;
+    background-color: rgba(117, 117, 117, 0.5)
 }
 
+.ssBOAG11 {
+    
+}
+.ssBOAG12 {
+    
+}
+.ssBOAG13 {
+    
+}
+.ssBOAG14 {
+    
+}
+.ssBOAG15 {
+    
+}
+.ssBOAG16 {
+    
+}
+.ssBOAG17 {
+    
+}
+.ssBOAG18 {
+    
+}
+.ssBOAG19 {
+    
+}
+.ssBOAG20 {
+    
+}
+
+
+.ssborderOfAllGuns21-30{
+    position: absolute;
+    top: 459px;
+    left: 30px;
+    width: 125px;
+    height: 125px;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: black;
+    border-width: 7.5px;
+    background-color: rgba(117, 117, 117, 0.5)
+}
+
+.ssBOAG21 {
+    
+}
+.ssBOAG22 {
+    
+}
+.ssBOAG23 {
+    
+}
+.ssBOAG24 {
+    
+}
+.ssBOAG25 {
+    
+}
+.ssBOAG26 {
+    
+}
+.ssBOAG27 {
+    
+}
+.ssBOAG28 {
+    
+}
+.ssBOAG29 {
+    
+}
+.ssBOAG30 {
+    
+}
+
+/* Every Skill Thing*/
 .sImageSkillButton {
     position: absolute;
     left: 50%;
