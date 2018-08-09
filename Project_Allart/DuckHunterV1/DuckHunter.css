@@ -247,15 +247,18 @@ body {
     margin-left: -200px;
     width: 400px;
     height: 393px;
-    border: 3px black solid;
 }
 
 .gClickDivs {
-    font-size: 85px;
-    border: solid 2px;
-    margin: -3px;
+    border: solid 4px;
+    height: 85px;
+    border-radius: 25px;
+    margin: 7px;
     text-align: center;
     cursor: pointer;
+    font-family: 'Kumar One', cursive;
+    font-size: 55px;
+    background-color: rgba(119, 119, 119, 0.25)
 }
 
 
@@ -397,6 +400,62 @@ body {
 
 /* All css about the Levels menu*/
 
+.lLevelDivs {
+    position: relative;
+    margin-left: 80px;
+    margin-top: 85px;
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    background-color: #b8ff0054;
+    border: solid 1px;
+}
+
+.lRow2 {
+    top: -561px;
+    left: 137.22px;
+}
+
+.lRow3 {
+    top: -1122px;
+    left: 274.44px;
+}
+
+.lRow4 {
+    top: -1683px;
+    left: 411.66px;
+}
+
+.lRow5 {
+    top: -2244px;
+    left: 548.88px;
+}
+
+.lRow6 {
+    top: -2805px;
+    left: 686.1px;
+}
+
+.lRow7 {
+    top: -3366px;
+    left: 823.32px;
+}
+
+.lRow8 {
+    top: -3927px;
+    left: 960.54px;
+}
+
+.lRow9 {
+    top: -4488px;
+    left: 1097.76px;
+}
+
+.lRow10 {
+    top: -5049px;
+    left: 1234.98px;
+}
+
 .borderOfWorldButton {
     position: absolute;
     cursor: pointer;
@@ -441,7 +500,7 @@ body {
 
 .levelNumbers4 {left: 97px;}
 
-.borderOfWorlds {
+.lBorderOfWorlds {
     position: absolute;
     left: 50%;
     margin-left: -750px;
@@ -456,11 +515,11 @@ body {
     background-size: 100% 100%;
 }
 
-.borderOfWorlds2 {background-image: url("./Images/Woestijn.jpg");}
+.lBorderOfWorlds2 {background-image: url("./Images/Woestijn.jpg");}
 
-.borderOfWorlds3 {background-image: url("./Images/WinterPlaats.jpg");}
+.lBorderOfWorlds3 {background-image: url("./Images/WinterPlaats.jpg");}
 
-.borderOfWorlds4 {background-image: url("./Images/WaterFall.jpg");}
+.lBorderOfWorlds4 {background-image: url("./Images/WaterFall.jpg");}
 
 
 
