@@ -247,15 +247,19 @@ body {
     margin-left: -200px;
     width: 400px;
     height: 393px;
-    border: 3px black solid;
+    
 }
 
 .gClickDivs {
-    font-size: 85px;
-    border: solid 2px;
-    margin: -3px;
+    border: solid 4px;
+    height: 85px;
+    border-radius: 25px;
+    margin: 7px;
     text-align: center;
     cursor: pointer;
+    font-family: 'Kumar One', cursive;
+    font-size: 55px;
+    background-color: rgba(119, 119, 119, 0.25)
 }
 
 

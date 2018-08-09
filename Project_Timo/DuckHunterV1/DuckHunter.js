@@ -295,7 +295,7 @@ function playGame() {
     moneyDiv.style.width = '125px';
     moneyDiv.style.height = '30px';
     moneyCount.style.fontSize = '20px';
-    moneyCount.style.top = '-12px';
+    moneyCount.style.top = '-12.3px';
     duckCoin.style.width = '27.5px';
     duckCoin.style.height = '27.5px';
     duckCoin.style.top = '1px';
