@@ -28,7 +28,7 @@ var mmMenu = document.getElementById('mmMenu');
 var duckTitle = document.getElementById('duckTitle');
 
 //Play
-var birdVariables = [move = -200, randomTop = 450, goingRight = 0, goingLeft = 0, enable = 0, lostHalfAHearth = 0, dontLoseLifeOnHit = 0];
+var bird1Variables = [move = -200, randomTop = 450, goingRight = 0, goingLeft = 0, enable = 0, lostHalfAHearth = 0, dontLoseLifeOnHit = 0];
 var resetNumber; 
 var resetMoveTop;
 var resetRight;
