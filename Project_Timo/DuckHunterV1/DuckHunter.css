@@ -247,7 +247,6 @@ body {
     margin-left: -200px;
     width: 400px;
     height: 393px;
-    
 }
 
 .gClickDivs {
@@ -322,138 +321,9 @@ body {
     border-style: solid;
     border-color: black;
     border-width: 8px;
-    background-color: rgba(255, 255, 255, 0.34);
-}
-/*Every Gun Border*/
-.ssborderOfAllGuns1-10 {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    width: 125px;
-    height: 125px;
-    border-radius: 15px;
-    border-style: solid;
-    border-color: black;
-    border-width: 7.5px;
-    background-color: rgba(117, 117, 117, 0.50)
-}
-.ssBOAG2 {
-    left: 175px;
-}
-.ssBOAG3 {
-    left: 320px;
-}
-.ssBOAG4 {
-    left: 465px;  
-}
-.ssBOAG5 {
-    left: 610px;
-}
-.ssBOAG6 {
-    left: 755px;
-}
-.ssBOAG7 {
-    left: 900px;
-}
-.ssBOAG8 {
-    left: 1045px;
-}
-.ssBOAG9 {
-    left: 1190px;
-}
-.ssBOAG10 {
-    left: 1335px;
-}
-.ssborderOfAllGuns11-20{
-    position: absolute;
-    top: 243px;
-    left: 30px;
-    width: 125px;
-    height: 125px;
-    border-radius: 15px;
-    border-style: solid;
-    border-color: black;
-    border-width: 7.5px;
-    background-color: rgba(117, 117, 117, 0.5)
+    background-image: url('./Images/whiteBackground.jpg');
 }
 
-.ssBOAG11 {
-    
-}
-.ssBOAG12 {
-    
-}
-.ssBOAG13 {
-    
-}
-.ssBOAG14 {
-    
-}
-.ssBOAG15 {
-    
-}
-.ssBOAG16 {
-    
-}
-.ssBOAG17 {
-    
-}
-.ssBOAG18 {
-    
-}
-.ssBOAG19 {
-    
-}
-.ssBOAG20 {
-    
-}
-
-
-.ssborderOfAllGuns21-30{
-    position: absolute;
-    top: 459px;
-    left: 30px;
-    width: 125px;
-    height: 125px;
-    border-radius: 15px;
-    border-style: solid;
-    border-color: black;
-    border-width: 7.5px;
-    background-color: rgba(117, 117, 117, 0.5)
-}
-
-.ssBOAG21 {
-    
-}
-.ssBOAG22 {
-    
-}
-.ssBOAG23 {
-    
-}
-.ssBOAG24 {
-    
-}
-.ssBOAG25 {
-    
-}
-.ssBOAG26 {
-    
-}
-.ssBOAG27 {
-    
-}
-.ssBOAG28 {
-    
-}
-.ssBOAG29 {
-    
-}
-.ssBOAG30 {
-    
-}
-
-/* Every Skill Thing*/
 .sImageSkillButton {
     position: absolute;
     left: 50%;
@@ -530,6 +400,74 @@ body {
 
 /* All css about the Levels menu*/
 
+.lLevelDivs {
+    position: relative;
+    cursor: pointer;
+    margin-left: 80px;
+    margin-top: 85px;
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: solid 1px grey ;
+}
+.gGunDivs {
+    position: relative;
+    cursor: pointer;
+    margin-left: 80px;
+    margin-top: 85px;
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    background-image: url('./Images/blackBackground.jpg');
+    border: solid 1px grey ;
+}
+    
+.lRow2 {
+    top: -561px;
+    left: 137.22px;
+}
+
+.lRow3 {
+    top: -1122px;
+    left: 274.44px;
+}
+
+.lRow4 {
+    top: -1683px;
+    left: 411.66px;
+}
+
+.lRow5 {
+    top: -2244px;
+    left: 548.88px;
+}
+
+.lRow6 {
+    top: -2805px;
+    left: 686.1px;
+}
+
+.lRow7 {
+    top: -3366px;
+    left: 823.32px;
+}
+
+.lRow8 {
+    top: -3927px;
+    left: 960.54px;
+}
+
+.lRow9 {
+    top: -4488px;
+    left: 1097.76px;
+}
+
+.lRow10 {
+    top: -5049px;
+    left: 1234.98px;
+}
+
 .borderOfWorldButton {
     position: absolute;
     cursor: pointer;
@@ -574,7 +512,7 @@ body {
 
 .levelNumbers4 {left: 97px;}
 
-.borderOfWorlds {
+.lBorderOfWorlds {
     position: absolute;
     left: 50%;
     margin-left: -750px;
@@ -589,11 +527,11 @@ body {
     background-size: 100% 100%;
 }
 
-.borderOfWorlds2 {background-image: url("./Images/Woestijn.jpg");}
+.lBorderOfWorlds2 {background-image: url("./Images/Woestijn.jpg");}
 
-.borderOfWorlds3 {background-image: url("./Images/WinterPlaats.jpg");}
+.lBorderOfWorlds3 {background-image: url("./Images/WinterPlaats.jpg");}
 
-.borderOfWorlds4 {background-image: url("./Images/WaterFall.jpg");}
+.lBorderOfWorlds4 {background-image: url("./Images/WaterFall.jpg");}
 
 
 
