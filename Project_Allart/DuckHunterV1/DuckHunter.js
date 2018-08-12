@@ -20,11 +20,16 @@ var holeDoc = document.documentElement;
 var duckTitle = document.getElementById('duckTitle');
 
 //Play
-var bird1Variables = [move = -200, speedLeft = 2, speedRight = 2, speedTop = 2, randomTop = 450, goingRight = 0, goingLeft = 0, enable = 0, lostHalfAHearth = 0, dontLoseLifeOnHit = 0];
-var resetNumber; 
+var bird1Variables = [move = -200, speedLeft = 2, speedRight = 2, speedTop = 2, randomTop = 450, goingRight = 0, goingLeft = 0, lostHalfAHearth = 0, dontLoseLifeOnHit = 0];
+var bird2Variables = [move2 = 2190, randomTop2 = 450, goingRight2 = 0, goingLeft2 = 0, dontLoseLifeOnHit2 = 0];
 var resetMoveTop;
+var resetNumber; 
 var resetRight;
 var resetLeft;
+var resetMoveTop2;
+var resetNumber2; 
+var resetRight2;
+var resetLeft2;
 var reset;
 var getRandomTopNumberDuration = 2000;
 var levelsClick = 0;
@@ -35,6 +40,7 @@ var hitsNeeded = 3;
 var goToLevel = 0;
 var gamesWon = 1;
 var bird1 = document.getElementById("bird");
+var bird2 = document.getElementById("bird2");
 var moneyCount = document.getElementById('Money');
 var Money = 0;
 var Ammo = 10;
@@ -156,6 +162,23 @@ bird1.onmousedown = function hitBird1() {
     }
 }
 
+bird2.onmousedown = function hitBird1() {     
+    bird2.style.visibility = "hidden";
+    dontLoseLifeOnHit2 = 1;
+    hitPoints ++;
+    Money += 50;
+    moneyCount.innerHTML = Money;
+    Ammo--;
+    ammoCount.innerHTML = Ammo;
+    if(Ammo == 0 && hitPoints < hitsNeeded) {
+        Ammo ++;
+        gameOver();
+    }
+    if (hitPoints == hitsNeeded) {
+        youWin();
+    }
+}
+
 window.onmousemove = function(e) {          //the gun now follows the mouse 
     var x = e.pageX;
     Gun1.style.left = x - 50 + 'px';
@@ -239,6 +262,85 @@ goRight();
     }
 }
 
+function Bird2() {                              //SECOND MADE BIRD...        Allart de Jong :)
+getRandomTopNumber();
+moveTillBorder();
+goLeft();
+bird2.style.display = "block";
+
+    function getRandomTopNumber() {
+        randomTop2 = Math.round(Math.random()*document.body.clientHeight);
+        resetNumber2 = setInterval(function(){
+            randomTop2 = Math.round(Math.random()*document.body.clientHeight);
+            console.log(randomTop2);
+        }, getRandomTopNumberDuration);
+    }
+
+    function moveTillBorder() {
+        resetMoveTop2 = setInterval(function(){
+            if (randomTop2 >= bird2.offsetTop) {
+                bird2.style.top = bird2.offsetTop += speedTop;                 //3px if you want to zoom out and be able to use this function (25% zoom = max zoom out in chrome)
+                //console.log(bird1.style.top);
+                //console.log(randomTop);
+            } else {
+                bird2.style.top = bird2.offsetTop -= speedTop;                 //1 pixel with 100% zoom or higher
+            }
+            if (bird2.offsetTop > document.body.clientHeight - 70) {
+                bird2.style.top = bird2.offsetTop -= speedTop;
+            }
+        }, 1);
+    }
+
+    function goRight() {
+        resetRight2 = setInterval(function(){
+            goingLeft2 = 0;
+            move2 += speedRight;
+            bird2.style.transform = "scale(-1)";
+            bird2.style.left = move2 + "px";
+            if (move2 > document.body.clientWidth + 100) {
+                if (dontLoseLifeOnHit2 == 0) {
+                    lostHalfAHearth +=1;
+                    console.log(lostHalfAHearth);
+                }
+                if (lostHalfAHearth == 10) {
+                    gameOver();
+                } else {
+                goingLeft2 = 1;
+                bird2.style.visibility = "visible";
+                dontLoseLifeOnHit2 = 0;
+                window.clearInterval(resetRight2);
+                goLeft();
+                }
+            }
+        }, 1);
+    }
+
+    function goLeft() {
+        resetLeft2 = setInterval(function(){
+            goingRight2 = 0;
+            move2 -= speedLeft;
+            bird2.style.transform = "scaleX(1)";
+            bird2.style.left = move2 + "px";
+            if (move2 < document.body.clientLeft - 200) {
+                if (dontLoseLifeOnHit2 == 0) {
+                    lostHalfAHearth +=1;
+                    //alert("You lost half a heart!")
+                    console.log(lostHalfAHearth);
+                }
+                if (lostHalfAHearth == 10) {
+                    gameOver();
+                } else {
+                goingRight2 = 1;
+                bird2.style.visibility = "visible";
+                dontLoseLifeOnHit2 = 0;
+                window.clearInterval(resetLeft2);
+                goRight();
+                }
+            }
+        }, 1);
+    }
+}
+
 function playGame() {
     mmMenu.style.display = 'none';                          //BASIC CODE DOWN HERE
     duckTitle.style.display = 'none';
@@ -262,10 +364,8 @@ function playGame() {
     ammoCount.innerHTML = Ammo;
     goToLevelTrue = 0;
     gamesWonTrue = 0;
-    move = -200, randomTop = 450, goingRight = 0, goingLeft = 0, enable = 0, lostHalfAHearth = 0, dontLoseLifeOnHit = 0;    //settings of the first bird.
     hideSettingsMenu();
     checkMyLevels();
-    hitsNeeded = 1;             //testing
     console.log("won " + gamesWon);
     console.log("level " + goToLevel);
     console.log("levelclick " + levelsClick);
@@ -343,12 +443,11 @@ function playGame() {
 
         if ((goToLevel == 10 && goToLevelTrue == 1) || (gamesWon == 10 && gamesWonTrue == 1)) {             //Level 10
             alert("lvl 10")
-            //console.log("One bird at a time not enough?")
+            console.log("One bird at a time not enough?")
             speedLeft = 2.5;
             speedRight = 2.5;
             speedTop = 2.5;
             getRandomTopNumberDuration = 1750;
-            //Bird2
         }
 
         if ((goToLevel == 12 && goToLevelTrue == 1) || (gamesWon == 12 && gamesWonTrue == 1)) {             //Level 12
@@ -456,6 +555,12 @@ function playGame() {
             getRandomTopNumberDuration = 1200;
             //skill point added
         }
+        
+        
+        if ((goToLevel >= 2 && goToLevelTrue == 1) || (gamesWon >= 2 && gamesWonTrue == 1)) {
+            Bird2();
+        }
+
 
         Bird1();
         gunShot();
@@ -473,10 +578,16 @@ function youWin() {                                             //When you win a
     goToLevel ++;                                       //When you have levelsClick equal to 1 this is very usefull. if you have selected level 1 but have completed 6 levels and you win level one from level selector then you can click on next level and you go to level 2 and not to 7.
     bird1.style.visibility = "visible";                 //When i click my bird and win he will be invisible but still on page. now i make him visible to fix buggs. (if i would play again a level or next level the bird was invisible first untill it did hit the wall).
     bird1.style.display = "none";                       //Here i remove him from the page by not letting it display.
+    bird2.style.visibility = "visible";                 //Same as above but now with second bird.
+    bird2.style.display = "none";                       //Same as above but now with second bird.
     window.clearInterval(resetMoveTop);                 //Im stopping the infinite interval resetMoveTop, function for letting the bird go up or down.
     window.clearInterval(resetNumber);                  //Stopping resetNumber, Generates a random number between the pageTop and Height.
     window.clearInterval(resetRight);                   //Stopping resetRight, Makes it possible to let the bird go to the Right side of the page.
     window.clearInterval(resetLeft);                    //Stopping the resetLeft, Makes it possible to let the bird go to the Left side of the page.
+    window.clearInterval(resetMoveTop2);
+    window.clearInterval(resetNumber2);
+    window.clearInterval(resetRight2);
+    window.clearInterval(resetLeft2);
     levelDiv.style.display = "none";                    //Displaying the Level to none (invisible).
     youWinDiv.style.display = "block";                  //Displaying the page you have to see when you win to block (visible).
     moneyDiv.style.width = '250px';                     //Making the money a bit bigger again.
@@ -486,6 +597,8 @@ function youWin() {                                             //When you win a
     duckCoin.style.width = '55px';                      //Making the money coin a bit bigger again.
     duckCoin.style.height = '55px';                     //Making the money coin a bit bigger again.
     duckCoin.style.top = '3px';                         //Changing the possition of the money coin.
+    move = -200, randomTop = 450, goingRight = 0, goingLeft = 0, lostHalfAHearth = 0, dontLoseLifeOnHit = 0;
+    move2 = -400, randomTop2 = 250, goingRight2 = 0, goingLeft2 = 0, dontLoseLifeOnHit2 = 0;
     checkMyLevels();                                    //By activating this function i let the level selector know how far i am with completing levels. Example: i completed level 6, now i can click in level selector on level 6 or lower to play it again.
     hideSettingsMenu();                                 //Hiding the settingMenu if it was open. It would be enoying if its on the page the whole time.
 }
@@ -493,10 +606,16 @@ function youWin() {                                             //When you win a
 function gameOver() {                                   //This will be activated when you lose a level.
     bird1.style.visibility = "visible";                 //Check the function youWin()
     bird1.style.display = "none";                       //Check the function youWin()
+    bird2.style.visibility = "visible";                 //Same as above but now with second bird.
+    bird2.style.display = "none";                       //Same as above but now with second bird.
     window.clearInterval(resetMoveTop);                 //Check the function youWin()
     window.clearInterval(resetNumber);                  //Check the function youWin()
     window.clearInterval(resetRight);                   //Check the function youWin()
     window.clearInterval(resetLeft);                    //Check the function youWin()
+    window.clearInterval(resetMoveTop2);
+    window.clearInterval(resetNumber2);
+    window.clearInterval(resetRight2);
+    window.clearInterval(resetLeft2);
     levelDiv.style.display = "none";                    //Check the function youWin()
     gameOverDiv.style.display = "block";                //This time we display the gameOverDiv to see the game over page.
     moneyDiv.style.width = '250px';                     //Check the function youWin()
@@ -506,6 +625,8 @@ function gameOver() {                                   //This will be activated
     duckCoin.style.width = '55px';                      //Check the function youWin()
     duckCoin.style.height = '55px';                     //Check the function youWin()
     duckCoin.style.top = '3px';                         //Check the function youWin()
+    move = 400, randomTop = 450, goingRight = 0, goingLeft = 0, lostHalfAHearth = 0, dontLoseLifeOnHit = 0;
+    move2 = -600, randomTop2 = 250, goingRight2 = 0, goingLeft2 = 0, dontLoseLifeOnHit2 = 0;
     hideSettingsMenu();                                 //Hiding the settingMenu
 }
 
