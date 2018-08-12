@@ -1,13 +1,9 @@
 //DuckHunter - js|| made by Allart de Jong and Timo Brandt.
 //ⒸCopyRight A.deJong & T.Brandt.
-//Variable = doc.id is main for objects that we use more then twice!
+//Variables with doc.id is made for objects that we use more then twice!
 //There is showed wich variables are used for what with the inline documentation.
 //Every function has clear explanation of how it works.
 
-
-//Background images
-var backGround = document.getElementById('backGround');
-var world1BackGround = document.getElementById('world1BackGround');
 
 //Audio
 var audio = document.getElementById('Rust');
@@ -18,11 +14,7 @@ audio.volume = '0.1';
 var settingsVariables = [settingsClick = 0, musicClick = 0, fullscreenClick = 0];           //for shorter code and keeping it clear code. Array for variables with numbers.
 var STonOff = document.getElementById('settingsMainMenuSoundSwitch');
 var FSonOff = document.getElementById('settingsFullscreenSwitch');
-var settingsMenu = document.getElementById('settingsMenu');
 var holeDoc = document.documentElement;
-
-//Main Menu
-var mmMenu = document.getElementById('mmMenu');
 
 //Duck Title
 var duckTitle = document.getElementById('duckTitle');
@@ -41,38 +33,13 @@ var gamesWonTrue = 0;
 var hitPoints = 0;
 var hitsNeeded = 3;
 var goToLevel = 0;
-var gamesWon = 0;
+var gamesWon = 1;
 var bird1 = document.getElementById("bird");
-var testing = document.getElementById('test1');
-var readySetGoTextChange = document.getElementById('readySetGoTextChange');
-var youWinDiv = document.getElementById('youWinDiv');
-var Gun1 = document.getElementById('Gun1')
-var levelDiv = document.getElementById('levelDiv');
-var levelText = document.getElementById('levelText');
-var moneyDiv = document.getElementById('moneyDiv');
 var moneyCount = document.getElementById('Money');
-var duckCoin = document.getElementById('duckCoin');
-var ammoCount = document.getElementById('ammoCount');
 var Money = 0;
 var Ammo = 10;
 bird1.style.top = randomTop;
 bird1.style.left = move;
-
-//Game over
-var gameOverDiv = document.getElementById('gameOverDiv');
-
-//levels
-var levelsPage = document.getElementById('levelsPage');
-var World1Menu = document.getElementById('World1Menu');
-
-//shop
-var shopPage = document.getElementById('shopPage');
-var sGunMenu = document.getElementById('sGunMenu');
-var sSkillMenu = document.getElementById('sSkillMenu');
-
-//credits
-var creditsPage = document.getElementById('creditsPage');
-
 
 
 //settings
@@ -160,42 +127,6 @@ function startAgain() {
     PlayGame();
 }*/
 
-testing.onclick = function() {
-    goToLevel = 2;
-    levelsClick = 1;
-    playGame();
-}
-
-
-function youWin() {
-    if ((gamesWon == goToLevel) && (levelsClick == 1)) {
-        gamesWon ++;
-        alert("levels");
-    } else if ((gamesWon >= goToLevel) && (gamesWonTrue == 1)) {
-        gamesWon ++;
-        alert("WonTrue");
-    } else {
-        alert("no point");
-    }
-
-    bird1.style.visibility = "visible";
-    bird1.style.display = "none";
-    window.clearInterval(resetMoveTop);
-    window.clearInterval(resetNumber);
-    window.clearInterval(resetRight);
-    window.clearInterval(resetLeft);
-    levelDiv.style.display = "none";
-    youWinDiv.style.display = "block";
-    moneyDiv.style.width = '250px';
-    moneyDiv.style.height = '60px';
-    moneyCount.style.fontSize = '40px';
-    moneyCount.style.top = '-25px';
-    duckCoin.style.width = '55px';
-    duckCoin.style.height = '55px';
-    duckCoin.style.top = '3px';
-    hideSettingsMenu();
-}
-
 function gunShot() {
     levelDiv.onmousedown = function() {
         Ammo--;
@@ -236,6 +167,7 @@ moveTillBorder();
 goRight();
 
     function getRandomTopNumber() {
+        randomTop = Math.round(Math.random()*document.body.clientHeight);
         resetNumber = setInterval(function(){
             randomTop = Math.round(Math.random()*document.body.clientHeight);
             console.log(randomTop);
@@ -328,11 +260,12 @@ function playGame() {
     hitPoints = 0;
     Ammo = 10;
     ammoCount.innerHTML = Ammo;
-    move = -200, randomTop = 450, goingRight = 0, goingLeft = 0, enable = 0, lostHalfAHearth = 0, dontLoseLifeOnHit = 0;    //settings of the first bird.
-    hideSettingsMenu();
-    hitsNeeded = 1;             //testing
     goToLevelTrue = 0;
     gamesWonTrue = 0;
+    move = -200, randomTop = 450, goingRight = 0, goingLeft = 0, enable = 0, lostHalfAHearth = 0, dontLoseLifeOnHit = 0;    //settings of the first bird.
+    hideSettingsMenu();
+    checkMyLevels();
+    hitsNeeded = 1;             //testing
     console.log("won " + gamesWon);
     console.log("level " + goToLevel);
     console.log("levelclick " + levelsClick);
@@ -368,7 +301,7 @@ function playGame() {
         readySetGoTextChange.style.display = "none";
         bird1.style.display = "block";
 
-        if ((goToLevel == 2 && goToLevelTrue == 1) || (gamesWon == 2 && gamesWonTrue == 1)) {              //Level 2
+        if ((goToLevel == 2 && goToLevelTrue == 1) || (gamesWon == 2 && gamesWonTrue == 1)) {               //Level 2
             alert("lvl 2")
             speedLeft = 2.1;
             speedRight = 2.1;
@@ -376,15 +309,7 @@ function playGame() {
             getRandomTopNumberDuration = 1950;
         }
 
-        if ((goToLevel == 3 && goToLevelTrue == 1) || (gamesWon == 3 && gamesWonTrue == 1)) {              //Level 3
-            alert("lvl 3")
-            speedLeft = 2.1;
-            speedRight = 2.1;
-            speedTop = 2.1;
-            getRandomTopNumberDuration = 1950;
-        }
-
-        if ((goToLevel == 4 && goToLevelTrue == 1) || (gamesWon == 4 && gamesWonTrue == 1)) {              //Level 4
+        if ((goToLevel == 4 && goToLevelTrue == 1) || (gamesWon == 4 && gamesWonTrue == 1)) {               //Level 4
             alert("lvl 4")
             speedLeft = 2.2;
             speedRight = 2.2;
@@ -392,27 +317,22 @@ function playGame() {
             getRandomTopNumberDuration = 1900;
         }
 
-        if ((goToLevel == 5 && goToLevelTrue == 1) || (gamesWon == 5 && gamesWonTrue == 1)) {              //Level 5
+        if ((goToLevel == 5 && goToLevelTrue == 1) || (gamesWon == 5 && gamesWonTrue == 1)) {               //Level 5
+            alert("lvl 5")
             alert("Your doing very well! keep on going!!")
             hitsNeeded = 4;
         }
 
-        if ((goToLevel == 6 && goToLevelTrue == 1) || (gamesWon == 6 && gamesWonTrue == 1)) {              //Level 6
+        if ((goToLevel == 6 && goToLevelTrue == 1) || (gamesWon == 6 && gamesWonTrue == 1)) {               //Level 6
+            alert("lvl 6")
             speedLeft = 2.3;
             speedRight = 2.3;
             speedTop = 2.3;
             getRandomTopNumberDuration = 1850;
         }
 
-        if ((goToLevel == 7 && goToLevelTrue == 1) || (gamesWon == 7 && gamesWonTrue == 1)) {              //Level 7
-            alert("lvl 7")
-            speedLeft = 2.1;
-            speedRight = 2.1;
-            speedTop = 2.1;
-            getRandomTopNumberDuration = 1950;
-        }
-
-        if ((goToLevel == 8 && goToLevelTrue == 1) || (gamesWon == 8 && gamesWonTrue == 1)) {              //Level 8
+        if ((goToLevel == 8 && goToLevelTrue == 1) || (gamesWon == 8 && gamesWonTrue == 1)) {               //Level 8
+            alert("lvl 8")
             alert("Congrats! ur first skill point has been added, go to shop, skills and choose what you want to upgrade");
             speedLeft = 2.4;
             speedRight = 2.4;
@@ -421,15 +341,8 @@ function playGame() {
             //first skill point added? Every 8 rounds you can get a skill point. at lvl 120 you will then have 15 upgrade points.
         }
 
-        if ((goToLevel == 9 && goToLevelTrue == 1) || (gamesWon == 9 && gamesWonTrue == 1)) {              //Level 9
-            alert("lvl 9")
-            speedLeft = 2.1;
-            speedRight = 2.1;
-            speedTop = 2.1;
-            getRandomTopNumberDuration = 1950;
-        }
-
-        if ((goToLevel == 10 && goToLevelTrue == 1) || (gamesWon == 10 && gamesWonTrue == 1)) {            //Level 10
+        if ((goToLevel == 10 && goToLevelTrue == 1) || (gamesWon == 10 && gamesWonTrue == 1)) {             //Level 10
+            alert("lvl 10")
             //console.log("One bird at a time not enough?")
             speedLeft = 2.5;
             speedRight = 2.5;
@@ -438,34 +351,30 @@ function playGame() {
             //Bird2
         }
 
-        if ((gamesWon == 11) || (goToLevel == 11)) {              //Level 11
-            alert("lvl 11")
-            speedLeft = 2.1;
-            speedRight = 2.1;
-            speedTop = 2.1;
-            getRandomTopNumberDuration = 1950;
-        }
-
-        if (gamesWon == 12) {                                //Level 12
+        if ((goToLevel == 12 && goToLevelTrue == 1) || (gamesWon == 12 && gamesWonTrue == 1)) {             //Level 12
+            alert("lvl 12")
             speedLeft = 2.6;
             speedRight = 2.6;
             speedTop = 2.6;
             getRandomTopNumberDuration = 1700;
         }
 
-        if (gamesWon == 14) {                                //Level 14
+        if ((goToLevel == 14 && goToLevelTrue == 1) || (gamesWon == 14 && gamesWonTrue == 1)) {             //Level 14
+            alert("lvl 14")
             speedLeft = 2.7;
             speedRight = 2.7;
             speedTop = 2.7;
             getRandomTopNumberDuration = 1650;
         }
 
-        if (gamesWon == 15) {                                //Level 15
-            alert("nicu");
+        if ((goToLevel == 15 && goToLevelTrue == 1) || (gamesWon == 15 && gamesWonTrue == 1)) {             //Level 15
+            alert("lvl 15")
+            alert("I need more!!");
             hitsNeeded = 5;
         }
         
-        if (gamesWon == 16) {                                //Level 16
+        if ((goToLevel == 16 && goToLevelTrue == 1) || (gamesWon == 16 && gamesWonTrue == 1)) {             //Level 16
+            alert("lvl 16")
             alert("Congrats! ur first skill point has been added, go to shop, skills and choose what you want to upgrade");
             speedLeft = 2.8;
             speedRight = 2.8;
@@ -474,14 +383,16 @@ function playGame() {
             //skill point added
         }
 
-        if (gamesWon == 18) {                                //Level 18
+        if ((goToLevel == 18 && goToLevelTrue == 1) || (gamesWon == 18 && gamesWonTrue == 1)) {             //Level 18
+            alert("lvl 18")
             speedLeft = 2.9;
             speedRight = 2.9;
             speedTop = 2.9;
             getRandomTopNumberDuration = 1550;
         }
 
-        if (gamesWon == 20) {                                //Level 20
+        if ((goToLevel == 20 && goToLevelTrue == 1) || (gamesWon == 20 && gamesWonTrue == 1)) {             //Level 20
+            alert("lvl 20")
             speedLeft = 3;
             speedRight = 3;
             speedTop = 3;
@@ -489,14 +400,16 @@ function playGame() {
             //life to 3 hearts now? instead of 5.
         }
 
-        if (gamesWon == 22) {                                //Level 22
+        if ((goToLevel == 22 && goToLevelTrue == 1) || (gamesWon == 22 && gamesWonTrue == 1)) {             //Level 22
+            alert("lvl 22")
             speedLeft = 3.1;
             speedRight = 3.1;
             speedTop = 3.1;
             getRandomTopNumberDuration = 1450;
         }
 
-        if (gamesWon == 24) {                                //Level 24
+        if ((goToLevel == 24 && goToLevelTrue == 1) || (gamesWon == 24 && gamesWonTrue == 1)) {             //Level 24
+            alert("lvl 24")
             alert("Congrats! ur first skill point has been added, go to shop, skills and choose what you want to upgrade");
             speedLeft = 3.2;
             speedRight = 3.2;
@@ -505,25 +418,29 @@ function playGame() {
             //skillpoint added
         }
 
-        if (gamesWon == 25) {                                //Level 25
+        if ((goToLevel == 25 && goToLevelTrue == 1) || (gamesWon == 25 && gamesWonTrue == 1)) {             //Level 25
+            alert("lvl 25")
             hitsNeeded = 6;
         }
 
-        if (gamesWon == 26) {                                //Level 26
+        if ((goToLevel == 26 && goToLevelTrue == 1) || (gamesWon == 26 && gamesWonTrue == 1)) {             //Level 26
+            alert("lvl 26")
             speedLeft = 3.3;
             speedRight = 3.3;
             speedTop = 3.3;
             getRandomTopNumberDuration = 1350;
         }
 
-        if (gamesWon == 28) {                                //Level 28
+        if ((goToLevel == 28 && goToLevelTrue == 1) || (gamesWon == 28 && gamesWonTrue == 1)) {             //Level 28
+            alert("lvl 28")
             speedLeft = 3.4;
             speedRight = 3.4;
             speedTop = 3.4;
             getRandomTopNumberDuration = 1300;
         }
 
-        if (gamesWon == 30) {                                //Level 30
+        if ((goToLevel == 30 && goToLevelTrue == 1) || (gamesWon == 30 && gamesWonTrue == 1)) {             //Level 30
+            alert("lvl 30")
             speedLeft = 3.5;
             speedRight = 3.5;
             speedTop = 3.5;
@@ -531,7 +448,8 @@ function playGame() {
             //bird added?
         }
 
-        if (gamesWon == 32) {                                //Level 32
+        if ((goToLevel == 32 && goToLevelTrue == 1) || (gamesWon == 32 && gamesWonTrue == 1)) {             //Level 32
+            alert("lvl 32")
             speedLeft = 3.6;
             speedRight = 3.6;
             speedTop = 3.6;
@@ -545,97 +463,127 @@ function playGame() {
     }, 4000);
 }
 
-function gameOver() {
-    bird1.style.visibility = "visible";
-    bird1.style.display = "none";
-    window.clearInterval(resetMoveTop);
-    window.clearInterval(resetNumber);
-    window.clearInterval(resetRight);
-    window.clearInterval(resetLeft);
-    levelDiv.style.display = "none";
-    gameOverDiv.style.display = "block";
-    moneyDiv.style.width = '250px';
-    moneyDiv.style.height = '60px';
-    moneyCount.style.fontSize = '40px';
-    moneyCount.style.top = '-25px';
-    duckCoin.style.width = '55px';
-    duckCoin.style.height = '55px';
-    duckCoin.style.top = '3px';
-    hideSettingsMenu();
+function youWin() {                                             //When you win a level all under this will be activated.
+    if ((gamesWon == goToLevel) && (levelsClick == 1)) {        //When my amount of won games is the same as the level i clicked on at the levels page
+        gamesWon ++;                                            //then your gamesWon will be one more.
+    } else if ((gamesWon >= goToLevel) && (gamesWonTrue == 1)) {    //when i clicked in the main menu at Play gamesWonTrue will be 1. if gamesWon is bigger or equal to goToLevel
+        gamesWon ++;                                            //AND gamesWonTrue is equal to 1 then gamesWon will be one more. (goToLevel is standard 0).
+    }
+
+    goToLevel ++;                                       //When you have levelsClick equal to 1 this is very usefull. if you have selected level 1 but have completed 6 levels and you win level one from level selector then you can click on next level and you go to level 2 and not to 7.
+    bird1.style.visibility = "visible";                 //When i click my bird and win he will be invisible but still on page. now i make him visible to fix buggs. (if i would play again a level or next level the bird was invisible first untill it did hit the wall).
+    bird1.style.display = "none";                       //Here i remove him from the page by not letting it display.
+    window.clearInterval(resetMoveTop);                 //Im stopping the infinite interval resetMoveTop, function for letting the bird go up or down.
+    window.clearInterval(resetNumber);                  //Stopping resetNumber, Generates a random number between the pageTop and Height.
+    window.clearInterval(resetRight);                   //Stopping resetRight, Makes it possible to let the bird go to the Right side of the page.
+    window.clearInterval(resetLeft);                    //Stopping the resetLeft, Makes it possible to let the bird go to the Left side of the page.
+    levelDiv.style.display = "none";                    //Displaying the Level to none (invisible).
+    youWinDiv.style.display = "block";                  //Displaying the page you have to see when you win to block (visible).
+    moneyDiv.style.width = '250px';                     //Making the money a bit bigger again.
+    moneyDiv.style.height = '60px';                     //Making the money a bit bigger again.
+    moneyCount.style.fontSize = '40px';                 //Making the money a bit bigger again.
+    moneyCount.style.top = '-25px';                     //Changing the possition of the money.
+    duckCoin.style.width = '55px';                      //Making the money coin a bit bigger again.
+    duckCoin.style.height = '55px';                     //Making the money coin a bit bigger again.
+    duckCoin.style.top = '3px';                         //Changing the possition of the money coin.
+    checkMyLevels();                                    //By activating this function i let the level selector know how far i am with completing levels. Example: i completed level 6, now i can click in level selector on level 6 or lower to play it again.
+    hideSettingsMenu();                                 //Hiding the settingMenu if it was open. It would be enoying if its on the page the whole time.
 }
 
-function retryLevel() {                             //GAME OVER
-    gameOverDiv.style.display = "none";
-    playGame();
+function gameOver() {                                   //This will be activated when you lose a level.
+    bird1.style.visibility = "visible";                 //Check the function youWin()
+    bird1.style.display = "none";                       //Check the function youWin()
+    window.clearInterval(resetMoveTop);                 //Check the function youWin()
+    window.clearInterval(resetNumber);                  //Check the function youWin()
+    window.clearInterval(resetRight);                   //Check the function youWin()
+    window.clearInterval(resetLeft);                    //Check the function youWin()
+    levelDiv.style.display = "none";                    //Check the function youWin()
+    gameOverDiv.style.display = "block";                //This time we display the gameOverDiv to see the game over page.
+    moneyDiv.style.width = '250px';                     //Check the function youWin()
+    moneyDiv.style.height = '60px';                     //Check the function youWin()
+    moneyCount.style.fontSize = '40px';                 //Check the function youWin()
+    moneyCount.style.top = '-25px';                     //Check the function youWin()
+    duckCoin.style.width = '55px';                      //Check the function youWin()
+    duckCoin.style.height = '55px';                     //Check the function youWin()
+    duckCoin.style.top = '3px';                         //Check the function youWin()
+    hideSettingsMenu();                                 //Hiding the settingMenu
 }
 
-function youWinToNextLevel() {                      //YOU WIN
-    gameOverDiv.style.display = "none";
-    levelsClick = 0;
-    playGame();
+function retryLevel() {                             //GAME OVER || Retry
+    gameOverDiv.style.display = "none";             //Hiding the game over page.
+    playGame();                                     //Starting the game again.
 }
 
-function gameOverToMainMenu() {                     //GAME OVER
-    gameOverDiv.style.display = "none";
-    backGround.style.display = 'block';
-    world1BackGround.style.display = 'none';
-    toMainMenu();
+function youWinToNextLevel() {                      //YOU WIN || Next Level
+    youWinDiv.style.display = "none";               //Hiding the you win page.
+    playGame();                                     //Starting the game again.
 }
 
-function youWinToMainMenu() {                       //YOU WIN
-    youWinDiv.style.display = "none";
-    backGround.style.display = 'block';
-    world1BackGround.style.display = 'none';
-    toMainMenu();
+function gameOverToMainMenu() {                     //GAME OVER || Main Menu
+    gameOverDiv.style.display = "none";             //Hiding the game over page.
+    backGround.style.display = 'block';             //Showing the main menu background.
+    world1BackGround.style.display = 'none';        //Hiding the in-game background
+    levelsClick = 0;                                //Making levelsClick 0. If you just played a level chosen from the level selector and you want to contineu with the highest level you have completed you can now go to main menu and play it. If i dont make levelsClick 0 the program will think i still want to contineu with the next level...
+    toMainMenu();                                   //Activating the function toMainMenu().
 }
 
-function gameOverToLevels() {                       //GAME OVER
-    gameOverDiv.style.display = "none";
-    backGround.style.display = 'block';
-    world1BackGround.style.display = 'none';
-    levelsPage.style.display = 'block';
-    hideSettingsMenu();
+function youWinToMainMenu() {                       //YOU WIN || Main Menu
+    youWinDiv.style.display = "none";               //Same as game over to main menu! above here.
+    backGround.style.display = 'block';             //Now just with the you win page
+    world1BackGround.style.display = 'none';        //Check gameOverToMainMenu() function.
+    levelsClick = 0;                                //Check gameOverToMainMenu() function.
+    toMainMenu();                                   //Check gameOverToMainMenu() function.
 }
 
-function youWinToLevels() {                         //YOU WIN
-    youWinDiv.style.display = "none";
-    backGround.style.display = 'block';
-    world1BackGround.style.display = 'none';
-    levelsPage.style.display = 'block';
-    hideSettingsMenu();
+function gameOverToLevels() {                       //GAME OVER || Levels
+    gameOverDiv.style.display = "none";             //Same as the 2 above here!
+    backGround.style.display = 'block';             //Check gameOverToMainMenu() function.
+    world1BackGround.style.display = 'none';        //Check gameOverToMainMenu() function.
+    levelsPage.style.display = 'block';             //Check gameOverToMainMenu() function. Now just moving to the levelsPage and not main menu.
+    levelsClick = 0;                                //Check gameOverToMainMenu() function.
+    hideSettingsMenu();                             //Check gameOverToMainMenu() function. In toMainMenu() has this function been placed.
 }
 
-function gameOverToShop() {                         //GAME OVER
-    gameOverDiv.style.display = "none";
-    backGround.style.display = 'block';
-    world1BackGround.style.display = 'none';
-    toShop();
+function youWinToLevels() {                         //YOU WIN || Levels
+    youWinDiv.style.display = "none";               //Same as gameOverToLevels() and the others now from you win.
+    backGround.style.display = 'block';             //Check gameOverToMainMenu() function.
+    world1BackGround.style.display = 'none';        //Check gameOverToMainMenu() function.
+    levelsPage.style.display = 'block';             //Check gameOverToMainMenu() function.
+    hideSettingsMenu();                             //Check gameOverToMainMenu() function. In toMainMenu() has this function been placed.
 }
 
-function youWinToShop() {                           //YOU WIN
-    youWinDiv.style.display = "none";
-    backGround.style.display = 'block';
-    world1BackGround.style.display = 'none';
-    toShop();
+function gameOverToShop() {                         //GAME OVER || Shop
+    gameOverDiv.style.display = "none";             //Game over to the shop. Same as above functions.
+    backGround.style.display = 'block';             //Check gameOverToMainMenu() function.
+    world1BackGround.style.display = 'none';        //Check gameOverToMainMenu() function.
+    levelsClick = 0;                                //Check gameOverToMainMenu() function.
+    toShop();                                       //Activation toShop().
+}
+
+function youWinToShop() {                           //YOU WIN || Shop
+    youWinDiv.style.display = "none";               //same as 1 function above but now from you win.
+    backGround.style.display = 'block';             //Check gameOverToMainMenu() function.
+    world1BackGround.style.display = 'none';        //Check gameOverToMainMenu() function.
+    toShop();                                       //Activation toShop().
 }
 
 
 //Main menu
-function toMainMenu() {                                 //PURE MADE FOR SHORTER CODE
-    mmMenu.style.display = 'block';
-    duckTitle.style.display = 'block';
-    hideSettingsMenu();
+function toMainMenu() {                             //PURE MADE FOR SHORTER CODE || from anywhere, to Main menu
+    mmMenu.style.display = 'block';                 //Showing the menu in main menu.
+    duckTitle.style.display = 'block';              //Showing the duckhunter title.
+    hideSettingsMenu();                             //Hiding the setting menu.
 }
 
-function outMainMenu() {                                //PURE MADE FOR SHORTER CODE
-    mmMenu.style.display = 'none';
-    duckTitle.style.display = 'none';
+function outMainMenu() {                            //PURE MADE FOR SHORTER CODE || from anywhere, out Main menu
+    mmMenu.style.display = 'none';                  //Hiding the menu in main menu.
+    duckTitle.style.display = 'none';               //Hiding the duckHunter Title
     hideSettingsMenu();
 }
 
 
 //Shop
-function toShop() {                                     //PURE MADE FOR SHORTER CODE
+function toShop() {                                 //PURE MADE FOR SHORTER CODE
     shopPage.style.display = 'block';
     sGunButton.style.display = 'block';
     hideSettingsMenu();
@@ -697,6 +645,310 @@ function backToLevelsMenu1() {
     levelsPage.style.display = 'block';
     world1Menu.style.display = 'none';
     hideSettingsMenu();
+}
+
+function checkMyLevels() {
+    if (gamesWon >= 1) {
+        Level1.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 1;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 2) {
+        Level2.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 2;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 3) {
+        Level3.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 3;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 4) {
+        Level4.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 4;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 5) {
+        Level5.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 5;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 6) {
+        Level6.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 6;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 7) {
+        Level7.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 7;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 8) {
+        Level8.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 8;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 9) {
+        Level9.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 9;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 10) {
+        Level10.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 10;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 11) {
+        Level11.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 11;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 12) {
+        Level12.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 12;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 13) {
+        Level13.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 13;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 14) {
+        Level14.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 14;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 15) {
+        Level15.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 15;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+
+    if (gamesWon >= 16) {
+        Level16.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 16;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 17) {
+        Level17.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 17;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 18) {
+        Level18.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 18;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 19) {
+        Level19.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 19;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 20) {
+        Level20.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 20;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 21) {
+        Level21.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 21;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 22) {
+        Level22.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 22;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 23) {
+        Level23.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 23;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 24) {
+        Level24.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 24;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+
+    if (gamesWon >= 25) {
+        Level25.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 25;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 26) {
+        Level26.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 26;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 27) {
+        Level27.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 27;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 28) {
+        Level28.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 28;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 29) {
+        Level29.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 29;
+            levelsClick = 1;
+            playGame();
+        }
+    }
+
+    if (gamesWon >= 30) {
+        Level30.onclick = function() {
+            levelsPage.style.display = "none";
+            world1Menu.style.display = "none";
+            goToLevel = 30;
+            levelsClick = 1;
+            playGame();
+        }
+    }
 }
 
 //World 2 -- Level/World selector!!

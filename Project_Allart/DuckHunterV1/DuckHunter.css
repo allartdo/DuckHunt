@@ -415,6 +415,7 @@ body {
     border-radius: 20px;
     background-color: #b8ff0054;
     border: solid 1px;
+    font-size: 50px;
 }
 
 .lRow2 {
@@ -460,6 +461,14 @@ body {
 .lRow10 {
     top: -5049px;
     left: 1234.98px;
+}
+
+.lLevelBird {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 75px;
+    height: 75px;
 }
 
 .borderOfWorldButton {
