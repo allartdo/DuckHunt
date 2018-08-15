@@ -418,6 +418,14 @@ body {
     border: solid 1px grey ;
 }
 
+.lLevelNummbers {
+    position: absolute;
+    top: -15;
+    left: 15px;
+    font-family: 'Kumar One', cursive;
+    color: white;
+}
+
 .gGunDivs {
     position: relative;
     cursor: pointer;
