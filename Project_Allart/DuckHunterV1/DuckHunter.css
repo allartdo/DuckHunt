@@ -327,7 +327,7 @@ body {
     border-style: solid;
     border-color: black;
     border-width: 8px;
-    background-color: transparent;
+    background-image: url('./Images/whiteBackground.jpg');
 }
 
 .sImageSkillButton {
@@ -408,14 +408,26 @@ body {
 
 .lLevelDivs {
     position: relative;
+    cursor: pointer;
     margin-left: 80px;
     margin-top: 85px;
     width: 100px;
     height: 100px;
     border-radius: 20px;
-    background-color: #b8ff0054;
-    border: solid 1px;
-    font-size: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: solid 1px grey ;
+}
+
+.gGunDivs {
+    position: relative;
+    cursor: pointer;
+    margin-left: 80px;
+    margin-top: 85px;
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    background-image: url('./Images/blackBackground.jpg');
+    border: solid 1px grey ;
 }
 
 .lRow2 {

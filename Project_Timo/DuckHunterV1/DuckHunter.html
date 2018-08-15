@@ -54,8 +54,10 @@
         <!--Play || Level 1 -->
         <img class="world1BackGround" id="world1BackGround" draggable="false" src="./Images/world1Background.jpg">
         <img class="dynMoveBird1" id="bird" src="./Images/SplashVogel.gif" draggable="false"></img>
+        <img class="dynMoveBird1" id="bird2" src="./Images/Bird2.gif" draggable="false"></img>
         <div class="basicShopLevelsCreditsTextDiv" id="levelDiv">
-            <h1 class="basicTitle" id="levelText">Level 1</h1>
+            <h1 class="basicTitle" id="levelText"></h1>
+            <h1 class="readySetGoText" id="readySetGoTextChange">3</h1>
             <img src="Images\Gun.png" class="Gun" id="Gun1" draggable="false">
             <img src="./images/Full hearts 1.png" class="Hearts" draggable="false">
             <img src="./Images/inGameAmmo.png" class="ammoCircle" draggable="false">
@@ -213,36 +215,36 @@
         <div class="basicShopLevelsCreditsTextDiv" id="world1Menu">
             <h1 class="basicTitle">World 1</h1>
             <div class="lBorderOfWorlds">
-                <div class="lLevelDivs" onclick="playGame()" id="level1"></div>
-                <div class="lLevelDivs" onclick="playGame()" id="level2"></div>
-                <div class="lLevelDivs" onclick="playGame()" id="level3"></div>
-                <div class="lLevelDivs lRow2" onclick="playGame()" id="level4"></div>
-                <div class="lLevelDivs lRow2" onclick="playGame()" id="level5"></div>
-                <div class="lLevelDivs lRow2" onclick="playGame()" id="level6"></div>
-                <div class="lLevelDivs lRow3" onclick="playGame()" id="level7"></div>
-                <div class="lLevelDivs lRow3" onclick="playGame()" id="level8"></div>
-                <div class="lLevelDivs lRow3" onclick="playGame()" id="level9"></div>
-                <div class="lLevelDivs lRow4" onclick="playGame()" id="level10"></div>
-                <div class="lLevelDivs lRow4" onclick="playGame()" id="level11"></div>
-                <div class="lLevelDivs lRow4" onclick="playGame()" id="level12"></div>
-                <div class="lLevelDivs lRow5" onclick="playGame()" id="level13"></div>
-                <div class="lLevelDivs lRow5" onclick="playGame()" id="level14"></div>
-                <div class="lLevelDivs lRow5" onclick="playGame()" id="level15"></div>
-                <div class="lLevelDivs lRow6" onclick="playGame()" id="level16"></div>
-                <div class="lLevelDivs lRow6" onclick="playGame()" id="level17"></div>
-                <div class="lLevelDivs lRow6" onclick="playGame()" id="level18"></div>
-                <div class="lLevelDivs lRow7" onclick="playGame()" id="level19"></div>
-                <div class="lLevelDivs lRow7" onclick="playGame()" id="level20"></div>
-                <div class="lLevelDivs lRow7" onclick="playGame()" id="level21"></div>
-                <div class="lLevelDivs lRow8" onclick="playGame()" id="level22"></div>
-                <div class="lLevelDivs lRow8" onclick="playGame()" id="level23"></div>
-                <div class="lLevelDivs lRow8" onclick="playGame()" id="level24"></div>
-                <div class="lLevelDivs lRow9" onclick="playGame()" id="level25"></div>
-                <div class="lLevelDivs lRow9" onclick="playGame()" id="level26"></div>
-                <div class="lLevelDivs lRow9" onclick="playGame()" id="level27"></div>
-                <div class="lLevelDivs lRow10" onclick="playGame()" id="level28"></div>
-                <div class="lLevelDivs lRow10" onclick="playGame()" id="level29"></div>
-                <div class="lLevelDivs lRow10" onclick="playGame()" id="level30"></div>
+                <div class="lLevelDivs" id="Level1">1 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs" id="Level11">11 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs" id="Level21">21 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow2" id="Level2"> 2 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow2" id="Level12"> 12 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow2" id="Level22"> 22 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow3" id="Level3"> 3 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow3" id="Level13"> 13 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow3" id="Level23"> 23 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow4" id="Level4"> 4 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow4" id="Level14"> 14 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow4" id="Level24"> 24 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow5" id="Level5"> 5 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow5" id="Level15"> 15 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow5" id="Level25"> 25 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow6" id="Level6"> 6 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow6" id="Level16"> 16 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow6" id="Level26"> 26 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow7" id="Level7"> 7 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow7" id="Level17"> 17 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow7" id="Level27"> 27 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow8" id="Level8"> 8 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow8" id="Level18"> 18 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow8" id="Level28"> 28 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow9" id="Level9"> 9 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow9" id="Level19"> 19 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow9" id="Level29"> 29 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow10" id="Level10"> 10 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow10" id="Level20"> 20 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
+                <div class="lLevelDivs lRow10" id="Level30"> 30 <img class="lLevelBird" src="./Images/LevelBird.png"></div>
             </div>
             <h1 class="basicBacks" onclick="backToLevelsMenu1()">Back</h1>
         </div>
@@ -251,36 +253,36 @@
         <div class="basicShopLevelsCreditsTextDiv" id="world2Menu">
             <h1 class="basicTitle">World 2</h1>
             <div class="lBorderOfWorlds lBorderOfWorlds2">
-                <div class="lLevelDivs" onclick="playGame()" id="level31"></div>
-                <div class="lLevelDivs" onclick="playGame()" id="level32"></div>
-                <div class="lLevelDivs" onclick="playGame()" id="level33"></div>
-                <div class="lLevelDivs lRow2" onclick="playGame()" id="level34"></div>
-                <div class="lLevelDivs lRow2" onclick="playGame()" id="level35"></div>
-                <div class="lLevelDivs lRow2" onclick="playGame()" id="level36"></div>
-                <div class="lLevelDivs lRow3" onclick="playGame()" id="level37"></div>
-                <div class="lLevelDivs lRow3" onclick="playGame()" id="level38"></div>
-                <div class="lLevelDivs lRow3" onclick="playGame()" id="level39"></div>
-                <div class="lLevelDivs lRow4" onclick="playGame()" id="level40"></div>
-                <div class="lLevelDivs lRow4" onclick="playGame()" id="level41"></div>
-                <div class="lLevelDivs lRow4" onclick="playGame()" id="level42"></div>
-                <div class="lLevelDivs lRow5" onclick="playGame()" id="level43"></div>
-                <div class="lLevelDivs lRow5" onclick="playGame()" id="level44"></div>
-                <div class="lLevelDivs lRow5" onclick="playGame()" id="level45"></div>
-                <div class="lLevelDivs lRow6" onclick="playGame()" id="level46"></div>
-                <div class="lLevelDivs lRow6" onclick="playGame()" id="level47"></div>
-                <div class="lLevelDivs lRow6" onclick="playGame()" id="level48"></div>
-                <div class="lLevelDivs lRow7" onclick="playGame()" id="level49"></div>
-                <div class="lLevelDivs lRow7" onclick="playGame()" id="level50"></div>
-                <div class="lLevelDivs lRow7" onclick="playGame()" id="level51"></div>
-                <div class="lLevelDivs lRow8" onclick="playGame()" id="level52"></div>
-                <div class="lLevelDivs lRow8" onclick="playGame()" id="level53"></div>
-                <div class="lLevelDivs lRow8" onclick="playGame()" id="level54"></div>
-                <div class="lLevelDivs lRow9" onclick="playGame()" id="level55"></div>
-                <div class="lLevelDivs lRow9" onclick="playGame()" id="level56"></div>
-                <div class="lLevelDivs lRow9" onclick="playGame()" id="level57"></div>
-                <div class="lLevelDivs lRow10" onclick="playGame()" id="level58"></div>
-                <div class="lLevelDivs lRow10" onclick="playGame()" id="level59"></div>
-                <div class="lLevelDivs lRow10" onclick="playGame()" id="level60"></div>
+                <div class="lLevelDivs"></div>
+                <div class="lLevelDivs"></div>
+                <div class="lLevelDivs"></div>
+                <div class="lLevelDivs lRow2"></div>
+                <div class="lLevelDivs lRow2"></div>
+                <div class="lLevelDivs lRow2"></div>
+                <div class="lLevelDivs lRow3"></div>
+                <div class="lLevelDivs lRow3"></div>
+                <div class="lLevelDivs lRow3"></div>
+                <div class="lLevelDivs lRow4"></div>
+                <div class="lLevelDivs lRow4"></div>
+                <div class="lLevelDivs lRow4"></div>
+                <div class="lLevelDivs lRow5"></div>
+                <div class="lLevelDivs lRow5"></div>
+                <div class="lLevelDivs lRow5"></div>
+                <div class="lLevelDivs lRow6"></div>
+                <div class="lLevelDivs lRow6"></div>
+                <div class="lLevelDivs lRow6"></div>
+                <div class="lLevelDivs lRow7"></div>
+                <div class="lLevelDivs lRow7"></div>
+                <div class="lLevelDivs lRow7"></div>
+                <div class="lLevelDivs lRow8"></div>
+                <div class="lLevelDivs lRow8"></div>
+                <div class="lLevelDivs lRow8"></div>
+                <div class="lLevelDivs lRow9"></div>
+                <div class="lLevelDivs lRow9"></div>
+                <div class="lLevelDivs lRow9"></div>
+                <div class="lLevelDivs lRow10"></div>
+                <div class="lLevelDivs lRow10"></div>
+                <div class="lLevelDivs lRow10"></div>
             </div>
             <h1 class="basicBacks" onclick="backToLevelsMenu2()">Back</h1>
         </div>
@@ -289,36 +291,36 @@
         <div class="basicShopLevelsCreditsTextDiv" id="world3Menu">
             <h1 class="basicTitle">World 3</h1>
             <div class="lBorderOfWorlds lBorderOfWorlds3">
-                <div class="lLevelDivs" onclick="playGame()" id="level61"></div>
-                <div class="lLevelDivs" onclick="playGame()" id="level62"></div>
-                <div class="lLevelDivs" onclick="playGame()" id="level63"></div>
-                <div class="lLevelDivs lRow2" onclick="playGame()" id="level64"></div>
-                <div class="lLevelDivs lRow2" onclick="playGame()" id="level65"></div>
-                <div class="lLevelDivs lRow2" onclick="playGame()" id="level66"></div>
-                <div class="lLevelDivs lRow3" onclick="playGame()" id="level67"></div>
-                <div class="lLevelDivs lRow3" onclick="playGame()" id="level68"></div>
-                <div class="lLevelDivs lRow3" onclick="playGame()" id="level69"></div>
-                <div class="lLevelDivs lRow4" onclick="playGame()" id="level70"></div>
-                <div class="lLevelDivs lRow4" onclick="playGame()" id="level71"></div>
-                <div class="lLevelDivs lRow4" onclick="playGame()" id="level72"></div>
-                <div class="lLevelDivs lRow5" onclick="playGame()" id="level73"></div>
-                <div class="lLevelDivs lRow5" onclick="playGame()" id="level74"></div>
-                <div class="lLevelDivs lRow5" onclick="playGame()" id="level75"></div>
-                <div class="lLevelDivs lRow6" onclick="playGame()" id="level76"></div>
-                <div class="lLevelDivs lRow6" onclick="playGame()" id="level77"></div>
-                <div class="lLevelDivs lRow6" onclick="playGame()" id="level78"></div>
-                <div class="lLevelDivs lRow7" onclick="playGame()" id="level79"></div>
-                <div class="lLevelDivs lRow7" onclick="playGame()" id="level80"></div>
-                <div class="lLevelDivs lRow7" onclick="playGame()" id="level81"></div>
-                <div class="lLevelDivs lRow8" onclick="playGame()" id="level82"></div>
-                <div class="lLevelDivs lRow8" onclick="playGame()" id="level83"></div>
-                <div class="lLevelDivs lRow8" onclick="playGame()" id="level84"></div>
-                <div class="lLevelDivs lRow9" onclick="playGame()" id="level85"></div>
-                <div class="lLevelDivs lRow9" onclick="playGame()" id="level86"></div>
-                <div class="lLevelDivs lRow9" onclick="playGame()" id="level87"></div>
-                <div class="lLevelDivs lRow10" onclick="playGame()" id="level88"></div>
-                <div class="lLevelDivs lRow10" onclick="playGame()" id="level89"></div>
-                <div class="lLevelDivs lRow10" onclick="playGame()" id="level90"></div>
+                <div class="lLevelDivs"></div>
+                <div class="lLevelDivs"></div>
+                <div class="lLevelDivs"></div>
+                <div class="lLevelDivs lRow2"></div>
+                <div class="lLevelDivs lRow2"></div>
+                <div class="lLevelDivs lRow2"></div>
+                <div class="lLevelDivs lRow3"></div>
+                <div class="lLevelDivs lRow3"></div>
+                <div class="lLevelDivs lRow3"></div>
+                <div class="lLevelDivs lRow4"></div>
+                <div class="lLevelDivs lRow4"></div>
+                <div class="lLevelDivs lRow4"></div>
+                <div class="lLevelDivs lRow5"></div>
+                <div class="lLevelDivs lRow5"></div>
+                <div class="lLevelDivs lRow5"></div>
+                <div class="lLevelDivs lRow6"></div>
+                <div class="lLevelDivs lRow6"></div>
+                <div class="lLevelDivs lRow6"></div>
+                <div class="lLevelDivs lRow7"></div>
+                <div class="lLevelDivs lRow7"></div>
+                <div class="lLevelDivs lRow7"></div>
+                <div class="lLevelDivs lRow8"></div>
+                <div class="lLevelDivs lRow8"></div>
+                <div class="lLevelDivs lRow8"></div>
+                <div class="lLevelDivs lRow9"></div>
+                <div class="lLevelDivs lRow9"></div>
+                <div class="lLevelDivs lRow9"></div>
+                <div class="lLevelDivs lRow10"></div>
+                <div class="lLevelDivs lRow10"></div>
+                <div class="lLevelDivs lRow10"></div>
             </div>
             <h1 class="basicBacks" onclick="backToLevelsMenu3()">Back</h1>
         </div>
@@ -327,36 +329,36 @@
         <div class="basicShopLevelsCreditsTextDiv" id="world4Menu">
             <h1 class="basicTitle">World 4</h1>
             <div class="lBorderOfWorlds lBorderOfWorlds4">
-                <div class="lLevelDivs" onclick="playGame()" id="level91"></div>
-                <div class="lLevelDivs" onclick="playGame()" id="level92"></div>
-                <div class="lLevelDivs" onclick="playGame()" id="level93"></div>
-                <div class="lLevelDivs lRow2" onclick="playGame()" id="level94"></div>
-                <div class="lLevelDivs lRow2" onclick="playGame()" id="level95"></div>
-                <div class="lLevelDivs lRow2" onclick="playGame()" id="level96"></div>
-                <div class="lLevelDivs lRow3" onclick="playGame()" id="level97"></div>
-                <div class="lLevelDivs lRow3" onclick="playGame()" id="level98"></div>
-                <div class="lLevelDivs lRow3" onclick="playGame()" id="level99"></div>
-                <div class="lLevelDivs lRow4" onclick="playGame()" id="level100"></div>
-                <div class="lLevelDivs lRow4" onclick="playGame()" id="level101"></div>
-                <div class="lLevelDivs lRow4" onclick="playGame()" id="level102"></div>
-                <div class="lLevelDivs lRow5" onclick="playGame()" id="level103"></div>
-                <div class="lLevelDivs lRow5" onclick="playGame()" id="level104"></div>
-                <div class="lLevelDivs lRow5" onclick="playGame()" id="level105"></div>
-                <div class="lLevelDivs lRow6" onclick="playGame()" id="level106"></div>
-                <div class="lLevelDivs lRow6" onclick="playGame()" id="level107"></div>
-                <div class="lLevelDivs lRow6" onclick="playGame()" id="level108"></div>
-                <div class="lLevelDivs lRow7" onclick="playGame()" id="level109"></div>
-                <div class="lLevelDivs lRow7" onclick="playGame()" id="level110"></div>
-                <div class="lLevelDivs lRow7" onclick="playGame()" id="level111"></div>
-                <div class="lLevelDivs lRow8" onclick="playGame()" id="level112"></div>
-                <div class="lLevelDivs lRow8" onclick="playGame()" id="level113"></div>
-                <div class="lLevelDivs lRow8" onclick="playGame()" id="level114"></div>
-                <div class="lLevelDivs lRow9" onclick="playGame()" id="level115"></div>
-                <div class="lLevelDivs lRow9" onclick="playGame()" id="level116"></div>
-                <div class="lLevelDivs lRow9" onclick="playGame()" id="level117"></div>
-                <div class="lLevelDivs lRow10" onclick="playGame()" id="level118"></div>
-                <div class="lLevelDivs lRow10" onclick="playGame()" id="level119"></div>
-                <div class="lLevelDivs lRow10" onclick="playGame()" id="level120"></div>
+                <div class="lLevelDivs"></div>
+                <div class="lLevelDivs"></div>
+                <div class="lLevelDivs"></div>
+                <div class="lLevelDivs lRow2"></div>
+                <div class="lLevelDivs lRow2"></div>
+                <div class="lLevelDivs lRow2"></div>
+                <div class="lLevelDivs lRow3"></div>
+                <div class="lLevelDivs lRow3"></div>
+                <div class="lLevelDivs lRow3"></div>
+                <div class="lLevelDivs lRow4"></div>
+                <div class="lLevelDivs lRow4"></div>
+                <div class="lLevelDivs lRow4"></div>
+                <div class="lLevelDivs lRow5"></div>
+                <div class="lLevelDivs lRow5"></div>
+                <div class="lLevelDivs lRow5"></div>
+                <div class="lLevelDivs lRow6"></div>
+                <div class="lLevelDivs lRow6"></div>
+                <div class="lLevelDivs lRow6"></div>
+                <div class="lLevelDivs lRow7"></div>
+                <div class="lLevelDivs lRow7"></div>
+                <div class="lLevelDivs lRow7"></div>
+                <div class="lLevelDivs lRow8"></div>
+                <div class="lLevelDivs lRow8"></div>
+                <div class="lLevelDivs lRow8"></div>
+                <div class="lLevelDivs lRow9"></div>
+                <div class="lLevelDivs lRow9"></div>
+                <div class="lLevelDivs lRow9"></div>
+                <div class="lLevelDivs lRow10"></div>
+                <div class="lLevelDivs lRow10"></div>
+                <div class="lLevelDivs lRow10"></div>
             </div>
             <h1 class="basicBacks" onclick="backToLevelsMenu4()">Back</h1>
         </div>
