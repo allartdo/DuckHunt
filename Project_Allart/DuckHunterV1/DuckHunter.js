@@ -7,6 +7,7 @@
 
 //Audio
 var audio = document.getElementById('Rust');
+var gunShotSound = document.getElementById('gunShotSound');
 document.getElementById('backGroundSound').innerHTML = '<iframe class="iFrameSound" src="./Sounds/silent.mp3"></iframe>';  //if you dont use an iframe then its impossible to get your music starting automaticly in chrome, here i start a silent sound for 1 second and so on the video in html will succees auto starting. 
 audio.volume = '0.1';
 
@@ -18,6 +19,7 @@ var holeDoc = document.documentElement;
 
 //Duck Title
 var duckTitle = document.getElementById('duckTitle');
+var levelDiv = document.getElementById("levelDiv");
 
 //Play
 var bird1Variables = [move = -200, speedLeft = 2, speedRight = 2, speedTop = 2, randomTop = 450, goingRight = 0, goingLeft = 0, lostHalfAHearth = 0, dontLoseLifeOnHit = 0];
@@ -133,10 +135,12 @@ function startAgain() {
     PlayGame();
 }*/
 
+
 function gunShot() {
     levelDiv.onmousedown = function() {
         Ammo--;
         ammoCount.innerHTML = Ammo;
+        gunShotSound.play();
         if(Ammo == 0 && hitPoints < hitsNeeded) {
             Ammo ++;
             console.log(Ammo);
@@ -153,6 +157,7 @@ bird1.onmousedown = function hitBird1() {
     moneyCount.innerHTML = Money;
     Ammo--;
     ammoCount.innerHTML = Ammo;
+    gunShotSound.play();
     if(Ammo == 0 && hitPoints < hitsNeeded) {
         Ammo ++;
         gameOver();
@@ -170,6 +175,7 @@ bird2.onmousedown = function hitBird1() {
     moneyCount.innerHTML = Money;
     Ammo--;
     ammoCount.innerHTML = Ammo;
+    gunShotSound.play();
     if(Ammo == 0 && hitPoints < hitsNeeded) {
         Ammo ++;
         gameOver();
@@ -456,6 +462,8 @@ function playGame() {
             speedRight = 2.6;
             speedTop = 2.6;
             getRandomTopNumberDuration = 1700;
+            alert("I need more!!");
+            hitsNeeded = 5;
         }
 
         if ((goToLevel == 14 && goToLevelTrue == 1) || (gamesWon == 14 && gamesWonTrue == 1)) {             //Level 14
@@ -468,13 +476,11 @@ function playGame() {
 
         if ((goToLevel == 15 && goToLevelTrue == 1) || (gamesWon == 15 && gamesWonTrue == 1)) {             //Level 15
             alert("lvl 15")
-            alert("I need more!!");
-            hitsNeeded = 5;
         }
         
         if ((goToLevel == 16 && goToLevelTrue == 1) || (gamesWon == 16 && gamesWonTrue == 1)) {             //Level 16
             alert("lvl 16")
-            alert("Congrats! ur first skill point has been added, go to shop, skills and choose what you want to upgrade");
+            alert("Congrats! Skill point has been added, go to shop, skills and choose what you want to upgrade");
             speedLeft = 2.8;
             speedRight = 2.8;
             speedTop = 2.8;
@@ -496,6 +502,7 @@ function playGame() {
             speedRight = 3;
             speedTop = 3;
             getRandomTopNumberDuration = 1500;
+            hitsNeeded = 6;
             //life to 3 hearts now? instead of 5.
         }
 
@@ -519,7 +526,7 @@ function playGame() {
 
         if ((goToLevel == 25 && goToLevelTrue == 1) || (gamesWon == 25 && gamesWonTrue == 1)) {             //Level 25
             alert("lvl 25")
-            hitsNeeded = 6;
+            hitsNeeded = 7;
         }
 
         if ((goToLevel == 26 && goToLevelTrue == 1) || (gamesWon == 26 && gamesWonTrue == 1)) {             //Level 26
@@ -544,6 +551,8 @@ function playGame() {
             speedRight = 3.5;
             speedTop = 3.5;
             getRandomTopNumberDuration = 1250;
+            alert("Shoot 8 for me!!");
+            hitsNeeded = 8;
             //bird added?
         }
 
@@ -557,7 +566,7 @@ function playGame() {
         }
         
         
-        if ((goToLevel >= 2 && goToLevelTrue == 1) || (gamesWon >= 2 && gamesWonTrue == 1)) {
+        if ((goToLevel >= 10 && goToLevelTrue == 1) || (gamesWon >= 10 && gamesWonTrue == 1)) {
             Bird2();
         }
 
