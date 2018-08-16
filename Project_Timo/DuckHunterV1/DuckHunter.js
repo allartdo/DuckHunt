@@ -44,6 +44,7 @@ var bird2 = document.getElementById("bird2");
 var moneyCount = document.getElementById('Money');
 var Money = 0;
 var Ammo = 10;
+var h3Hearts = document.getElementById('h3Hearts');
 bird1.style.top = randomTop;
 bird1.style.left = move;
 
@@ -132,7 +133,23 @@ function startAgain() {
     bird1.style.display = "block";
     PlayGame();
 }*/
-
+function resetHearts() {
+    h3Hearts.style.display = 'block';
+    h3Hearts1lost.style.display = 'none';
+    h3Hearts2lost.style.display = 'none';
+    h3Hearts3lost.style.display = 'none';
+    h4Hearts.style.display = 'none';
+    h4Hearts1lost.style.display = 'none';
+    h4Hearts2lost.style.display = 'none';
+    h4Hearts3lost.style.display = 'none';
+    h4Hearts4lost.style.display = 'none';
+    h5Hearts.style.display = 'none';
+    h5Hearts1lost.style.display = 'none';
+    h5Hearts2lost.style.display = 'none';
+    h5Hearts3lost.style.display = 'none';
+    h5Hearts4lost.style.display = 'none';
+    h5Hearts5lost.style.display = 'none';
+}
 function gunShot() {
     levelDiv.onmousedown = function() {
         Ammo--;
@@ -223,7 +240,22 @@ goRight();
                     lostHalfAHearth +=1;
                     console.log(lostHalfAHearth);
                 }
-                if (lostHalfAHearth == 10) {
+                if (lostHalfAHearth == 1) {
+                    h3Hearts.style.display= 'none';
+                    h3Hearts1lost.style.display = 'block';
+                }
+
+                if (lostHalfAHearth == 2) {
+                    h3Hearts1lost.style.display = 'none';
+                    h3Hearts2lost.style.display= 'block';
+                }
+
+                if (lostHalfAHearth == 3) {
+                    h3Hearts2lost.style.display = 'none';
+                    h3Hearts3lost.style.display= 'block';
+                }
+
+                if (lostHalfAHearth == 3) {
                     gameOver();
                 } else {
                 goingLeft = 1;
@@ -248,7 +280,22 @@ goRight();
                     //alert("You lost half a heart!")
                     console.log(lostHalfAHearth);
                 }
-                if (lostHalfAHearth == 10) {
+
+                if (lostHalfAHearth == 1) {
+                    h3Hearts.style.display= 'none';
+                    h3Hearts1lost.style.display = 'block';
+                }
+
+                if (lostHalfAHearth == 2) {
+                    h3Hearts1lost.style.display = 'none';
+                    h3Hearts2lost.style.display= 'block';
+                }
+
+                if (lostHalfAHearth == 3) {
+                    h3Hearts2lost.style.display = 'none';
+                    h3Hearts3lost.style.display= 'block';
+                }
+                if (lostHalfAHearth == 3) {
                     gameOver();
                 } else {
                 goingRight = 1;
@@ -302,7 +349,22 @@ bird2.style.display = "block";
                     lostHalfAHearth +=1;
                     console.log(lostHalfAHearth);
                 }
-                if (lostHalfAHearth == 10) {
+
+                if (lostHalfAHearth == 1) {
+                    h3Hearts.style.display= 'none';
+                    h3Hearts1lost.style.display = 'block';
+                }
+
+                if (lostHalfAHearth == 2) {
+                    h3Hearts1lost.style.display = 'none';
+                    h3Hearts2lost.style.display= 'block';
+                }
+
+                if (lostHalfAHearth == 3) {
+                    h3Hearts2lost.style.display = 'none';
+                    h3Hearts3lost.style.display= 'block';
+                }
+                if (lostHalfAHearth == 3) {
                     gameOver();
                 } else {
                 goingLeft2 = 1;
@@ -327,7 +389,23 @@ bird2.style.display = "block";
                     //alert("You lost half a heart!")
                     console.log(lostHalfAHearth);
                 }
-                if (lostHalfAHearth == 10) {
+
+                if (lostHalfAHearth == 1) {
+                    h3Hearts.style.display= 'none';
+                    h3Hearts1lost.style.display = 'block';
+                }
+
+                if (lostHalfAHearth == 2) {
+                    h3Hearts1lost.style.display = 'none';
+                    h3Hearts2lost.style.display= 'block';
+                }
+
+                if (lostHalfAHearth == 3) {
+                    h3Hearts2lost.style.display = 'none';
+                    h3Hearts3lost.style.display= 'block';
+                }
+
+                if (lostHalfAHearth == 3) {
                     gameOver();
                 } else {
                 goingRight2 = 1;
@@ -364,6 +442,7 @@ function playGame() {
     ammoCount.innerHTML = Ammo;
     goToLevelTrue = 0;
     gamesWonTrue = 0;
+    resetHearts();
     hideSettingsMenu();
     checkMyLevels();
     console.log("won " + gamesWon);
