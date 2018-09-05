@@ -4,15 +4,19 @@
 //There is showed wich variables are used for what with the inline documentation.
 //Every function has clear explanation of how it works.
 
+//Basic things
+    //It should be so that whenever you go to another page the settings menu will hide (function hideSettingsMenu() is doing that).
+    //Every variable with document.getElementById(...); is made for a clearer name and sometimes other usages (then will be explained).
+
 
 //Audio
 var audio = document.getElementById('Rust');
 var gunShotSound = document.getElementById('gunShotSound');
 document.getElementById('backGroundSound').innerHTML = '<iframe class="iFrameSound" src="./Sounds/silent.mp3"></iframe>';  //if you dont use an iframe then its impossible to get your music starting automaticly in chrome, here i start a silent sound for 1 second and so on the video in html will succees auto starting. 
-audio.volume = '0.1';
+audio.volume = '0.1';       //Background music set to very low (0.1 - 10%).
 
 //onOff setting
-var settingsVariables = [settingsClick = 0, musicClick = 0, fullscreenClick = 0];           //for shorter code and keeping it clear code. Array for variables with numbers.
+var settingsVariables = [settingsClick = 0, musicClick = 1, fullscreenClick = 0];           //for shorter code and keeping it clear code. Array for variables with numbers.
 var STonOff = document.getElementById('settingsMainMenuSoundSwitch');
 var FSonOff = document.getElementById('settingsFullscreenSwitch');
 var holeDoc = document.documentElement;
@@ -24,35 +28,34 @@ var levelDiv = document.getElementById("levelDiv");
 //Play
 var bird1Variables = [move = -200, speedLeft = 2, speedRight = 2, speedTop = 2, randomTop = 450, goingRight = 0, goingLeft = 0, lostHalfAHearth = 0, dontLoseLifeOnHit = 0];
 var bird2Variables = [move2 = 2190, randomTop2 = 450, goingRight2 = 0, goingLeft2 = 0, dontLoseLifeOnHit2 = 0];
-var resetMoveTop;
-var resetNumber; 
-var resetRight;
-var resetLeft;
-var resetMoveTop2;
-var resetNumber2; 
-var resetRight2;
-var resetLeft2;
-var reset;
-var getRandomTopNumberDuration = 2000;
-var levelsClick = 0;
-var goToLevelTrue = 0;
-var gamesWonTrue = 0;
-var hitPoints = 0;
-var hitsNeeded = 3;
-var goToLevel = 0;
-var gamesWon = 1;
-var bird1 = document.getElementById("bird");
-var bird2 = document.getElementById("bird2");
-var moneyCount = document.getElementById('Money');
-var Money = 0;
-var Ammo = 10;
-bird1.style.top = randomTop;
-bird1.style.left = move;
+var resetMoveTop;                       //Made to stop the movement of the bird by going up. 
+var resetNumber;                        //Made to stop the random number generator
+var resetRight;                         //Made to stop the movement to the right.
+var resetLeft;                          //Made to stop the movement to the left.
+var resetMoveTop2;                      //Same as above but now for the second bird.
+var resetNumber2;                       //^^^
+var resetRight2;                        //^^^
+var resetLeft2;                             //^^^                           
+var getRandomTopNumberDuration = 2000;      //This is the time it will take for the random number generator untill he gets a new number. By making a variable for it i can change the time each level if i want. then the bird changes his movement to the top of page or bottom of page faster.
+var levelsClick = 0;                        //LevelsClick is made because if you just played a level chosen from the level selector and you want to continue with the highest level you have completed you can now go to main menu and play it. 
+                                            //If i dont make levelsClick 0 the program will think i still want to contineu with the next level... also if you played lvl 3 from the level selector and you click on continue then without the levelsclick it will go to the highest level you have played 
+var goToLevelTrue = 0;                      //This i used to check myself, now i can see if i clicked on a level from the level selector or just from the main menu. This one is when i clicked from the level selector, it should go set to 1 when i do.
+var gamesWonTrue = 0;                       //This one is when i clicked from the main menu, it should go set to 1 when i do.
+var hitPoints = 0;                          //Made to count the birds i shot. If this is more then my needed hits at that level then you win.
+var hitsNeeded = 3;                         //Made so i can change every level how many birds the player has to shoot.
+var goToLevel = 0;                          //In the level selector every level will need this variable to move to that level. (if you read the code where its getting used it will be easyer to understand).
+var gamesWon = 1;                                           //gamesWon starts with 1 so you will not see level 0 at the first level when you play. Its also made for going to whatever level you want.
+var bird1 = document.getElementById("bird");                //Giving the first bird a connection with the id in the HTML, name of variable is bird1.
+var bird2 = document.getElementById("bird2");               //Same here. This is just the second bird
+var moneyCount = document.getElementById('Money');          //Made to count the money and show the player how much money he got.
+var Money = 0;                                              //This is the amount of money the player has.
+var Ammo = 10;                                              //This is the amount of bullets the player has.
+
 
 
 //settings
 function hideSettingsMenu() {
-    settingsMenu.style.display = 'none';      //then hide the settingsMenu (display none).
+    settingsMenu.style.display = 'none';      //Then hides the settingsMenu (display none).
     settingsClick = 0;                        //settingsClick to 0 to reset the loop. (now the menu can be opened again and so i created a loop on click).
 }
 
@@ -70,16 +73,16 @@ function settingsButton() {             //Showed
 
 //Putting the main menu sound on/off
 function switchMainMenuMusic () {       //Music OFF
-    if (musicClick == 0) {
-        audio.pause();
-        STonOff.innerHTML = 'OFF';
-        musicClick = 1;
+    if (musicClick == 1) {              //if i didn't click on the ON button yet so when musicClick equal is to 0 (0 = off with most of the things) then...
+        audio.pause();                  //Music on pause.
+        STonOff.innerHTML = 'OFF';      //The text where ON stays now will be set to OFF so the player knows sound is off.
+        musicClick = 0;                 //musicClick will now be set to 1 so the next time we click on ON or OFF this function will never activate because its not equal to 0 but to 1 now.
     }
 
-    else if (musicClick == 1) {         //Music ON
-        audio.play();
-        STonOff.innerHTML = 'ON';
-        musicClick = 0;
+    else if (musicClick == 0) {         //Music ON || if the musicClick equal is to 1 then...
+        audio.play();                   //The music will start playing again.
+        STonOff.innerHTML = 'ON';       //Text will be from OFF to ON now.
+        musicClick = 1;                 //musicClick set to 0 so this function wont go on again.
     }
 }
 
@@ -347,13 +350,13 @@ bird2.style.display = "block";
     }
 }
 
-function playGame() {
-    mmMenu.style.display = 'none';                          //BASIC CODE DOWN HERE
-    duckTitle.style.display = 'none';
-    backGround.style.display = 'none';
-    world1BackGround.style.display = 'block';
-    levelDiv.style.display = 'block';
-    readySetGoTextChange.innerHTML = "3";
+function playGame() {                                       //Function made for starting the game.
+    mmMenu.style.display = 'none';                          //Hiding the main menu.
+    duckTitle.style.display = 'none';                       //Hiding the main menu title.
+    backGround.style.display = 'none';                      //Hiding the main background image.
+    world1BackGround.style.display = 'block';               //Showing the ingame background image.
+    levelDiv.style.display = 'block';                       //The level page will show now.
+    readySetGoTextChange.innerHTML = "3";                   //There will come text in the screen that says 2.
     readySetGoTextChange.style.display = "block";
     readySetGoTextChange.style.left = "900px"
     levelText.style.opacity = '1';
@@ -387,20 +390,20 @@ function playGame() {
     console.log("levelTrue" + goToLevelTrue);
 
     var resetReady1 = setInterval(function(){               //In this interval function you can write what you want to see after 1 second || Runs only once
-        readySetGoTextChange.innerHTML = "2";
-        window.clearInterval(resetReady1);
-    }, 1000);
+        readySetGoTextChange.innerHTML = "2";               //There will come text in the screen that says 2.
+        window.clearInterval(resetReady1);                  //Stopping the setinterval so it will run only once.
+    }, 1000);                                               //1 second
 
     var resetReady2 = setInterval(function(){               //In this interval function you can write what you want to see after 2 second || Runs only once
-        readySetGoTextChange.innerHTML = "1";
-        window.clearInterval(resetReady2);
-    }, 2000);
+        readySetGoTextChange.innerHTML = "1";               //There will come text in the screen that says 1.
+        window.clearInterval(resetReady2);                  //Stopping the setinterval so it will run only once.
+    }, 2000);                                               //2 seconds
 
     var resetGo = setInterval(function(){                   //In this interval function you can write what you want to see after 3 second || Runs only once
-        readySetGoTextChange.innerHTML = "GO";
-        readySetGoTextChange.style.left = "740px"
-        window.clearInterval(resetGo);
-    }, 3000);
+        readySetGoTextChange.innerHTML = "GO";              //There will come text in the screen that says GO.
+        readySetGoTextChange.style.left = "740px"           //Positioning the Ready Set Go text a bit more to the left of the page so it will look its still in the middle.
+        window.clearInterval(resetGo);                      //Stopping the setinterval so it will run only once.
+    }, 3000);                                               //3 seconds
 
     var resetVisibility = setInterval(function(){           //In this interval function you can write what you want to see after 4 second || Runs only once
         levelText.style.opacity = '0';
@@ -566,15 +569,15 @@ function playGame() {
         }
         
         
-        if ((goToLevel >= 10 && goToLevelTrue == 1) || (gamesWon >= 10 && gamesWonTrue == 1)) {
-            Bird2();
+        if ((goToLevel >= 10 && goToLevelTrue == 1) || (gamesWon >= 10 && gamesWonTrue == 1)) {             //Everything after level 10 will do this...
+            Bird2();                                                                                        //Show the second bird.
         }
 
 
-        Bird1();
-        gunShot();
-        window.clearInterval(resetVisibility);
-    }, 4000);
+        Bird1();                                                //Show bird1 (this is in the main function but as last written, otherwise the bird wont have the changes of every level).
+        gunShot();                                              //The shooting function.
+        window.clearInterval(resetVisibility);                  //Stopping the setinterval so it will run only once.
+    }, 4000);                                                   //Ending the function and giving 4 second before all the code in this interval will be activated.
 }
 
 function youWin() {                                             //When you win a level all under this will be activated.
@@ -634,8 +637,8 @@ function gameOver() {                                   //This will be activated
     duckCoin.style.width = '55px';                      //Check the function youWin()
     duckCoin.style.height = '55px';                     //Check the function youWin()
     duckCoin.style.top = '3px';                         //Check the function youWin()
-    move = 400, randomTop = 450, goingRight = 0, goingLeft = 0, lostHalfAHearth = 0, dontLoseLifeOnHit = 0;
-    move2 = -600, randomTop2 = 250, goingRight2 = 0, goingLeft2 = 0, dontLoseLifeOnHit2 = 0;
+    move = 400, randomTop = 450, goingRight = 0, goingLeft = 0, lostHalfAHearth = 0, dontLoseLifeOnHit = 0;     //made to reset the birds settings
+    move2 = -600, randomTop2 = 250, goingRight2 = 0, goingLeft2 = 0, dontLoseLifeOnHit2 = 0;                    //^^^^^^
     hideSettingsMenu();                                 //Hiding the settingMenu
 }
 
@@ -653,7 +656,7 @@ function gameOverToMainMenu() {                     //GAME OVER || Main Menu
     gameOverDiv.style.display = "none";             //Hiding the game over page.
     backGround.style.display = 'block';             //Showing the main menu background.
     world1BackGround.style.display = 'none';        //Hiding the in-game background
-    levelsClick = 0;                                //Making levelsClick 0. If you just played a level chosen from the level selector and you want to contineu with the highest level you have completed you can now go to main menu and play it. If i dont make levelsClick 0 the program will think i still want to contineu with the next level...
+    levelsClick = 0;                                //
     toMainMenu();                                   //Activating the function toMainMenu().
 }
 
@@ -708,15 +711,15 @@ function toMainMenu() {                             //PURE MADE FOR SHORTER CODE
 function outMainMenu() {                            //PURE MADE FOR SHORTER CODE || from anywhere, out Main menu
     mmMenu.style.display = 'none';                  //Hiding the menu in main menu.
     duckTitle.style.display = 'none';               //Hiding the duckHunter Title
-    hideSettingsMenu();
+    hideSettingsMenu();                             //Hiding the setting menu.
 }
 
 
 //Shop
 function toShop() {                                 //PURE MADE FOR SHORTER CODE
-    shopPage.style.display = 'block';
-    sGunButton.style.display = 'block';
-    hideSettingsMenu();
+    shopPage.style.display = 'block';               //Showing the shopPage menu, where u can choose between gunshop or skills.
+    sGunButton.style.display = 'block';             //Showing the gunbutton.
+    hideSettingsMenu();                             //hiding the settings menu by exucuting my function. (why? check top of page).
 }
 
 function mainMenuToShop() {
@@ -777,19 +780,19 @@ function backToLevelsMenu1() {
     hideSettingsMenu();
 }
 
-function checkMyLevels() {
-    if (gamesWon >= 1) {
-        Level1.onclick = function() {
-            levelsPage.style.display = "none";
-            world1Menu.style.display = "none";
-            goToLevel = 1;
-            levelsClick = 1;
+function checkMyLevels() {                                  //function made to check how much games you have won, checks when you start a game or won one.
+    if (gamesWon >= 1) {                                    //if i have won more games then 1 or just 1 the he does this...
+        Level1.onclick = function() {                       //if i click at the levels selector page on level 1 then 
+            levelsPage.style.display = "none";              //the levelspage will hide.
+            world1Menu.style.display = "none";              //the world1menu will hide.
+            goToLevel = 1;                                  //goToLevel set to 1, now the program knows he has to go to level 1.
+            levelsClick = 1;                                //levelsClick set to 1 (why? check top of page).
             playGame();
         }
     }
 
-    if (gamesWon >= 2) {
-        Level2.onclick = function() {
+    if (gamesWon >= 2) {                                    //All of this will just be the same but then with a higher level.
+        Level2.onclick = function() {                       //Would be nice if i could find a way to make this shorter.
             levelsPage.style.display = "none";
             world1Menu.style.display = "none";
             goToLevel = 2;
