@@ -13,7 +13,7 @@
 var audio = document.getElementById('Rust');
 var gunShotSound = document.getElementById('gunShotSound');
 document.getElementById('backGroundSound').innerHTML = '<iframe class="iFrameSound" src="./Sounds/silent.mp3"></iframe>';  //if you dont use an iframe then its impossible to get your music starting automaticly in chrome, here i start a silent sound for 1 second and so on the video in html will succees auto starting. 
-audio.volume = '0.1';       //Background music set to very low (0.1 - 10%).
+audio.volume = '1';       //Background music set to very low (0.1 - 10%).
 
 //onOff setting
 var settingsVariables = [settingsClick = 0, musicClick = 1, fullscreenClick = 0];           //for shorter code and keeping it clear code. Array for variables with numbers.
@@ -26,8 +26,8 @@ var duckTitle = document.getElementById('duckTitle');
 var levelDiv = document.getElementById("levelDiv");
 
 //Play
-var bird1Variables = [move = -200, speedLeft = 2, speedRight = 2, speedTop = 2, randomTop = 450, goingRight = 0, goingLeft = 0, lostHalfAHearth = 0, dontLoseLifeOnHit = 0];
-var bird2Variables = [move2 = 2190, randomTop2 = 450, goingRight2 = 0, goingLeft2 = 0, dontLoseLifeOnHit2 = 0];
+var bird1Variables = [move = -200, speedLeft = 2, speedRight = 2, speedTop = 2, randomTop = 450, dontGoDownAnymore = 0, goingRight = 0, goingLeft = 0, lostHalfAHearth = 0, dontLoseLifeOnHit = 0];
+var bird2Variables = [move2 = 2250, randomTop2 = 450, dontGoDownAnymore2 = 0, goingRight2 = 0, goingLeft2 = 0, dontLoseLifeOnHit2 = 0];
 var resetMoveTop;                       //Made to stop the movement of the bird by going up. 
 var resetNumber;                        //Made to stop the random number generator
 var resetRight;                         //Made to stop the movement to the right.
@@ -36,7 +36,7 @@ var resetMoveTop2;                      //Same as above but now for the second b
 var resetNumber2;                       //^^^
 var resetRight2;                        //^^^
 var resetLeft2;                             //^^^                           
-var getRandomTopNumberDuration = 2000;      //This is the time it will take for the random number generator untill he gets a new number. By making a variable for it i can change the time each level if i want. then the bird changes his movement to the top of page or bottom of page faster.
+var randomTopNumberDuration = 2000;      //This is the time it will take for the random number generator untill he gets a new number. By making a variable for it i can change the time each level if i want. then the bird changes his movement to the top of page or bottom of page faster.
 var levelsClick = 0;                        //LevelsClick is made because if you just played a level chosen from the level selector and you want to continue with the highest level you have completed you can now go to main menu and play it. 
                                             //If i dont make levelsClick 0 the program will think i still want to contineu with the next level... also if you played lvl 3 from the level selector and you click on continue then without the levelsclick it will go to the highest level you have played 
 var goToLevelTrue = 0;                      //This i used to check myself, now i can see if i clicked on a level from the level selector or just from the main menu. This one is when i clicked from the level selector, it should go set to 1 when i do.
@@ -86,7 +86,7 @@ function switchMainMenuMusic () {       //Music OFF
     }
 }
 
-//Fullscreen On/Off
+//Fullscreen On/Off             //copy copy copy :)
 function switchFullscreen() {               //Fullscreen ON
     if (fullscreenClick == 0) {                 //when fullscreenClick is equal to 0 then activate everything under this.
         if (holeDoc.requestFullscreen) {           //When elem (document).requestFullscreen is active then 
@@ -137,6 +137,12 @@ function startAgain() {
     bird1.style.display = "block";
     PlayGame();
 }*/
+
+console.log(speedTop);
+function resetBirds() {
+    move = -200, randomTop = 450, goingRight = 0, goingLeft = 0, lostHalfAHearth = 0, dontLoseLifeOnHit = 0;
+    move2 = 2250, randomTop2 = 250, goingRight2 = 0, goingLeft2 = 0, dontLoseLifeOnHit2 = 0;
+}
 
 
 function gunShot() {
@@ -202,22 +208,38 @@ goRight();
         randomTop = Math.round(Math.random()*document.body.clientHeight);
         resetNumber = setInterval(function(){
             randomTop = Math.round(Math.random()*document.body.clientHeight);
+            dontGoDownAnymore = 0;
             console.log(randomTop);
-        }, getRandomTopNumberDuration);
+        }, randomTopNumberDuration);
     }
 
     function moveTillBorder() {
         resetMoveTop = setInterval(function(){
-            if (randomTop >= bird1.offsetTop) {
+            if (bird1.offsetTop > document.body.clientHeight - 100) {
+                bird1.style.top = bird1.offsetTop -= speedTop;
+                dontGoDownAnymore = 1;
+                console.log("auhwdiuahdada00");
+            } else if ((randomTop > bird1.offsetTop) && (dontGoDownAnymore == 0)) {
                 bird1.style.top = bird1.offsetTop += speedTop;                 //3px if you want to zoom out and be able to use this function (25% zoom = max zoom out in chrome)
                 //console.log(bird1.style.top);
                 //console.log(randomTop);
-            } else {
+                console.log("2");
+            } else if (randomTop < bird1.offsetTop) {
                 bird1.style.top = bird1.offsetTop -= speedTop;                 //1 pixel with 100% zoom or higher
+                console.log("3");
             }
-            if (bird1.offsetTop > document.body.clientHeight - 70) {
-                bird1.style.top = bird1.offsetTop -= speedTop;
+
+            if (bird1.offsetTop == randomTop -1) {
+                bird1.style.top = bird1.offsetTop = randomTop;
+            } else if (bird1.offsetTop == randomTop +1) {
+                bird1.style.top = bird1.offsetTop = randomTop;
             }
+
+            if (bird1.offsetTop == randomTop) {
+                bird1.style.top = bird1.offsetTop += 0;
+            } 
+
+
         }, 1);
     }
 
@@ -281,22 +303,35 @@ bird2.style.display = "block";
         randomTop2 = Math.round(Math.random()*document.body.clientHeight);
         resetNumber2 = setInterval(function(){
             randomTop2 = Math.round(Math.random()*document.body.clientHeight);
+            dontGoDownAnymore2 = 0;
             console.log(randomTop2);
-        }, getRandomTopNumberDuration);
+        }, randomTopNumberDuration);
     }
 
     function moveTillBorder() {
-        resetMoveTop2 = setInterval(function(){
-            if (randomTop2 >= bird2.offsetTop) {
+        resetMoveTop2 = setInterval(function(){          
+            if (bird2.offsetTop > document.body.clientHeight - 100) {
+                bird2.style.top = bird2.offsetTop -= speedTop;
+                dontGoDownAnymore2 = 1;
+            } else if ((randomTop2 > bird2.offsetTop) && (dontGoDownAnymore2 == 0)) {
                 bird2.style.top = bird2.offsetTop += speedTop;                 //3px if you want to zoom out and be able to use this function (25% zoom = max zoom out in chrome)
-                //console.log(bird1.style.top);
-                //console.log(randomTop);
-            } else {
+                //console.log(bird2.style.top);
+                //console.log(randomTop2);
+            } else if (randomTop2 < bird2.offsetTop) {
                 bird2.style.top = bird2.offsetTop -= speedTop;                 //1 pixel with 100% zoom or higher
             }
-            if (bird2.offsetTop > document.body.clientHeight - 70) {
-                bird2.style.top = bird2.offsetTop -= speedTop;
+
+
+            if (bird2.offsetTop == randomTop2 -1) {
+                bird2.style.top = bird2.offsetTop = randomTop2;
+            } else if (bird2.offsetTop == randomTop2 +1) {
+                bird2.style.top = bird2.offsetTop = randomTop2;
             }
+
+            if (bird2.offsetTop == randomTop2) {
+                bird2.style.top = bird2.offsetTop += 0;
+            } 
+
         }, 1);
     }
 
@@ -306,7 +341,7 @@ bird2.style.display = "block";
             move2 += speedRight;
             bird2.style.transform = "scale(-1)";
             bird2.style.left = move2 + "px";
-            if (move2 > document.body.clientWidth + 100) {
+            if (move2 > document.body.clientWidth + 300) {
                 if (dontLoseLifeOnHit2 == 0) {
                     lostHalfAHearth +=1;
                     console.log(lostHalfAHearth);
@@ -330,7 +365,7 @@ bird2.style.display = "block";
             move2 -= speedLeft;
             bird2.style.transform = "scaleX(1)";
             bird2.style.left = move2 + "px";
-            if (move2 < document.body.clientLeft - 200) {
+            if (move2 < document.body.clientLeft - 300) {
                 if (dontLoseLifeOnHit2 == 0) {
                     lostHalfAHearth +=1;
                     //alert("You lost half a heart!")
@@ -415,7 +450,7 @@ function playGame() {                                       //Function made for 
             speedLeft = 2.1;
             speedRight = 2.1;
             speedTop = 2.1;
-            getRandomTopNumberDuration = 1950;
+            randomTopNumberDuration = 1950;
         }
 
         if ((goToLevel == 4 && goToLevelTrue == 1) || (gamesWon == 4 && gamesWonTrue == 1)) {               //Level 4
@@ -423,7 +458,7 @@ function playGame() {                                       //Function made for 
             speedLeft = 2.2;
             speedRight = 2.2;
             speedTop = 2.2;
-            getRandomTopNumberDuration = 1900;
+            randomTopNumberDuration = 1900;
         }
 
         if ((goToLevel == 5 && goToLevelTrue == 1) || (gamesWon == 5 && gamesWonTrue == 1)) {               //Level 5
@@ -437,7 +472,7 @@ function playGame() {                                       //Function made for 
             speedLeft = 2.3;
             speedRight = 2.3;
             speedTop = 2.3;
-            getRandomTopNumberDuration = 1850;
+            randomTopNumberDuration = 1850;
         }
 
         if ((goToLevel == 8 && goToLevelTrue == 1) || (gamesWon == 8 && gamesWonTrue == 1)) {               //Level 8
@@ -446,17 +481,17 @@ function playGame() {                                       //Function made for 
             speedLeft = 2.4;
             speedRight = 2.4;
             speedTop = 2.4;
-            getRandomTopNumberDuration = 1800;
+            randomTopNumberDuration = 1800;
             //first skill point added? Every 8 rounds you can get a skill point. at lvl 120 you will then have 15 upgrade points.
         }
 
         if ((goToLevel == 10 && goToLevelTrue == 1) || (gamesWon == 10 && gamesWonTrue == 1)) {             //Level 10
             alert("lvl 10")
-            console.log("One bird at a time not enough?")
+            alert("One bird at a time not enough?")
             speedLeft = 2.5;
             speedRight = 2.5;
             speedTop = 2.5;
-            getRandomTopNumberDuration = 1750;
+            randomTopNumberDuration = 1750;
         }
 
         if ((goToLevel == 12 && goToLevelTrue == 1) || (gamesWon == 12 && gamesWonTrue == 1)) {             //Level 12
@@ -464,7 +499,7 @@ function playGame() {                                       //Function made for 
             speedLeft = 2.6;
             speedRight = 2.6;
             speedTop = 2.6;
-            getRandomTopNumberDuration = 1700;
+            randomTopNumberDuration = 1700;
             alert("I need more!!");
             hitsNeeded = 5;
         }
@@ -474,7 +509,7 @@ function playGame() {                                       //Function made for 
             speedLeft = 2.7;
             speedRight = 2.7;
             speedTop = 2.7;
-            getRandomTopNumberDuration = 1650;
+            randomTopNumberDuration = 1650;
         }
 
         if ((goToLevel == 15 && goToLevelTrue == 1) || (gamesWon == 15 && gamesWonTrue == 1)) {             //Level 15
@@ -487,7 +522,7 @@ function playGame() {                                       //Function made for 
             speedLeft = 2.8;
             speedRight = 2.8;
             speedTop = 2.8;
-            getRandomTopNumberDuration = 1600;
+            randomTopNumberDuration = 1600;
             //skill point added
         }
 
@@ -496,7 +531,7 @@ function playGame() {                                       //Function made for 
             speedLeft = 2.9;
             speedRight = 2.9;
             speedTop = 2.9;
-            getRandomTopNumberDuration = 1550;
+            randomTopNumberDuration = 1550;
         }
 
         if ((goToLevel == 20 && goToLevelTrue == 1) || (gamesWon == 20 && gamesWonTrue == 1)) {             //Level 20
@@ -504,7 +539,7 @@ function playGame() {                                       //Function made for 
             speedLeft = 3;
             speedRight = 3;
             speedTop = 3;
-            getRandomTopNumberDuration = 1500;
+            randomTopNumberDuration = 1500;
             hitsNeeded = 6;
             //life to 3 hearts now? instead of 5.
         }
@@ -514,7 +549,7 @@ function playGame() {                                       //Function made for 
             speedLeft = 3.1;
             speedRight = 3.1;
             speedTop = 3.1;
-            getRandomTopNumberDuration = 1450;
+            randomTopNumberDuration = 1450;
         }
 
         if ((goToLevel == 24 && goToLevelTrue == 1) || (gamesWon == 24 && gamesWonTrue == 1)) {             //Level 24
@@ -523,7 +558,7 @@ function playGame() {                                       //Function made for 
             speedLeft = 3.2;
             speedRight = 3.2;
             speedTop = 3.2;
-            getRandomTopNumberDuration = 1400;
+            randomTopNumberDuration = 1400;
             //skillpoint added
         }
 
@@ -537,7 +572,7 @@ function playGame() {                                       //Function made for 
             speedLeft = 3.3;
             speedRight = 3.3;
             speedTop = 3.3;
-            getRandomTopNumberDuration = 1350;
+            randomTopNumberDuration = 1350;
         }
 
         if ((goToLevel == 28 && goToLevelTrue == 1) || (gamesWon == 28 && gamesWonTrue == 1)) {             //Level 28
@@ -545,7 +580,7 @@ function playGame() {                                       //Function made for 
             speedLeft = 3.4;
             speedRight = 3.4;
             speedTop = 3.4;
-            getRandomTopNumberDuration = 1300;
+            randomTopNumberDuration = 1300;
         }
 
         if ((goToLevel == 30 && goToLevelTrue == 1) || (gamesWon == 30 && gamesWonTrue == 1)) {             //Level 30
@@ -553,7 +588,7 @@ function playGame() {                                       //Function made for 
             speedLeft = 3.5;
             speedRight = 3.5;
             speedTop = 3.5;
-            getRandomTopNumberDuration = 1250;
+            randomTopNumberDuration = 1250;
             alert("Shoot 8 for me!!");
             hitsNeeded = 8;
             //bird added?
@@ -564,10 +599,10 @@ function playGame() {                                       //Function made for 
             speedLeft = 3.6;
             speedRight = 3.6;
             speedTop = 3.6;
-            getRandomTopNumberDuration = 1200;
+            randomTopNumberDuration = 1200;
             //skill point added
         }
-        
+
         
         if ((goToLevel >= 10 && goToLevelTrue == 1) || (gamesWon >= 10 && gamesWonTrue == 1)) {             //Everything after level 10 will do this...
             Bird2();                                                                                        //Show the second bird.
@@ -609,8 +644,7 @@ function youWin() {                                             //When you win a
     duckCoin.style.width = '55px';                      //Making the money coin a bit bigger again.
     duckCoin.style.height = '55px';                     //Making the money coin a bit bigger again.
     duckCoin.style.top = '3px';                         //Changing the possition of the money coin.
-    move = -200, randomTop = 450, goingRight = 0, goingLeft = 0, lostHalfAHearth = 0, dontLoseLifeOnHit = 0;
-    move2 = -400, randomTop2 = 250, goingRight2 = 0, goingLeft2 = 0, dontLoseLifeOnHit2 = 0;
+    resetBirds();
     checkMyLevels();                                    //By activating this function i let the level selector know how far i am with completing levels. Example: i completed level 6, now i can click in level selector on level 6 or lower to play it again.
     hideSettingsMenu();                                 //Hiding the settingMenu if it was open. It would be enoying if its on the page the whole time.
 }
@@ -637,8 +671,7 @@ function gameOver() {                                   //This will be activated
     duckCoin.style.width = '55px';                      //Check the function youWin()
     duckCoin.style.height = '55px';                     //Check the function youWin()
     duckCoin.style.top = '3px';                         //Check the function youWin()
-    move = 400, randomTop = 450, goingRight = 0, goingLeft = 0, lostHalfAHearth = 0, dontLoseLifeOnHit = 0;     //made to reset the birds settings
-    move2 = -600, randomTop2 = 250, goingRight2 = 0, goingLeft2 = 0, dontLoseLifeOnHit2 = 0;                    //^^^^^^
+    resetBirds();
     hideSettingsMenu();                                 //Hiding the settingMenu
 }
 
@@ -780,6 +813,7 @@ function backToLevelsMenu1() {
     hideSettingsMenu();
 }
 
+
 function checkMyLevels() {                                  //function made to check how much games you have won, checks when you start a game or won one.
     if (gamesWon >= 1) {                                    //if i have won more games then 1 or just 1 the he does this...
         Level1.onclick = function() {                       //if i click at the levels selector page on level 1 then 
@@ -787,6 +821,11 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";              //the world1menu will hide.
             goToLevel = 1;                                  //goToLevel set to 1, now the program knows he has to go to level 1.
             levelsClick = 1;                                //levelsClick set to 1 (why? check top of page).
+            speedLeft = 2;
+            speedRight = 2;
+            speedTop = 2;
+            randomTopNumberDuration = 2000;
+            hitsNeeded = 3;
             playGame();
         }
     }
@@ -797,6 +836,7 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 2;
             levelsClick = 1;
+            hitsNeeded = 3;
             playGame();
         }
     }
@@ -807,6 +847,11 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 3;
             levelsClick = 1;
+            speedLeft = 2.1;
+            speedRight = 2.1;
+            speedTop = 2.1;
+            randomTopNumberDuration = 1950;
+            hitsNeeded = 3;
             playGame();
         }
     }
@@ -817,6 +862,7 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 4;
             levelsClick = 1;
+            hitsNeeded = 3;
             playGame();
         }
     }
@@ -827,6 +873,11 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 5;
             levelsClick = 1;
+            levelsClick = 1;
+            speedLeft = 2.2;
+            speedRight = 2.2;
+            speedTop = 2.2;
+            randomTopNumberDuration = 1900;
             playGame();
         }
     }
@@ -837,6 +888,7 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 6;
             levelsClick = 1;
+            hitsNeeded = 4;
             playGame();
         }
     }
@@ -847,6 +899,11 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 7;
             levelsClick = 1;
+            speedLeft = 2.3;
+            speedRight = 2.3;
+            speedTop = 2.3;
+            randomTopNumberDuration = 1850;
+            hitsNeeded = 4;
             playGame();
         }
     }
@@ -857,6 +914,7 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 8;
             levelsClick = 1;
+            hitsNeeded = 4;
             playGame();
         }
     }
@@ -867,6 +925,11 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 9;
             levelsClick = 1;
+            speedLeft = 2.4;
+            speedRight = 2.4;
+            speedTop = 2.4;
+            randomTopNumberDuration = 1800;
+            hitsNeeded = 4;
             playGame();
         }
     }
@@ -877,6 +940,7 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 10;
             levelsClick = 1;
+            hitsNeeded = 4;
             playGame();
         }
     }
@@ -887,6 +951,11 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 11;
             levelsClick = 1;
+            speedLeft = 2.5;
+            speedRight = 2.5;
+            speedTop = 2.5;
+            randomTopNumberDuration = 1750;
+            hitsNeeded = 4;
             playGame();
         }
     }
@@ -907,6 +976,11 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 13;
             levelsClick = 1;
+            speedLeft = 2.6;
+            speedRight = 2.6;
+            speedTop = 2.6;
+            randomTopNumberDuration = 1700;
+            hitsNeeded = 5;
             playGame();
         }
     }
@@ -917,6 +991,7 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 14;
             levelsClick = 1;
+            hitsNeeded = 5;
             playGame();
         }
     }
@@ -927,6 +1002,11 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 15;
             levelsClick = 1;
+            speedLeft = 2.7;
+            speedRight = 2.7;
+            speedTop = 2.7;
+            randomTopNumberDuration = 1650;
+            hitsNeeded = 5;
             playGame();
         }
     }
@@ -938,6 +1018,7 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 16;
             levelsClick = 1;
+            hitsNeeded = 5;
             playGame();
         }
     }
@@ -948,6 +1029,11 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 17;
             levelsClick = 1;
+            speedLeft = 2.8;
+            speedRight = 2.8;
+            speedTop = 2.8;
+            randomTopNumberDuration = 1600;
+            hitsNeeded = 5;
             playGame();
         }
     }
@@ -958,6 +1044,7 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 18;
             levelsClick = 1;
+            hitsNeeded = 5;
             playGame();
         }
     }
@@ -968,6 +1055,11 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 19;
             levelsClick = 1;
+            speedLeft = 2.9;
+            speedRight = 2.9;
+            speedTop = 2.9;
+            randomTopNumberDuration = 1550;
+            hitsNeeded = 5;
             playGame();
         }
     }
@@ -988,6 +1080,11 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 21;
             levelsClick = 1;
+            speedLeft = 3;
+            speedRight = 3;
+            speedTop = 3;
+            randomTopNumberDuration = 1500;
+            hitsNeeded = 6;
             playGame();
         }
     }
@@ -998,6 +1095,7 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 22;
             levelsClick = 1;
+            hitsNeeded = 6;
             playGame();
         }
     }
@@ -1008,6 +1106,11 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 23;
             levelsClick = 1;
+            speedLeft = 3.1;
+            speedRight = 3.1;
+            speedTop = 3.1;
+            randomTopNumberDuration = 1450;
+            hitsNeeded = 6;
             playGame();
         }
     }
@@ -1018,6 +1121,7 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 24;
             levelsClick = 1;
+            hitsNeeded = 6;
             playGame();
         }
     }
@@ -1029,6 +1133,10 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 25;
             levelsClick = 1;
+            speedLeft = 3.2;
+            speedRight = 3.2;
+            speedTop = 3.2;
+            randomTopNumberDuration = 1400;
             playGame();
         }
     }
@@ -1039,6 +1147,7 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 26;
             levelsClick = 1;
+            hitsNeeded = 7;
             playGame();
         }
     }
@@ -1049,6 +1158,11 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 27;
             levelsClick = 1;
+            speedLeft = 3.3;
+            speedRight = 3.3;
+            speedTop = 3.3;
+            randomTopNumberDuration = 1350;
+            hitsNeeded = 7;
             playGame();
         }
     }
@@ -1059,6 +1173,7 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 28;
             levelsClick = 1;
+            hitsNeeded = 7;
             playGame();
         }
     }
@@ -1069,6 +1184,11 @@ function checkMyLevels() {                                  //function made to c
             world1Menu.style.display = "none";
             goToLevel = 29;
             levelsClick = 1;
+            speedLeft = 3.4;
+            speedRight = 3.4;
+            speedTop = 3.4;
+            randomTopNumberDuration = 1300;
+            hitsNeeded = 7;
             playGame();
         }
     }
