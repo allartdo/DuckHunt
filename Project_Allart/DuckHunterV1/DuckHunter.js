@@ -9,6 +9,23 @@
     //Every variable with document.getElementById(...); is made for a clearer name and sometimes other usages (then will be explained).
 
 
+
+
+
+
+//OUR TEAMWORK ENDED RIGHT HERE DUE INACTIVITY. :(
+//FROM NOW ON NO NEW UPDATES AT THIS GITHUB LINE.
+
+
+
+
+
+
+
+
+
+
+
 //Audio
 var audio = document.getElementById('Rust');
 var gunShotSound = document.getElementById('gunShotSound');
